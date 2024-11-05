@@ -5,6 +5,9 @@ import pandas as pd
 from .news_scraper import InvestingNewsScraper
 from .sentiment_analyzer import ForexSentimentAnalyzer
 import numpy as np
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from typing import List, Dict
 
 class NewsManager:
     def __init__(self, storage_dir='data/news'):
@@ -14,6 +17,12 @@ class NewsManager:
         
         if not os.path.exists(storage_dir):
             os.makedirs(storage_dir)
+
+        nltk.download('vader_lexicon', quiet=True)
+        self.sia = SentimentIntensityAnalyzer()
+        self.news_cache: Dict[str, List[Dict]] = {}
+        self.cache_expiry = timedelta(minutes=15)
+        self.last_update = datetime.now() - self.cache_expiry
 
     def _get_news_file_path(self, currency_pair):
         return os.path.join(self.storage_dir, f"{currency_pair}_news.json")
@@ -119,3 +128,100 @@ class NewsManager:
             'article_count': 0,
             'last_update': datetime.now().isoformat()
         }
+
+    def get_pair_sentiment(self, pair: str) -> float:
+        """Calculate sentiment score for a currency pair"""
+        try:
+            # Get relevant news
+            news_items = self._get_relevant_news(pair)
+            if not news_items:
+                return 0.0
+            
+            # Calculate sentiment for each news item
+            sentiments = []
+            for news in news_items:
+                if 'title' in news:
+                    sentiment = self.sia.polarity_scores(news['title'])
+                    sentiments.append(sentiment['compound'])
+            
+            # Return average sentiment if we have any
+            if sentiments:
+                avg_sentiment = sum(sentiments) / len(sentiments)
+                print(f"\nNews sentiment for {pair}:")
+                print(f"Number of news items: {len(sentiments)}")
+                print(f"Average sentiment: {avg_sentiment:.3f}")
+                return avg_sentiment
+            
+            return 0.0
+            
+        except Exception as e:
+            print(f"Error calculating sentiment: {str(e)}")
+            return 0.0
+    
+    def get_news_impact(self, pair: str) -> float:
+        """Calculate news impact score (0-1) based on relevance and recency"""
+        try:
+            news_items = self._get_relevant_news(pair)
+            if not news_items:
+                return 0.0
+            
+            # Calculate impact based on number of recent relevant news
+            impact = min(len(news_items) / 10, 1.0)  # Cap at 1.0
+            
+            print(f"\nNews impact for {pair}:")
+            print(f"Number of relevant news: {len(news_items)}")
+            print(f"Impact score: {impact:.2f}")
+            
+            return impact
+            
+        except Exception as e:
+            print(f"Error calculating news impact: {str(e)}")
+            return 0.0
+    
+    def _get_relevant_news(self, pair: str) -> List[Dict]:
+        """Get news relevant to the currency pair"""
+        try:
+            # Check if we need to update cache
+            if datetime.now() - self.last_update > self.cache_expiry:
+                self._update_news_cache()
+            
+            # Get news for the pair
+            currencies = pair.split('_')
+            relevant_news = []
+            
+            for news in self.news_cache.get(pair, []):
+                # Check if news mentions either currency
+                if any(curr in news.get('title', '').upper() for curr in currencies):
+                    relevant_news.append(news)
+            
+            return relevant_news
+            
+        except Exception as e:
+            print(f"Error getting relevant news: {str(e)}")
+            return []
+    
+    def _update_news_cache(self):
+        """Update news cache with latest forex news"""
+        try:
+            # In a real implementation, you would fetch news from an API
+            # For now, we'll use some dummy data
+            self.news_cache = {
+                'EUR_USD': [
+                    {'title': 'EUR/USD holds steady ahead of ECB meeting'},
+                    {'title': 'Dollar weakens against major currencies'}
+                ],
+                'GBP_USD': [
+                    {'title': 'Sterling rises on positive UK economic data'},
+                    {'title': 'GBP/USD faces resistance at key level'}
+                ],
+                'USD_JPY': [
+                    {'title': 'Yen strengthens as BOJ signals policy shift'},
+                    {'title': 'USD/JPY volatility increases on trade tensions'}
+                ]
+            }
+            
+            self.last_update = datetime.now()
+            print("\nUpdated news cache")
+            
+        except Exception as e:
+            print(f"Error updating news cache: {str(e)}")

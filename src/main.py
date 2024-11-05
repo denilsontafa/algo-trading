@@ -97,7 +97,7 @@ class PositionManager:
         
         # Find the highest confidence signal
         best_signal = None
-        highest_confidence = 0.6  # Minimum confidence threshold
+        highest_confidence = 0.45  # Lowered threshold
         
         print("\nAnalyzing signals for new positions:")
         for analysis in analyses:
@@ -124,15 +124,19 @@ class PositionManager:
                 
                 print(f"Order response: {response}")
                 
-                if response and response.get('orderFilled'):
-                    price = float(response['orderFilled']['price'])
+                # Check for order fill
+                if response and 'orderFillTransaction' in response:
+                    fill_transaction = response['orderFillTransaction']
+                    price = float(fill_transaction['price'])
+                    
                     self.open_positions[pair] = {
                         'direction': direction,
                         'entry_price': price,
                         'open_time': datetime.now(),
                         'confidence': best_signal['confidence'],
                         'target_price': price * (1 + self.profit_target_pct if direction == 'BUY' else 1 - self.profit_target_pct),
-                        'stop_loss': price * (1 - self.stop_loss_pct if direction == 'BUY' else 1 + self.stop_loss_pct)
+                        'stop_loss': price * (1 - self.stop_loss_pct if direction == 'BUY' else 1 + self.stop_loss_pct),
+                        'trade_id': fill_transaction['tradeOpened']['tradeID']
                     }
                     
                     print(f"\nSuccessfully opened {direction} position for {pair}:")
@@ -140,13 +144,15 @@ class PositionManager:
                     print(f"Target: {self.open_positions[pair]['target_price']:.5f}")
                     print(f"Stop: {self.open_positions[pair]['stop_loss']:.5f}")
                     print(f"Confidence: {best_signal['confidence']:.2f}")
+                    print(f"Trade ID: {self.open_positions[pair]['trade_id']}")
                 else:
-                    print(f"Failed to open position: No order fill confirmation")
+                    print(f"Failed to open position: Invalid response format")
+                    print(f"Response keys: {response.keys()}")
             
             except Exception as e:
                 print(f"Error opening position for {pair}: {str(e)}")
         else:
-            print("\nNo signals meet the minimum confidence threshold (0.6)")
+            print(f"\nNo signals meet the minimum confidence threshold ({highest_confidence:.2f})")
     
     def _close_position(self, pair: str) -> None:
         """Close a specific position"""
@@ -176,101 +182,141 @@ class ForexAnalyzer:
             for pair in config.CURRENCY_PAIRS
         }
         
-    def analyze_pair(self, currency_pair: str) -> dict:
-        """Analyze a currency pair using all components"""
-        # Get current market data
-        current_data = self.data_fetcher.fetch_historical_data(currency_pair)
-        
-        if current_data is None:
-            return None
+    def analyze_pair(self, pair: str) -> dict:
+        """Analyze a currency pair"""
+        try:
+            # Get historical data
+            data = self.data_fetcher.fetch_historical_data(pair)
+            if data is None:
+                return None
+                
+            # Get current price and prediction
+            current_price = data.close.iloc[-1]
+            predicted_price = self._get_model_prediction(pair, data)
+            predicted_price = self._verify_prediction(current_price, predicted_price)
             
-        # 1. Get model prediction
-        model_prediction = self._get_model_prediction(currency_pair, current_data)
-        
-        # 2. Get technical signals
-        tech_signals = self.strategy.calculate_signals(current_data)
-        
-        # 3. Get sentiment analysis
-        sentiment_data = self.news_manager.get_sentiment_features(currency_pair)
-        
-        # 4. Calculate combined signals and confidence
-        current_price = current_data.close.iloc[-1]
-        predicted_change = ((model_prediction - current_price) / current_price) * 100
-        
-        # Determine signal direction
-        if tech_signals['trend_signal'] > 0.1:
-            signal_direction = "BUY"
-        elif tech_signals['trend_signal'] < -0.1:
-            signal_direction = "SELL"
-        else:
-            signal_direction = "NEUTRAL"
-        
-        # Combine all analysis
-        return {
-            'pair': currency_pair,
-            'current_price': current_price,
-            'predicted_price': model_prediction,
-            'predicted_change': predicted_change,
-            'technical_signal': tech_signals['overall_signal'],
-            'sentiment_score': sentiment_data['latest_sentiment'],
-            'confidence': self._calculate_confidence(
-                tech_signals['overall_signal'],
-                sentiment_data['latest_sentiment'],
+            # Calculate predicted change
+            predicted_change = ((predicted_price - current_price) / current_price) * 100
+            
+            # Get technical signal
+            technical_signal = self._calculate_technical_signal(data)
+            
+            # Get sentiment
+            sentiment_score = self._calculate_sentiment(pair)
+            
+            # Calculate confidence
+            confidence = self._calculate_confidence(
+                technical_signal,
+                sentiment_score,
                 predicted_change
-            ),
-            'volatility': tech_signals['volatility'],
-            'trend': signal_direction,
-            'news_impact': sentiment_data['max_impact']
-        }
+            )
+            
+            # Determine trend based on predicted price direction
+            trend = "NEUTRAL"
+            if confidence >= 0.2:  # Only show trend if confidence is meaningful
+                if predicted_change > 0:
+                    trend = "BUY"
+                elif predicted_change < 0:
+                    trend = "SELL"
+            
+            print(f"\nTrend analysis for {pair}:")
+            print(f"Current price: {current_price:.5f}")
+            print(f"Predicted price: {predicted_price:.5f}")
+            print(f"Predicted change: {predicted_change:.2f}%")
+            print(f"Trend: {trend}")
+            
+            # Calculate volatility
+            volatility = self._calculate_volatility(data)
+            
+            # Get news impact
+            news_impact = self.news_manager.get_news_impact(pair)
+            
+            return {
+                'pair': pair,
+                'current_price': current_price,
+                'predicted_price': predicted_price,
+                'predicted_change': predicted_change,
+                'technical_signal': technical_signal,
+                'sentiment_score': sentiment_score,
+                'confidence': confidence,
+                'trend': trend,
+                'volatility': volatility,
+                'news_impact': news_impact
+            }
+            
+        except Exception as e:
+            print(f"Error analyzing {pair}: {str(e)}")
+            return None
     
     def _get_model_prediction(self, pair: str, data: pd.DataFrame) -> float:
         """Get price prediction from the model"""
         try:
             # Load model
-            model_path = f'models/model_{pair}.pth'
-            if not os.path.exists(model_path):
-                print(f"No model found for {pair}")
+            model_path = f'models/base_models/{pair}_model.pth'
+            scaler_path = f'models/scalers/{pair}_scaler.pkl'
+            
+            print(f"Looking for model at: {model_path}")
+            print(f"Looking for scaler at: {scaler_path}")
+            
+            if not os.path.exists(model_path) or not os.path.exists(scaler_path):
+                print(f"Missing files for {pair}")
                 return data.close.iloc[-1]
                 
             try:
-                # Load model with weights_only=True
-                state_dict = torch.load(
+                # Load the scaler
+                with open(scaler_path, 'rb') as f:
+                    scaler = pickle.load(f)
+                
+                # Load the model
+                checkpoint = torch.load(
                     model_path,
-                    map_location=torch.device('cpu'),
-                    weights_only=True  # Add this parameter
+                    map_location=torch.device('cpu')
                 )
                 
+                # Get model configuration
+                model_config = checkpoint.get('model_config', {
+                    'input_size': len(config.TECHNICAL_INDICATORS),
+                    'hidden_size': 64,
+                    'num_layers': 2,
+                    'dropout': 0.3
+                })
+                
+                # Initialize model
                 model = ForexLSTM(
-                    input_size=len(config.TECHNICAL_INDICATORS),
-                    hidden_size=64,
-                    num_layers=2
+                    input_size=model_config['input_size'],
+                    hidden_size=model_config['hidden_size'],
+                    num_layers=model_config['num_layers'],
+                    dropout=model_config.get('dropout', 0.3)
                 )
-                model.load_state_dict(state_dict)
+                
+                # Load the state dict
+                model.load_state_dict(checkpoint['model_state_dict'])
                 model.eval()
                 
-                # Prepare features
+                # Process features
                 features = self._prepare_features(data)
-                features_tensor = torch.FloatTensor(features).unsqueeze(0)
                 
-                # Make prediction
+                # Convert to tensor and add batch dimension
+                x = torch.FloatTensor(features[-60:]).unsqueeze(0)  # Last 60 timesteps
+                
+                # Get prediction
                 with torch.no_grad():
-                    prediction = model(features_tensor)
+                    scaled_prediction = model(x)
                     
-                predicted_price = prediction.item()
-                current_price = data.close.iloc[-1]
-                
-                # Calculate direction and maximum allowed change
-                direction = np.sign(predicted_price - current_price)
-                max_change = self._get_max_change_threshold(pair)
-                
-                # Limit the prediction to maximum allowed change
-                if abs(predicted_price - current_price) / current_price > max_change:
-                    predicted_price = current_price * (1 + direction * max_change)
-                
-                return predicted_price
+                    # Inverse transform the prediction
+                    prediction = scaler.inverse_transform(
+                        scaled_prediction.numpy().reshape(-1, 1)
+                    )[0][0]
+                    
+                    print(f"\nPrediction details for {pair}:")
+                    print(f"Current price: {data.close.iloc[-1]:.5f}")
+                    print(f"Scaled prediction: {scaled_prediction.item():.5f}")
+                    print(f"Unscaled prediction: {prediction:.5f}")
+                    
+                    return prediction
                 
             except Exception as e:
-                print(f"Error during model prediction: {str(e)}")
+                print(f"Error in prediction process for {pair}: {str(e)}")
                 return data.close.iloc[-1]
             
         except Exception as e:
@@ -330,17 +376,39 @@ class ForexAnalyzer:
     
     def _calculate_confidence(self, tech_signal: float, sentiment: float, pred_change: float) -> float:
         """Calculate overall confidence score"""
-        tech_conf = abs(tech_signal)
-        sent_conf = abs(sentiment)
-        pred_conf = min(abs(pred_change) / 0.5, 1.0)
-        
-        # Weight the components
-        confidence = (
-            0.4 * tech_conf +
-            0.3 * sent_conf +
-            0.3 * pred_conf
-        )
-        return min(confidence, 1.0)
+        try:
+            # Normalize technical signal to [0, 1] with enhanced sensitivity
+            tech_conf = min(abs(tech_signal) * 2, 1.0)  # Doubled sensitivity
+            
+            # Normalize sentiment to [0, 1]
+            sent_conf = min(abs(sentiment) * 1.5, 1.0)  # Increased sensitivity
+            
+            # For forex, even small changes can be significant
+            # 0.2% change is considered significant
+            pred_conf = min(abs(pred_change) / 0.2, 1.0)
+            
+            # Calculate weighted confidence
+            confidence = (
+                0.5 * tech_conf +      # Technical analysis (50%)
+                0.1 * sent_conf +      # Sentiment analysis (10%)
+                0.4 * pred_conf        # Model prediction (40%)
+            )
+            
+            # Amplify strong signals
+            if confidence > 0.4:
+                confidence = 0.4 + (confidence - 0.4) * 1.5
+            
+            print(f"\nConfidence calculation details for {pred_change:.3f}% predicted change:")
+            print(f"Technical signal: {tech_signal:.3f} -> confidence: {tech_conf:.3f}")
+            print(f"Sentiment: {sentiment:.3f} -> confidence: {sent_conf:.3f}")
+            print(f"Predicted change: {pred_change:.3f}% -> confidence: {pred_conf:.3f}")
+            print(f"Raw confidence: {confidence:.3f}")
+            
+            return confidence
+            
+        except Exception as e:
+            print(f"Error calculating confidence: {str(e)}")
+            return 0.0
     
     def run_scheduled_analysis(self):
         """Run analysis and update models"""
@@ -403,14 +471,24 @@ class ForexAnalyzer:
         
         table_data = []
         for a in analyses:
+            # Format the change percentage
+            change_pct = f"{a['predicted_change']:.2f}%"
+            if abs(a['predicted_change']) >= 0.5:  # Highlight significant changes
+                change_pct = f"* {change_pct} *"
+            
+            # Format confidence with highlighting
+            conf_str = f"{a['confidence']:.2f}"
+            if a['confidence'] >= 0.6:
+                conf_str = f"** {conf_str} **"
+            
             table_data.append([
                 a['pair'],
                 f"{a['current_price']:.5f}",
                 f"{a['predicted_price']:.5f}",
-                f"{a['predicted_change']:.2f}%",
+                change_pct,
                 f"{a['technical_signal']:.2f}",
                 f"{a['sentiment_score']:.2f}",
-                f"{a['confidence']:.2f}",
+                conf_str,
                 a['trend'],
                 f"{a['volatility']:.2f}",
                 f"{a['news_impact']:.2f}"
@@ -421,14 +499,152 @@ class ForexAnalyzer:
         # Print trading suggestions
         print("\nTrading Suggestions:")
         for a in analyses:
-            if a['confidence'] > 0.6:  # Only show high confidence signals
+            if a['confidence'] >= 0.6:  # Only show high confidence signals
                 direction = "LONG" if a['predicted_change'] > 0 else "SHORT"
-                print(f"\n{a['pair']}: {direction}")
+                print(f"\n{a['pair']}: {direction} (Confidence: {a['confidence']:.2f})")
                 print(f"Entry: {a['current_price']:.5f}")
                 print(f"Target: {a['predicted_price']:.5f}")
-                print(f"Confidence: {a['confidence']:.2f}")
+                print(f"Expected change: {a['predicted_change']:.2f}%")
                 if a['volatility'] > 0.6:
                     print("Warning: High volatility - Consider smaller position size")
+    
+    def _calculate_technical_signal(self, data: pd.DataFrame) -> float:
+        """Calculate technical analysis signal"""
+        df = data.copy()
+        
+        # RSI with more sensitive thresholds for forex
+        rsi = ta.momentum.RSIIndicator(df['close']).rsi().iloc[-1]
+        rsi_signal = 0
+        if rsi > 65:  # More sensitive overbought
+            rsi_signal = -1
+        elif rsi < 35:  # More sensitive oversold
+            rsi_signal = 1
+        else:
+            rsi_signal = (rsi - 50) / 15  # More sensitive scaling
+        
+        # MACD with enhanced sensitivity
+        macd = ta.trend.MACD(df['close'])
+        macd_line = macd.macd().iloc[-1]
+        signal_line = macd.macd_signal().iloc[-1]
+        macd_signal = (macd_line - signal_line)
+        macd_std = np.std(macd.macd() - macd.macd_signal())
+        macd_signal = np.clip(macd_signal / (1.5 * macd_std), -1, 1)  # Increased sensitivity
+        
+        # Bollinger Bands with tighter thresholds
+        bb = ta.volatility.BollingerBands(df['close'], window=20, window_dev=2.0)
+        current_price = df['close'].iloc[-1]
+        bb_high = bb.bollinger_hband().iloc[-1]
+        bb_low = bb.bollinger_lband().iloc[-1]
+        bb_mid = (bb_high + bb_low) / 2
+        
+        bb_range = bb_high - bb_low
+        bb_signal = 0
+        if bb_range != 0:
+            bb_position = (current_price - bb_mid) / (bb_range / 2)
+            bb_signal = -np.clip(bb_position * 1.5, -1, 1)  # Enhanced sensitivity
+        
+        # Moving Averages with shorter periods
+        ma_10 = df['close'].rolling(10).mean().iloc[-1]  # Shorter MA
+        ma_30 = df['close'].rolling(30).mean().iloc[-1]  # Shorter MA
+        ma_signal = (ma_10 - ma_30) / ma_30
+        ma_signal = np.clip(ma_signal * 200, -1, 1)  # Increased sensitivity
+        
+        # Combine signals with adjusted weights
+        technical_signal = (
+            0.35 * rsi_signal +    # RSI (35%)
+            0.35 * macd_signal +   # MACD (35%)
+            0.15 * bb_signal +     # Bollinger Bands (15%)
+            0.15 * ma_signal       # Moving Averages (15%)
+        )
+        
+        print(f"\nTechnical signals:")
+        print(f"RSI ({rsi:.1f}): {rsi_signal:.3f}")
+        print(f"MACD: {macd_signal:.3f}")
+        print(f"BB: {bb_signal:.3f}")
+        print(f"MA: {ma_signal:.3f}")
+        print(f"Combined: {technical_signal:.3f}")
+        
+        return technical_signal
+    
+    def _calculate_sentiment(self, pair: str) -> float:
+        """Calculate sentiment score from news"""
+        try:
+            # Get sentiment from news
+            news_sentiment = self.news_manager.get_pair_sentiment(pair)
+            
+            # Scale sentiment to [-1, 1]
+            scaled_sentiment = max(min(news_sentiment, 1.0), -1.0)
+            
+            print(f"\nSentiment analysis for {pair}:")
+            print(f"Raw sentiment: {news_sentiment:.2f}")
+            print(f"Scaled sentiment: {scaled_sentiment:.2f}")
+            
+            return scaled_sentiment
+            
+        except Exception as e:
+            print(f"Error calculating sentiment: {str(e)}")
+            return 0.0
+    
+    def _verify_prediction(self, current_price: float, predicted_price: float) -> float:
+        """Verify prediction is within reasonable bounds"""
+        try:
+            # Maximum allowed price change (1% for forex)
+            MAX_CHANGE_PCT = 0.01
+            
+            # Calculate percentage change
+            pct_change = abs(predicted_price - current_price) / current_price
+            
+            if pct_change > MAX_CHANGE_PCT:
+                print(f"\nWarning: Prediction seems unreasonable")
+                print(f"Current price: {current_price:.5f}")
+                print(f"Predicted price: {predicted_price:.5f}")
+                print(f"Percentage change: {pct_change:.2%}")
+                print(f"Maximum allowed change: {MAX_CHANGE_PCT:.2%}")
+                print("Using current price instead")
+                return current_price
+            
+            return predicted_price
+            
+        except Exception as e:
+            print(f"Error verifying prediction: {str(e)}")
+            return current_price
+    
+    def _calculate_volatility(self, data: pd.DataFrame) -> float:
+        """Calculate volatility score based on ATR and historical std dev"""
+        try:
+            # Calculate ATR (Average True Range)
+            atr = ta.volatility.AverageTrueRange(
+                data['high'], 
+                data['low'], 
+                data['close'],
+                window=14
+            ).average_true_range().iloc[-1]
+            
+            # Normalize ATR by current price
+            normalized_atr = atr / data['close'].iloc[-1]
+            
+            # Calculate rolling standard deviation of returns
+            returns = data['close'].pct_change()
+            std_dev = returns.rolling(window=20).std().iloc[-1]
+            
+            # Combine ATR and std dev for volatility score
+            volatility = (0.7 * normalized_atr + 0.3 * std_dev) * 100
+            
+            # Scale to [0, 1] range
+            # Typical forex volatility ranges from 0.1% to 1%
+            scaled_volatility = min(volatility / 0.01, 1.0)
+            
+            print(f"\nVolatility calculation:")
+            print(f"Normalized ATR: {normalized_atr:.6f}")
+            print(f"20-day StdDev: {std_dev:.6f}")
+            print(f"Raw volatility: {volatility:.6f}")
+            print(f"Scaled volatility: {scaled_volatility:.2f}")
+            
+            return scaled_volatility
+            
+        except Exception as e:
+            print(f"Error calculating volatility: {str(e)}")
+            return 0.5  # Return moderate volatility on error
 
 def main():
     # Update saved scalers to current version

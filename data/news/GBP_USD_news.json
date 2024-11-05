@@ -1,16 +1,16 @@
 {
-  "timestamp": "2024-11-05T12:45:15.385108",
+  "timestamp": "2024-11-05T15:26:41.744292",
   "articles": [
+    {
+      "title": "Dollar slips as FX traders gird for US election outcome",
+      "published_at": "2024-11-05T13:01:32",
+      "sentiment_score": 0.17719999999999997,
+      "impact_weight": 0.5
+    },
     {
       "title": "Dollar slips as US election arrives; uncertainty reigns",
       "published_at": "2024-11-05T09:15:25",
       "sentiment_score": -0.09017,
-      "impact_weight": 0.5
-    },
-    {
-      "title": "Dollar slips as FX traders gird for US election outcome",
-      "published_at": "2024-11-05T09:10:47",
-      "sentiment_score": -0.03,
       "impact_weight": 0.5
     },
     {
@@ -326,5 +326,5 @@
       "impact_weight": 0.5
     }
   ],
-  "overall_sentiment": -0.08991693350780587
+  "overall_sentiment": 0.004553719658457351
 }
