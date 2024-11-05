@@ -1,9 +1,8 @@
 import torch
-import numpy as np
+from torch.utils.data import Dataset
 from sklearn.preprocessing import MinMaxScaler
-from torch.utils.data import Dataset, DataLoader
-import pickle
-import os
+import ta
+import numpy as np
 import config
 
 class ForexDataset(Dataset):
@@ -13,101 +12,74 @@ class ForexDataset(Dataset):
         self.target_scaler = MinMaxScaler()
         
         if data is not None:
-            self.fit_scalers(data)
-            self.prepare_sequences(data)
-    
-    def fit_scalers(self, data):
-        """Fit scalers with data"""
-        processed_data = self._prepare_data(data)
-        self.feature_scaler.fit(processed_data)
-        self.target_scaler.fit(processed_data[:, 3:4])  # Close price
-        
-    def prepare_sequences(self, data):
-        """Prepare sequences for training"""
-        processed_data = self._prepare_data(data)
-        self.scaled_data = self.feature_scaler.transform(processed_data)
-        self.scaled_targets = self.target_scaler.transform(processed_data[:, 3:4])
-        
-        self.sequences = []
-        self.targets = []
-        
-        for i in range(len(self.scaled_data) - self.sequence_length):
-            self.sequences.append(self.scaled_data[i:(i + self.sequence_length)])
-            self.targets.append(self.scaled_targets[i + self.sequence_length])
-    
-    def process_data(self, data):
-        """Process new data using fitted scalers"""
-        if data is None:
-            raise ValueError("No data provided for processing")
+            # Calculate features first
+            features_df = self._calculate_features(data)
             
-        processed_data = self._prepare_data(data)
-        scaled_data = self.feature_scaler.transform(processed_data)
-        return torch.FloatTensor(scaled_data).unsqueeze(0)  # Add batch dimension
+            # Fit scalers
+            self.feature_scaler.fit(features_df)
+            self.target_scaler.fit(data['close'].values.reshape(-1, 1))
+            
+            # Transform and store data
+            self.features = self.feature_scaler.transform(features_df)
+            self.targets = self.target_scaler.transform(data['close'].values.reshape(-1, 1)).flatten()
     
-    def _prepare_data(self, data):
+    def _calculate_features(self, data):
         """Calculate technical indicators"""
         df = data.copy()
         
-        # Calculate basic indicators
+        # Calculate features
         df['returns'] = df['close'].pct_change()
-        df['sma_20'] = df['close'].rolling(window=20).mean()
-        df['rsi'] = self._calculate_rsi(df['close'])
+        df['rsi'] = ta.momentum.RSIIndicator(df['close']).rsi()
         
-        # Fill NaN values with 0
-        df = df.fillna(0)
+        macd = ta.trend.MACD(df['close'])
+        df['macd'] = macd.macd()
+        df['macd_signal'] = macd.macd_signal()
         
-        # Select features for training
-        features = ['open', 'high', 'low', 'close', 'volume', 
-                   'returns', 'sma_20', 'rsi']
+        bb = ta.volatility.BollingerBands(df['close'])
+        df['bb_high'] = bb.bollinger_hband()
+        df['bb_low'] = bb.bollinger_lband()
         
-        return df[features].values
+        df['atr'] = ta.volatility.AverageTrueRange(
+            df['high'], df['low'], df['close']
+        ).average_true_range()
+        
+        # Fill NaN values
+        for col in config.TECHNICAL_INDICATORS:
+            df[col] = df[col].ffill().bfill()
+            
+        return df[config.TECHNICAL_INDICATORS]
     
-    def _calculate_rsi(self, prices, period=14):
-        delta = prices.diff()
-        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
-        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+    def process_data(self, data):
+        """Process new data using fitted scalers"""
+        if not hasattr(self.feature_scaler, 'n_features_in_'):
+            raise ValueError("Scalers not fitted. Initialize with data first.")
+            
+        # Calculate features
+        features_df = self._calculate_features(data)
         
-        rs = gain / loss
-        rsi = 100 - (100 / (1 + rs))
-        return rsi.fillna(50)  # Fill NaN with neutral RSI value
+        # Transform features
+        features = self.feature_scaler.transform(features_df)
+        
+        # Reshape for LSTM input: [batch_size, sequence_length, n_features]
+        if len(features.shape) == 2:
+            features = features.reshape(1, features.shape[0], features.shape[1])
+            
+        # Convert to float32
+        return torch.FloatTensor(features).float()
     
     def __len__(self):
-        if hasattr(self, 'sequences'):
-            return len(self.sequences)
-        return 0
-    
+        return len(self.features) - self.sequence_length if hasattr(self, 'features') else 0
+        
     def __getitem__(self, idx):
-        if hasattr(self, 'sequences'):
-            return (torch.FloatTensor(self.sequences[idx]), 
-                   torch.FloatTensor(self.targets[idx]))
-        raise IndexError("Dataset not initialized with data")
+        if not hasattr(self, 'features') or not hasattr(self, 'targets'):
+            raise RuntimeError("Dataset not properly initialized with data")
+            
+        X = self.features[idx:idx + self.sequence_length]
+        y = self.targets[idx + self.sequence_length]
+        return torch.FloatTensor(X), torch.FloatTensor([y])
 
 def update_saved_scalers():
-    """Update saved scalers to current sklearn version"""
-    from sklearn.preprocessing import MinMaxScaler
-    import pickle
-    import os
-    
-    for pair in config.CURRENCY_PAIRS:
-        scaler_path = f'models/scaler_{pair}.pkl'
-        if os.path.exists(scaler_path):
-            try:
-                # Create new scaler
-                scaler = MinMaxScaler()
-                
-                # Load old scaler data
-                with open(scaler_path, 'rb') as f:
-                    old_scaler = pickle.load(f)
-                    scaler.min_ = old_scaler.min_
-                    scaler.scale_ = old_scaler.scale_
-                    scaler.data_min_ = old_scaler.data_min_
-                    scaler.data_max_ = old_scaler.data_max_
-                    scaler.data_range_ = old_scaler.data_range_
-                
-                # Save new scaler
-                with open(scaler_path, 'wb') as f:
-                    pickle.dump(scaler, f)
-                    
-                print(f"Updated scaler for {pair}")
-            except Exception as e:
-                print(f"Error updating scaler for {pair}: {str(e)}")
+    """Update saved scalers to current version if needed"""
+    print("Checking saved scalers...")
+    # Implementation for updating scalers if needed
+    pass

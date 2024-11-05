@@ -41,9 +41,13 @@ class ReinforcementTrainer:
         """
         model.train()
         
-        # Move data to device
-        latest_data = latest_data.to(self.device)
-        actual_outcome = torch.tensor(actual_outcome, device=self.device)
+        # Ensure data is in correct shape and type
+        if len(latest_data.shape) == 2:
+            latest_data = latest_data.unsqueeze(0)
+        
+        # Convert to float32 and move to device
+        latest_data = latest_data.float().to(self.device)
+        actual_outcome = torch.tensor([[actual_outcome]], dtype=torch.float32, device=self.device)
         
         # Get the previous prediction
         with torch.no_grad():
@@ -53,7 +57,7 @@ class ReinforcementTrainer:
         reward = self.calculate_reward(
             predicted_price=previous_prediction.item(),
             actual_price=actual_outcome.item(),
-            previous_price=latest_data[-1][-1].item()  # Last known price
+            previous_price=latest_data[0, -1, -1].item()
         )
         
         # Create optimizer for this update
@@ -63,7 +67,7 @@ class ReinforcementTrainer:
         prediction = model(latest_data)
         
         # Calculate loss with reward weighting
-        loss = self.criterion(prediction, actual_outcome) * (1 - torch.tanh(torch.tensor(reward)))
+        loss = self.criterion(prediction, actual_outcome) * (1 - torch.tanh(torch.tensor(reward, dtype=torch.float32)))
         
         # Backward pass and optimize
         optimizer.zero_grad()
@@ -73,16 +77,16 @@ class ReinforcementTrainer:
         # Save updated model
         metrics = {
             'last_reinforcement': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            'reward': reward,
-            'loss': loss.item()
+            'reward': float(reward),
+            'loss': float(loss.item())
         }
         self.model_manager.save_model(model, self.currency_pair, metrics)
         
         return {
-            'reward': reward,
-            'loss': loss.item(),
-            'prediction': prediction.item(),
-            'actual': actual_outcome.item()
+            'reward': float(reward),
+            'loss': float(loss.item()),
+            'prediction': float(prediction.item()),
+            'actual': float(actual_outcome.item())
         }
 
 def update_model_with_latest_data(currency_pair, oanda_fetcher, data_processor):
@@ -95,20 +99,23 @@ def update_model_with_latest_data(currency_pair, oanda_fetcher, data_processor):
         print(f"\nUpdating model for {currency_pair}")
         print(f"Time window: {start_time.strftime('%Y-%m-%d %H:%M:%S')} to {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
         
-        # Get training window data (60 periods for context + last 15 min)
+        # Get training window data
         training_data = oanda_fetcher.fetch_historical_data(
             instrument=currency_pair,
-            count=65,  # 60 for context + 5 for last 15 min (M3 granularity)
-            granularity="M3"  # Use M3 granularity for more precise updates
+            count=200,
+            granularity="M5"
         )
         
-        if training_data is None or len(training_data) < 65:
+        if training_data is None or len(training_data) < 60:
             print(f"Insufficient training data for {currency_pair}")
             return None
             
-        # Split data into context and recent
-        context_data = training_data[:-5]  # First 60 periods
-        recent_data = training_data[-5:]   # Last 5 periods (15 minutes)
+        # Process all data at once to ensure consistent scaling
+        processed_data = data_processor.process_data(training_data)
+        
+        # Split processed data into context and recent
+        context_data = processed_data[:, :-3, :]  # All but last 3 timesteps
+        recent_prices = training_data['close'].values[-3:]  # Last 3 actual prices
         
         # Initialize trainer and load model
         rl_trainer = ReinforcementTrainer(currency_pair)
@@ -121,32 +128,24 @@ def update_model_with_latest_data(currency_pair, oanda_fetcher, data_processor):
             
         model.to(rl_trainer.device)
         
-        # Process context data
-        processed_context = data_processor.process_data(context_data)
-        
-        # Get actual outcomes from recent data
-        actual_outcomes = recent_data['close'].values
-        
         # Perform reinforcement learning updates
         results = []
-        for i, actual_price in enumerate(actual_outcomes):
-            # Make prediction using context
-            with torch.no_grad():
-                prediction = model(processed_context)
-                
-            # Calculate reward and update model
+        current_context = context_data.clone()
+        
+        for i, actual_price in enumerate(recent_prices):
+            # Make prediction using current context
             result = rl_trainer.reinforce_model(
                 model=model,
-                latest_data=processed_context,
+                latest_data=current_context,
                 actual_outcome=actual_price
             )
             results.append(result)
             
-            # Update context for next prediction
-            if i < len(actual_outcomes) - 1:
-                new_data = recent_data.iloc[i:i+1]
-                processed_new = data_processor.process_data(new_data)
-                processed_context = torch.cat([processed_context[1:], processed_new], dim=0)
+            # Update context for next prediction if not last iteration
+            if i < len(recent_prices) - 1:
+                # Shift context window forward
+                if i < processed_data.size(1) - 1:
+                    current_context = processed_data[:, i+1:i+1+current_context.size(1), :]
         
         # Calculate average metrics
         avg_results = {

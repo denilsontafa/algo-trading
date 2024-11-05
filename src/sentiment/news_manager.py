@@ -8,6 +8,7 @@ import numpy as np
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from typing import List, Dict
+import config
 
 class NewsManager:
     def __init__(self, storage_dir='data/news'):
@@ -201,27 +202,64 @@ class NewsManager:
             return []
     
     def _update_news_cache(self):
-        """Update news cache with latest forex news"""
+        """Update news cache with latest forex news from real sources"""
         try:
-            # In a real implementation, you would fetch news from an API
-            # For now, we'll use some dummy data
-            self.news_cache = {
-                'EUR_USD': [
-                    {'title': 'EUR/USD holds steady ahead of ECB meeting'},
-                    {'title': 'Dollar weakens against major currencies'}
-                ],
-                'GBP_USD': [
-                    {'title': 'Sterling rises on positive UK economic data'},
-                    {'title': 'GBP/USD faces resistance at key level'}
-                ],
-                'USD_JPY': [
-                    {'title': 'Yen strengthens as BOJ signals policy shift'},
-                    {'title': 'USD/JPY volatility increases on trade tensions'}
-                ]
-            }
+            print("\nFetching latest news for all currency pairs...")
+            
+            # Initialize scraper if not already done
+            if not hasattr(self, 'scraper'):
+                self.scraper = InvestingNewsScraper()
+            
+            # Fetch and cache news for each currency pair
+            self.news_cache = {}
+            
+            for pair in config.CURRENCY_PAIRS:
+                print(f"\nFetching news for {pair}...")
+                
+                # Fetch news using the scraper
+                news_df = self.scraper.fetch_news(pair)
+                
+                if not news_df.empty:
+                    # Convert DataFrame rows to dictionary format
+                    pair_news = []
+                    for _, row in news_df.iterrows():
+                        news_item = {
+                            'title': row['title'],
+                            'description': row['description'],
+                            'published_at': row['published_at'].isoformat(),
+                            'provider': row['provider'],
+                            'link': row['link']
+                        }
+                        pair_news.append(news_item)
+                    
+                    self.news_cache[pair] = pair_news
+                    print(f"✓ Cached {len(pair_news)} articles for {pair}")
+                else:
+                    self.news_cache[pair] = []
+                    print(f"! No articles found for {pair}")
             
             self.last_update = datetime.now()
-            print("\nUpdated news cache")
+            print(f"\nNews cache updated at {self.last_update.strftime('%Y-%m-%d %H:%M:%S')}")
             
+            # Save cache to file for backup
+            cache_file = os.path.join(self.storage_dir, 'news_cache.json')
+            with open(cache_file, 'w', encoding='utf-8') as f:
+                cache_data = {
+                    'last_update': self.last_update.isoformat(),
+                    'news': self.news_cache
+                }
+                json.dump(cache_data, f, indent=2, ensure_ascii=False)
+                
         except Exception as e:
             print(f"Error updating news cache: {str(e)}")
+            # If error occurs, try to load from backup file
+            try:
+                cache_file = os.path.join(self.storage_dir, 'news_cache.json')
+                if os.path.exists(cache_file):
+                    with open(cache_file, 'r', encoding='utf-8') as f:
+                        cache_data = json.load(f)
+                        self.news_cache = cache_data['news']
+                        self.last_update = datetime.fromisoformat(cache_data['last_update'])
+                        print("Loaded news from backup cache file")
+            except Exception as backup_error:
+                print(f"Error loading backup cache: {str(backup_error)}")

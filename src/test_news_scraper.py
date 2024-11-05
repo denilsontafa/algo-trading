@@ -22,7 +22,7 @@ def test_news_scraper():
             print("-" * 80)
     
     # Test currency-specific news
-    currency_pairs = ["EUR_USD", "GBP_USD", "USD_JPY"]
+    currency_pairs = ["EUR_USD", "GBP_USD", "USD_JPY", "XAU_USD"]
     
     for pair in currency_pairs:
         print(f"\nFetching news relevant to {pair}...")

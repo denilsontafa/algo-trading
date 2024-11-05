@@ -27,7 +27,7 @@ RISK_REWARD_RATIO = 2
 MAX_RISK_PER_TRADE = 0.02  # 2% risk per trade 
 
 # Trading pairs configuration
-CURRENCY_PAIRS = ["EUR_USD", "GBP_USD", "USD_JPY"]
+CURRENCY_PAIRS = ["EUR_USD", "GBP_USD", "USD_JPY", "XAU_USD"]
 # News Configuration
 NEWS_LOOKBACK_HOURS = 24
 NEWS_UPDATE_INTERVAL = 15  # minutes
@@ -112,6 +112,25 @@ CURRENCY_CONFIG = {
                 'bank of japan decision', 'ueda speech'
             ]
         }
+    },
+    'XAU': {
+        'terms': [
+            'gold', 'XAU', 'precious metals', 'bullion',
+            'gold price', 'gold market', 'gold trading',
+            'gold futures', 'spot gold', 'gold demand',
+            'gold reserves', 'gold ETF', 'gold stocks',
+            'gold miners', 'gold production',
+            'Federal Reserve', 'inflation', 'interest rates',
+            'safe haven', 'risk aversion',
+            'COMEX', 'London Gold Fix', 'Shanghai Gold Exchange'
+        ],
+        'central_bank': {
+            'terms': [
+                'central bank gold', 'gold reserves',
+                'gold holdings', 'gold purchases',
+                'gold sales', 'gold storage'
+            ]
+        }
     }
 }
 
@@ -120,16 +139,19 @@ ECONOMIC_INDICATORS = {
     'high_impact': [
         'interest rate decision', 'inflation', 'cpi', 'ppi',
         'gdp', 'employment', 'unemployment', 'non-farm payrolls',
-        'retail sales', 'trade balance'
+        'retail sales', 'trade balance', 'Federal Reserve', 'inflation data',
+        'NFP', 'gold reserves', 'central bank purchases'
     ],
     'medium_impact': [
         'manufacturing pmi', 'services pmi', 'industrial production',
         'consumer confidence', 'business confidence', 'housing data',
-        'durable goods'
+        'durable goods', 'gold production', 'mining output',
+        'ETF holdings', 'jewelry demand', 'industrial demand'
     ],
     'low_impact': [
         'building permits', 'housing starts', 'capacity utilization',
-        'factory orders', 'wholesale inventories'
+        'factory orders', 'wholesale inventories', 'gold exploration',
+        'mining costs', 'regional demand'
     ]
 }
 
@@ -155,6 +177,21 @@ SENTIMENT_TERMS = {
     'negative': -1.0,
     'unchanged': 0.0,
     'stable': 0.2,
+    'gold rally': 3.0,
+    'gold surge': 3.0,
+    'gold soars': 3.0,
+    'gold slumps': -3.0,
+    'gold drops': -3.0,
+    'gold plunges': -3.0,
+    'safe haven': 1.0,
+    'risk aversion': -1.0,
+    'COMEX': 1.0,
+    'London Gold Fix': 1.0,
+    'Shanghai Gold Exchange': 1.0,
+    'gold demand': 2.0,
+    'gold reserves': 1.5,
+    'gold shortage': 2.5,
+    'gold surplus': -2.0,
 }
 
 # Position Management

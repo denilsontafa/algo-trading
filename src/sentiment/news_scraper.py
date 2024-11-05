@@ -10,6 +10,7 @@ class InvestingNewsScraper:
     def __init__(self):
         self.base_url = "https://www.investing.com"
         self.forex_news_url = "/news/forex-news"
+        self.commodities_news_url = "/news/commodities-news"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
@@ -105,40 +106,46 @@ class InvestingNewsScraper:
             return now
 
     def fetch_news(self, currency_pair=None, pages=config.NEWS_PAGES_TO_FETCH):
-        """Fetch forex news and filter by currency pair if specified"""
+        """Fetch news and filter by currency pair if specified"""
         try:
             all_news = []
             
-            for page in range(1, pages + 1):
-                url = self.forex_news_url
-                if page > 1:
-                    url += f"/{page}"
-                
-                soup = self._get_soup(url)
-                
-                # Find all articles using the new selector
-                articles = soup.find_all('article', {'data-test': 'article-item'})
-                
-                print(f"Found {len(articles)} articles on page {page}")
-                
-                for article in articles:
-                    item = self._parse_news_item(article)
-                    if item:
-                        # Add the article if it's relevant or no currency pair filter
-                        if not currency_pair or self._is_relevant_to_pair(
-                            item['title'] + ' ' + item['description'], 
-                            currency_pair
-                        ):
-                            all_news.append(item)
-                
-                time.sleep(random.uniform(2, 4))
+            # Determine which news sections to fetch
+            urls_to_fetch = [self.forex_news_url]
+            if currency_pair == 'XAU_USD':
+                urls_to_fetch.append(self.commodities_news_url)
+                print(f"Fetching both forex and commodities news for {currency_pair}")
+            
+            # Fetch from each news section
+            for base_url in urls_to_fetch:
+                for page in range(1, pages + 1):
+                    url = base_url
+                    if page > 1:
+                        url += f"/{page}"
+                    
+                    soup = self._get_soup(url)
+                    articles = soup.find_all('article', {'data-test': 'article-item'})
+                    
+                    print(f"Found {len(articles)} articles on {base_url} page {page}")
+                    
+                    for article in articles:
+                        item = self._parse_news_item(article)
+                        if item:
+                            if not currency_pair or self._is_relevant_to_pair(
+                                item['title'] + ' ' + item['description'], 
+                                currency_pair
+                            ):
+                                all_news.append(item)
+                    
+                    time.sleep(random.uniform(2, 4))
 
-            # Convert to DataFrame
+            # Convert to DataFrame and sort
             news_df = pd.DataFrame(all_news)
             if not news_df.empty:
                 news_df = news_df.sort_values('published_at', ascending=False)
+                news_df = news_df.drop_duplicates(subset=['title'])  # Remove duplicates
             
-            print(f"Found {len(news_df)} relevant articles")
+            print(f"Found {len(news_df)} relevant articles for {currency_pair}")
             return news_df
 
         except Exception as e:
@@ -147,12 +154,28 @@ class InvestingNewsScraper:
 
     def _is_relevant_to_pair(self, text, currency_pair):
         """Check if the news article is relevant to the currency pair"""
-        relevant_terms = self._get_relevant_terms(currency_pair)
         text_lower = text.lower()
         
-        # Check currency pair specific terms
-        if any(term.lower() in text_lower for term in relevant_terms):
-            return True
+        if currency_pair == 'XAU_USD':
+            # Check gold-specific terms
+            gold_terms = config.CURRENCY_CONFIG['XAU']['terms']
+            if any(term.lower() in text_lower for term in gold_terms):
+                return True
+                
+            # Check related market factors
+            market_factors = [
+                'federal reserve', 'interest rate', 'inflation',
+                'dollar', 'usd', 'precious metal', 'safe haven',
+                'risk', 'treasury', 'yields'
+            ]
+            if any(factor in text_lower for factor in market_factors):
+                return True
+                
+        else:
+            # Regular currency pair logic
+            relevant_terms = self._get_relevant_terms(currency_pair)
+            if any(term.lower() in text_lower for term in relevant_terms):
+                return True
             
         # Check high-impact economic indicators
         if any(indicator.lower() in text_lower 
@@ -163,12 +186,18 @@ class InvestingNewsScraper:
 
     def _get_relevant_terms(self, currency_pair):
         """Get relevant terms for a currency pair"""
+        if currency_pair == 'XAU_USD':
+            # Use gold-specific terms from config
+            return config.CURRENCY_CONFIG['XAU']['terms']
+        
+        # For regular currency pairs
         currencies = currency_pair.split('_')
         terms = []
         
         for currency in currencies:
             if currency in config.CURRENCY_CONFIG:
                 terms.extend(config.CURRENCY_CONFIG[currency]['terms'])
-                terms.extend(config.CURRENCY_CONFIG[currency]['central_bank']['terms'])
+                if 'central_bank' in config.CURRENCY_CONFIG[currency]:
+                    terms.extend(config.CURRENCY_CONFIG[currency]['central_bank']['terms'])
         
         return terms

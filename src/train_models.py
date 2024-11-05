@@ -12,6 +12,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 import ta
 import pickle
+import config
 
 class ForexDataset(Dataset):
     def __init__(self, data, sequence_length=60):
@@ -170,22 +171,54 @@ def train_model(currency_pair, data, epochs=100, batch_size=32):
     
     return model, {'best_val_loss': best_val_loss}
 
+def check_existing_model(currency_pair):
+    """Check if a trained model already exists"""
+    model_path = f'models/base_models/{currency_pair}_model.pth'
+    scaler_path = f'models/scalers/{currency_pair}_scaler.pkl'
+    
+    if os.path.exists(model_path) and os.path.exists(scaler_path):
+        try:
+            # Try to load the model to verify it's valid
+            checkpoint = torch.load(model_path)
+            print(f"✓ Found existing model for {currency_pair}")
+            print(f"  Trained for {checkpoint['metrics']['epochs_trained']} epochs")
+            print(f"  Best validation loss: {checkpoint['metrics']['best_val_loss']:.6f}")
+            return True
+        except Exception as e:
+            print(f"! Found corrupted model for {currency_pair}: {str(e)}")
+            return False
+    return False
+
 def main():
     # Initialize data fetcher
     data_fetcher = OandaDataFetcher()
     
-    # Currency pairs to train
-    pairs = ["EUR_USD", "GBP_USD", "USD_JPY"]
+    # Ensure directories exist
+    os.makedirs('models/base_models', exist_ok=True)
+    os.makedirs('models/scalers', exist_ok=True)
     
+    # Get list of currency pairs from config
+    pairs = config.CURRENCY_PAIRS
+    
+    print("\nChecking existing models...")
     for pair in pairs:
-        print(f"\nTraining model for {pair}")
-        # Get historical data
-        data = data_fetcher.fetch_historical_data(pair)
-        if data is not None:
-            # Train model
-            model, metrics = train_model(pair, data)
-            print(f"Completed training for {pair}")
-            print(f"Best validation loss: {metrics['best_val_loss']:.6f}")
+        if check_existing_model(pair):
+            continue
+            
+        print(f"\nTraining new model for {pair}")
+        try:
+            # Get historical data
+            data = data_fetcher.fetch_historical_data(pair)
+            if data is not None:
+                # Train model
+                model, metrics = train_model(pair, data)
+                print(f"✓ Successfully trained model for {pair}")
+                print(f"  Best validation loss: {metrics['best_val_loss']:.6f}")
+            else:
+                print(f"✗ Failed to fetch data for {pair}")
+                
+        except Exception as e:
+            print(f"✗ Error training model for {pair}: {str(e)}")
 
 if __name__ == "__main__":
     main()

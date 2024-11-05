@@ -1,0 +1,1763 @@
+{
+  "last_update": "2024-11-05T21:53:18.732328",
+  "news": {
+    "EUR_USD": [
+      {
+        "title": "Dollar dips as US voters head to polls",
+        "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
+        "published_at": "2024-11-05T21:15:42",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-on-back-foot-as-trump-trades-unwind-aussie-wary-before-rba-3701038"
+      },
+      {
+        "title": "Dollar slips as US election arrives; uncertainty reigns",
+        "description": "Investing.com - The U.S. dollar slipped slightly Tuesday, limping into what is likely to be a very close presidential election, the result of which could drive significant foreign...",
+        "published_at": "2024-11-05T09:15:25",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-as-us-election-arrives-uncertainty-reigns-3701450"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies with election in focus; Aussie steady after RBA",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Tuesday, while the dollar steadied from recent losses as focus remained squarely on a tight U.S. presidential race...",
+        "published_at": "2024-11-05T04:10:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-with-election-in-focus-aussie-steady-after-rba-3701133"
+      },
+      {
+        "title": "Dollar slips as traders unwind Trump trades before election",
+        "description": "By Karen Brettell, Medha Singh NEW YORK (Reuters) -The U.S. dollar slipped on Monday as investors pulled out of Trump trades, which have benefited in recent weeks from speculation...",
+        "published_at": "2024-11-04T20:31:06",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-dips-as-us-election-outcome-remains-uncertain-fed-rate-cut-looms-3698581"
+      },
+      {
+        "title": "Dollar retreats ahead of election; Fed, BOE also in spotlight",
+        "description": "Investing.com - The U.S. dollar retreated Monday amid political uncertainty ahead of Tuesday’s presidential election and with the Federal Reserve expected to cut interest rates...",
+        "published_at": "2024-11-04T09:16:24",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retreats-ahead-of-election-fed-boe-also-in-spotlight-3698808"
+      },
+      {
+        "title": "Asia FX firms as dollar pares recent gains ahead of elections, Fed meeting",
+        "description": "Investing.com-- Most Asian currencies firmed on Monday as the dollar fell sharply from recent highs after soft labor data, with focus turning squarely to the upcoming presidential...",
+        "published_at": "2024-11-04T04:08:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-firms-as-dollar-pares-recent-gains-ahead-of-elections-fed-meeting-3698669"
+      },
+      {
+        "title": "Go long the dollar, BCA says as geopolitical risks to persist",
+        "description": "Investing.com -- BCA Research advises investors to take a tactical long position on the U.S. dollar, highlighting persistent geopolitical risks that position the greenback as a...",
+        "published_at": "2024-11-03T09:00:00",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/go-long-the-dollar-bca-says-as-geopolitical-risks-to-persist-3697709"
+      },
+      {
+        "title": "Options markets brace for US election Forex risk with volatility spike",
+        "description": "Options markets indicated a sharp increase in implied volatility, particularly as the tenor of the options included the upcoming U.S. election. Currencies such as the Euro (EUR),...",
+        "published_at": "2024-11-03T08:00:00",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/options-markets-brace-for-us-election-forex-risk-with-volatility-spike-3697933"
+      },
+      {
+        "title": "If Trump, GOP win big on Tuesday, then sell euro, French bonds fast: expert",
+        "description": "Investing.com -- The U.S. presidential election outcome may be too tight to call, but Charles Gave of Gavekal Research believes that if Republicans win big on Tuesday, then...",
+        "published_at": "2024-11-01T21:26:41",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/if-trump-gop-win-big-on-tuesday-then-sell-euro-french-bonds-fast-expert-3698317"
+      },
+      {
+        "title": "Dollar rebounds after weak jobs data; traders eye US election",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar rose against the euro and rebounded against most major currencies on Friday after traders digested data...",
+        "published_at": "2024-11-01T18:42:10",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-as-investors-eye-us-jobs-report-election-3696194"
+      },
+      {
+        "title": "Canadian dollar seen higher if economy rebounds: Reuters poll",
+        "description": "By Fergal Smith TORONTO (Reuters) - The Canadian dollar is expected to rally against its U.S. counterpart in the coming year as lower borrowing costs boost the domestic economy...",
+        "published_at": "2024-11-01T11:56:04",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/canadian-dollar-seen-higher-if-economy-rebounds-reuters-poll-3697128"
+      },
+      {
+        "title": "Dollar edges higher ahead of payrolls release; euro slips lower",
+        "description": "Investing.com - The U.S. dollar edged higher Friday, continuing October’s strength, ahead of the release of the widely-watched payrolls report. At 05:35 ET (09:35 GMT), the Dollar...",
+        "published_at": "2024-11-01T09:40:14",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-edges-higher-ahead-of-payrolls-release-euro-slips-lower-3696568"
+      },
+      {
+        "title": "US economic outperformance to keep dollar strong- Reuters poll",
+        "description": "By Sarupya Ganguly BENGALURU (Reuters) - The U.S. dollar will hold on to its recent strength over coming months on robust domestic economic data and continued scaling back of bets...",
+        "published_at": "2024-11-01T00:21:09",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-economic-outperformance-to-keep-dollar-strong-reuters-poll-3696178"
+      },
+      {
+        "title": "Dollar falls against yen, US data leaves rate cut hopes intact",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar fell against the yen on Thursday, after the Bank of Japan's less dovish remarks and U.S. data suggested...",
+        "published_at": "2024-10-31T18:26:08",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-struggles-before-boj-decision-dollar-stalls-ahead-of-jobs-data-3693213"
+      },
+      {
+        "title": "Dollar steadies ahead of payrolls; German retail sales rise",
+        "description": "Investing.com - The U.S. dollar traded in tight ranges Thursday, as traders digested some mixed economic data ahead of the widely-watched payrolls report which closes out the...",
+        "published_at": "2024-10-31T09:41:38",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-payrolls-german-retail-sales-rise-3693542"
+      },
+      {
+        "title": "US dollar softer ahead of election and jobs data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar softened against other major currencies on Wednesday, after stronger-than-expected U.S. data and a UK budget release set off...",
+        "published_at": "2024-10-30T20:12:34",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-dollar-rally-pauses-before-jobs-data-aussie-droops-on-rba-outlook-3689874"
+      },
+      {
+        "title": "Dollar pauses rally ahead of key labor data; euro gains on German GDP",
+        "description": "Investing.com - The U.S. dollar retreated from elevated levels Wednesday, pausing its recent rally ahead of the release of key macroeconomic data that could alter expectations for...",
+        "published_at": "2024-10-30T09:37:09",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-pauses-rally-ahead-of-key-labor-data-euro-gains-on-german-gdp-3690242"
+      },
+      {
+        "title": "Asia FX muted amid rate, election jitters; yen fragile ahead of BOJ",
+        "description": "Investing.com-- Most Asian currencies moved little on Wednesday as the dollar steadied with focus squarely on the upcoming presidential election and a string of key economic...",
+        "published_at": "2024-10-30T04:14:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-amid-rate-election-jitters-yen-fragile-ahead-of-boj-3689947"
+      },
+      {
+        "title": "Dollar peaks against yen ahead of US election and economic data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar hit three-month highs against the yen on Tuesday, but was little changed on the day against most major currencies as traders bided...",
+        "published_at": "2024-10-29T19:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-mired-in-political-uncertainty-dollar-looks-to-key-data-releases-3687116"
+      },
+      {
+        "title": "Dollar steadies ahead of key economic data deluge",
+        "description": "Investing.com - The U.S. dollar steadied at elevated levels Tuesday before the release of a string of key economic readings this week, while Japanese yen remained near a...",
+        "published_at": "2024-10-29T09:28:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-key-economic-data-deluge-3687475"
+      },
+      {
+        "title": "Asia FX at risk as dollar firms into US elections- JPM",
+        "description": "Investing.com-- Asian currencies are at risk of further weakness amid recent strength in the dollar, especially if the upcoming U.S. elections result in a Republican sweep,...",
+        "published_at": "2024-10-29T00:09:28",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-at-risk-as-dollar-firms-into-us-elections-jpm-3687096"
+      },
+      {
+        "title": "Dollar likely to end up higher as foreign central banks will step up rate cuts",
+        "description": "Investing.com -- The upcoming U.S. election is set to take the dollar on a wild run, economists at Wells Fargo said, but its eventual path is higher as foreign central bank are...",
+        "published_at": "2024-10-28T21:13:19",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-likely-to-end-up-higher-as-foreign-central-banks-will-step-up-rate-cuts-3686896"
+      },
+      {
+        "title": "Yen under pressure after Japan election",
+        "description": "By Laura Matthews, Tom Westbrook, Stefano Rebaudo NEW YORK/SINGAPORE (Reuters) -The yen hit three-month lows against the dollar on Monday, as Japan's ruling coalition's election...",
+        "published_at": "2024-10-28T14:51:26",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-slips-as-japans-election-result-clouds-boj-rate-hike-prospects-3684767"
+      },
+      {
+        "title": "Dollar steady at start of action-packed week; euro edges higher",
+        "description": "Investing.com - The U.S. dollar steadied Monday, on course for a hefty monthly gain, while the euro was steady at the start of an action-packed week. At 05:35 ET (09:35 GMT), the...",
+        "published_at": "2024-10-28T09:39:06",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steady-at-start-of-actionpacked-week-euro-edges-higher-3685009"
+      },
+      {
+        "title": "Dollar edges lower after data as recent rally stalls",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar slipped for a second straight session, as a recent ascent lost steam, but the greenback was still on track for a fourth...",
+        "published_at": "2024-10-25T15:41:17",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-wobbles-vulnerable-to-political-reverberations-3682390"
+      },
+      {
+        "title": "Dollar on track for weekly gain; next week's payrolls looms large",
+        "description": "Investing.com - The U.S. dollar held largely steady Friday, on course for a fourth straight week of gains, underpinned by falling expectations of aggressive Fed rate cuts as well...",
+        "published_at": "2024-10-25T08:30:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-on-track-for-weekly-gain-next-weeks-payrolls-looms-large-3682528"
+      },
+      {
+        "title": "Asia FX muted as dollar holds weekly gains; yen steady with election in focus",
+        "description": "Investing.com-- Most Asian currencies weakened slightly on Friday as the dollar retained a bulk of its weekly gains on expectations of a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-25T04:08:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-holds-weekly-gains-yen-steady-with-election-in-focus-3682411"
+      },
+      {
+        "title": "Euro, yen climb as dollar rally takes a breather",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The euro and Japanese yen strengthened on Thursday as the U.S. dollar paused after rallying to a nearly three-month high, with the...",
+        "published_at": "2024-10-24T19:35:40",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-stands-tall-on-bets-for-slower-fed-cuts-potential-trump-win-3679168"
+      },
+      {
+        "title": "Harris win could fuel massive forex repricing - Standard Chartered",
+        "description": "Investing.com - The US dollar has risen strongly in October as traders have priced in the rising probability of a Trump win in the betting markets, said Standard Chartered...",
+        "published_at": "2024-10-24T09:13:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/harris-win-could-fuel-massive-forex-repricing--standard-chartered-3679613"
+      },
+      {
+        "title": "Dollar slips from three-month highs; euro gains after PMIs",
+        "description": "Investing.com - The U.S. dollar slipped slightly lower Thursday, but remained close to three-month highs underpinned by expectations for a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-24T08:11:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-threemonth-highs-euro-gains-after-pmis-3679530"
+      },
+      {
+        "title": "Asia FX nurses steep losses with yen near 3-mth low; dollar strong",
+        "description": "Investing.com-- Most Asian currencies steadied from recent losses on Thursday with the Japanese yen remaining close to near three-month lows, while the dollar remained underpinned...",
+        "published_at": "2024-10-24T04:09:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-nurses-steep-losses-with-yen-near-3mth-low-dollar-strong-3679257"
+      },
+      {
+        "title": "Dollar continues rally, hits 3-month high vs yen",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed above 153 against the yen for the first time in nearly three months on Wednesday on U.S. economic strength and an...",
+        "published_at": "2024-10-23T19:27:24",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/fed-outlook-pushes-dollar-to-2-12-month-peak-yen-under-pressure-3676507"
+      },
+      {
+        "title": "Dollar rises to highs; political uncertainty spurs safe haven demand",
+        "description": "Investing.com - The U.S. dollar climbed to new highs Wednesday, as uncertainty over U.S. interest rates and the upcoming presidential elections kept the safe haven in demand. At...",
+        "published_at": "2024-10-23T08:16:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-rises-to-highs-political-uncertainty-spurs-safe-haven-demand-3676751"
+      },
+      {
+        "title": "South Korean finance minister views dollar-won near 1,400 as new normal, Yonhap reports",
+        "description": "SEOUL (Reuters) - South Korea's finance minister said the won's current level near 1,400 per dollar should be regarded as a \"new normal\", the Yonhap news agency reported on...",
+        "published_at": "2024-10-23T08:10:36",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/south-korean-finance-minister-views-dollarwon-near-1400-as-new-normal-yonhap-reports-3676748"
+      },
+      {
+        "title": "Asia FX weakens, dollar at near 3-mth high amid rate, election jitters",
+        "description": "Investing.com-- Most Asian currencies weakened on Wednesday as uncertainty over U.S. interest rates and the upcoming presidential elections kept traders risk-averse, while the...",
+        "published_at": "2024-10-23T03:59:32",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-dollar-at-near-3mth-high-amid-rate-election-jitters-3676534"
+      },
+      {
+        "title": "As dollar eyes its biggest October gain in over a decade, BofA says time to fade",
+        "description": "Investing.com -- The dollar is enjoying a three-week win streak and is on track for its biggest October gains in over a decade, but analysts at BofA believe the bullish run is set...",
+        "published_at": "2024-10-23T00:18:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/as-dollar-eyes-its-biggest-october-gain-in-nearly-a-decade-bofa-says-time-to-fade-3676250"
+      },
+      {
+        "title": "Dollar hits to 2-1/2-month peak as US rates, election eyed",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) - The U.S. dollar rose to a fresh 2-1/2-month high on Tuesday, continuing its recent ascent on expectations the Federal Reserve will temper...",
+        "published_at": "2024-10-22T20:11:05",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-at-august-high-on-us-rates-view-election-3674220"
+      },
+      {
+        "title": "UBS sees EUR/USD climbing toward 1.16 by 2025",
+        "description": "On Tuesday, UBS projected a volatile period ahead for the EUR/USD currency pair, with expectations of a gradual rise above 1.10 and toward 1.16 by 2025. \"The US election poses a...",
+        "published_at": "2024-10-22T14:07:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/ubs-sees-eurusd-climbing-toward-116-by-2025-93CH-3675349"
+      },
+      {
+        "title": "Euro could fall 10% on Trump tariffs, tax cuts, Goldman says",
+        "description": "Investing.com -- Recent developments have reinforced the factors supporting the dollar's strength over the past decade but the upcoming US election could significantly alter this...",
+        "published_at": "2024-10-22T10:56:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/euro-could-fall-10-on-trump-tariffs-tax-cuts-goldman-says-3674737"
+      },
+      {
+        "title": "Dollar-positive risks from US election outcome \"moderate\", UBS says",
+        "description": "Investing.com -- The US dollar is generally trading above its implied fair value, potentially hinting at support from a recent uptick in the chances that Donald Trump will win...",
+        "published_at": "2024-10-22T10:13:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollarpositive-risks-from-us-election-outcome-moderate-ubs-says-3674520"
+      },
+      {
+        "title": "Goldman Sachs says euro could drop 10% under Trump tariffs and tax cuts",
+        "description": "By Harry Robertson LONDON (Reuters) - Goldman Sachs said on Tuesday the euro could fall as much as 10% - implying a drop below $1 from current levels - in a scenario in which...",
+        "published_at": "2024-10-22T09:16:19",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/forex-news/goldman-sachs-says-euro-could-drop-10-under-trump-tariffs-and-tax-cuts-3674395"
+      },
+      {
+        "title": "Dollar slips from highs; euro gains ahead of ECB speakers",
+        "description": "Investing.com - The U.S. dollar edged lower Tuesday, but remained near recent highs amid uncertainty over the pace of interest rate reductions as the US presidential election draws...",
+        "published_at": "2024-10-22T08:38:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-highs-euro-gains-ahead-of-ecb-speakers-3674388"
+      },
+      {
+        "title": "Asia FX weakens with yen near 3-mth low; dollar firm on rates, election jitters",
+        "description": "Investing.com-- Most Asian currencies moved in a flat-to-low range on Tuesday with the Japanese yen hitting its weakest level since late-July, while the dollar steadied near recent...",
+        "published_at": "2024-10-22T03:40:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-with-yen-near-3mth-low-dollar-firm-on-rates-election-jitters-3674234"
+      },
+      {
+        "title": "Dollar rises in tandem with US rates on economic view",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed on Monday, buoyed by a rise in U.S. bond yields, as a run of solid U.S. economic data suggested the Federal Reserve can...",
+        "published_at": "2024-10-21T19:56:43",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/bitcoin-at-3month-high-as-trump-odds-drive-currencies-3671969"
+      },
+      {
+        "title": "USD/CHF is reaching its upper limit - UBS",
+        "description": "Investing.com - The USD/CHF pair has been on a rollercoaster ride of late, but after a period of US dollar strength UBS thinks the pair may be reaching its upper limit. At 05:20 ET...",
+        "published_at": "2024-10-21T09:21:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/usdchf-is-reaching-its-upper-limit--ubs-3672253"
+      },
+      {
+        "title": "Dollar retains strength on Trump confidence; euro slips after German PPI",
+        "description": "Investing.com - The U.S. dollar edged higher Monday, retaining recent strength as the US presidential election draws near and polls point to a rising likelihood of former President...",
+        "published_at": "2024-10-21T08:38:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retains-strength-on-trump-confidence-euro-slips-after-german-ppi-3672205"
+      },
+      {
+        "title": "Dollar riding return of 'Trump Trade,' but gains will likely be fleeting: UBS",
+        "description": "Investing.com -- The dollar has enjoyed a boost from the return of the \"Trump trade\" as Republican presidential candidate Donald Trump's chances of returning to the White House...",
+        "published_at": "2024-10-18T21:00:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-riding-return-of-trump-trade-but-gains-will-likely-be-fleeting-ubs-3671696"
+      },
+      {
+        "title": "US dollar rally pauses, but uptrend intact; set for 3rd weekly gain",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar fell on Friday, taking a breather after five straight days of gains, as risk appetite increased following yet...",
+        "published_at": "2024-10-18T20:00:44",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-rides-trump-trade-toward-third-weekly-rise-3670036"
+      },
+      {
+        "title": "Dollar to retreat in 2025; try CHF, AUD and GBP - UBS",
+        "description": "Investing.com - Recent US economic data have been on the positive side, enabling the Us dollar regain some lost territory. But UBS warned this outperformance should moderate in...",
+        "published_at": "2024-10-18T13:24:30",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-to-retreat-in-2025-try-chf-aud-and-gbp--ubs-3671065"
+      },
+      {
+        "title": "Barclays sees potential rise in USD/INR amid market headwinds",
+        "description": "Barclays has indicated that the Reserve Bank of India (RBI) seems to be allowing the USD/INR exchange rate to find a new trading range, influenced by various economic factors.  The...",
+        "published_at": "2024-10-18T13:04:35",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/barclays-sees-potential-rise-in-usdinr-amid-market-headwinds-93CH-3671020"
+      },
+      {
+        "title": "This Forex pair could rise by 11% if Trump imposes a 60% tariff on China: Nomura",
+        "description": "Investing.com -- The USD/CNH currency pair could rise by around 11% if former U.S. President Donald Trump is re-elected and implements his proposed tariffs on Chinese imports,...",
+        "published_at": "2024-10-18T10:28:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/this-forex-pair-could-rise-by-11-if-trump-imposes-a-60-tariff-on-china-nomura-3670539"
+      },
+      {
+        "title": "Dollar stabilizes after gains; sterling boosted by retail sales",
+        "description": "Investing.com - The U.S. dollar slipped lower Friday, handing back some of the previous session’s gains on the back of strong retail sales, but remained on track for its third...",
+        "published_at": "2024-10-18T08:41:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
+        "published_at": "2024-10-18T04:16:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
+      },
+      {
+        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
+        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
+        "published_at": "2024-10-17T20:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
+      },
+      {
+        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
+        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
+        "published_at": "2024-10-17T07:45:54",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
+      },
+      {
+        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
+        "published_at": "2024-10-16T20:00:55",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
+      },
+      {
+        "title": "US dollar gains as US election draws nearer - UBS",
+        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
+        "published_at": "2024-10-16T10:35:07",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
+      },
+      {
+        "title": "Sell euro rallies around the ECB meeting - Citi",
+        "description": "Investing.com - The European Central Bank holds its latest policy-setting meeting later this week, and Citigroup advises selling any rallies in the euro around this key...",
+        "published_at": "2024-10-16T09:28:53",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/sell-euro-rallies-around-the-ecb-meeting--citi-3665226"
+      }
+    ],
+    "GBP_USD": [
+      {
+        "title": "Dollar dips as US voters head to polls",
+        "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
+        "published_at": "2024-11-05T21:15:42",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-on-back-foot-as-trump-trades-unwind-aussie-wary-before-rba-3701038"
+      },
+      {
+        "title": "Dollar slips as US election arrives; uncertainty reigns",
+        "description": "Investing.com - The U.S. dollar slipped slightly Tuesday, limping into what is likely to be a very close presidential election, the result of which could drive significant foreign...",
+        "published_at": "2024-11-05T09:15:25",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-as-us-election-arrives-uncertainty-reigns-3701450"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies with election in focus; Aussie steady after RBA",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Tuesday, while the dollar steadied from recent losses as focus remained squarely on a tight U.S. presidential race...",
+        "published_at": "2024-11-05T04:10:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-with-election-in-focus-aussie-steady-after-rba-3701133"
+      },
+      {
+        "title": "Dollar slips as traders unwind Trump trades before election",
+        "description": "By Karen Brettell, Medha Singh NEW YORK (Reuters) -The U.S. dollar slipped on Monday as investors pulled out of Trump trades, which have benefited in recent weeks from speculation...",
+        "published_at": "2024-11-04T20:31:06",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-dips-as-us-election-outcome-remains-uncertain-fed-rate-cut-looms-3698581"
+      },
+      {
+        "title": "Dollar retreats ahead of election; Fed, BOE also in spotlight",
+        "description": "Investing.com - The U.S. dollar retreated Monday amid political uncertainty ahead of Tuesday’s presidential election and with the Federal Reserve expected to cut interest rates...",
+        "published_at": "2024-11-04T09:16:24",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retreats-ahead-of-election-fed-boe-also-in-spotlight-3698808"
+      },
+      {
+        "title": "Asia FX firms as dollar pares recent gains ahead of elections, Fed meeting",
+        "description": "Investing.com-- Most Asian currencies firmed on Monday as the dollar fell sharply from recent highs after soft labor data, with focus turning squarely to the upcoming presidential...",
+        "published_at": "2024-11-04T04:08:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-firms-as-dollar-pares-recent-gains-ahead-of-elections-fed-meeting-3698669"
+      },
+      {
+        "title": "Go long the dollar, BCA says as geopolitical risks to persist",
+        "description": "Investing.com -- BCA Research advises investors to take a tactical long position on the U.S. dollar, highlighting persistent geopolitical risks that position the greenback as a...",
+        "published_at": "2024-11-03T09:00:00",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/go-long-the-dollar-bca-says-as-geopolitical-risks-to-persist-3697709"
+      },
+      {
+        "title": "Dollar rebounds after weak jobs data; traders eye US election",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar rose against the euro and rebounded against most major currencies on Friday after traders digested data...",
+        "published_at": "2024-11-01T18:42:10",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-as-investors-eye-us-jobs-report-election-3696194"
+      },
+      {
+        "title": "Canadian dollar seen higher if economy rebounds: Reuters poll",
+        "description": "By Fergal Smith TORONTO (Reuters) - The Canadian dollar is expected to rally against its U.S. counterpart in the coming year as lower borrowing costs boost the domestic economy...",
+        "published_at": "2024-11-01T11:56:04",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/canadian-dollar-seen-higher-if-economy-rebounds-reuters-poll-3697128"
+      },
+      {
+        "title": "Dollar edges higher ahead of payrolls release; euro slips lower",
+        "description": "Investing.com - The U.S. dollar edged higher Friday, continuing October’s strength, ahead of the release of the widely-watched payrolls report. At 05:35 ET (09:35 GMT), the Dollar...",
+        "published_at": "2024-11-01T09:40:14",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-edges-higher-ahead-of-payrolls-release-euro-slips-lower-3696568"
+      },
+      {
+        "title": "US economic outperformance to keep dollar strong- Reuters poll",
+        "description": "By Sarupya Ganguly BENGALURU (Reuters) - The U.S. dollar will hold on to its recent strength over coming months on robust domestic economic data and continued scaling back of bets...",
+        "published_at": "2024-11-01T00:21:09",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-economic-outperformance-to-keep-dollar-strong-reuters-poll-3696178"
+      },
+      {
+        "title": "Dollar falls against yen, US data leaves rate cut hopes intact",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar fell against the yen on Thursday, after the Bank of Japan's less dovish remarks and U.S. data suggested...",
+        "published_at": "2024-10-31T18:26:08",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-struggles-before-boj-decision-dollar-stalls-ahead-of-jobs-data-3693213"
+      },
+      {
+        "title": "Dollar steadies ahead of payrolls; German retail sales rise",
+        "description": "Investing.com - The U.S. dollar traded in tight ranges Thursday, as traders digested some mixed economic data ahead of the widely-watched payrolls report which closes out the...",
+        "published_at": "2024-10-31T09:41:38",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-payrolls-german-retail-sales-rise-3693542"
+      },
+      {
+        "title": "US dollar softer ahead of election and jobs data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar softened against other major currencies on Wednesday, after stronger-than-expected U.S. data and a UK budget release set off...",
+        "published_at": "2024-10-30T20:12:34",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-dollar-rally-pauses-before-jobs-data-aussie-droops-on-rba-outlook-3689874"
+      },
+      {
+        "title": "Dollar pauses rally ahead of key labor data; euro gains on German GDP",
+        "description": "Investing.com - The U.S. dollar retreated from elevated levels Wednesday, pausing its recent rally ahead of the release of key macroeconomic data that could alter expectations for...",
+        "published_at": "2024-10-30T09:37:09",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-pauses-rally-ahead-of-key-labor-data-euro-gains-on-german-gdp-3690242"
+      },
+      {
+        "title": "Asia FX muted amid rate, election jitters; yen fragile ahead of BOJ",
+        "description": "Investing.com-- Most Asian currencies moved little on Wednesday as the dollar steadied with focus squarely on the upcoming presidential election and a string of key economic...",
+        "published_at": "2024-10-30T04:14:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-amid-rate-election-jitters-yen-fragile-ahead-of-boj-3689947"
+      },
+      {
+        "title": "Dollar peaks against yen ahead of US election and economic data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar hit three-month highs against the yen on Tuesday, but was little changed on the day against most major currencies as traders bided...",
+        "published_at": "2024-10-29T19:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-mired-in-political-uncertainty-dollar-looks-to-key-data-releases-3687116"
+      },
+      {
+        "title": "Dollar steadies ahead of key economic data deluge",
+        "description": "Investing.com - The U.S. dollar steadied at elevated levels Tuesday before the release of a string of key economic readings this week, while Japanese yen remained near a...",
+        "published_at": "2024-10-29T09:28:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-key-economic-data-deluge-3687475"
+      },
+      {
+        "title": "Asia FX at risk as dollar firms into US elections- JPM",
+        "description": "Investing.com-- Asian currencies are at risk of further weakness amid recent strength in the dollar, especially if the upcoming U.S. elections result in a Republican sweep,...",
+        "published_at": "2024-10-29T00:09:28",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-at-risk-as-dollar-firms-into-us-elections-jpm-3687096"
+      },
+      {
+        "title": "Dollar likely to end up higher as foreign central banks will step up rate cuts",
+        "description": "Investing.com -- The upcoming U.S. election is set to take the dollar on a wild run, economists at Wells Fargo said, but its eventual path is higher as foreign central bank are...",
+        "published_at": "2024-10-28T21:13:19",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-likely-to-end-up-higher-as-foreign-central-banks-will-step-up-rate-cuts-3686896"
+      },
+      {
+        "title": "Yen under pressure after Japan election",
+        "description": "By Laura Matthews, Tom Westbrook, Stefano Rebaudo NEW YORK/SINGAPORE (Reuters) -The yen hit three-month lows against the dollar on Monday, as Japan's ruling coalition's election...",
+        "published_at": "2024-10-28T14:51:26",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-slips-as-japans-election-result-clouds-boj-rate-hike-prospects-3684767"
+      },
+      {
+        "title": "Dollar steady at start of action-packed week; euro edges higher",
+        "description": "Investing.com - The U.S. dollar steadied Monday, on course for a hefty monthly gain, while the euro was steady at the start of an action-packed week. At 05:35 ET (09:35 GMT), the...",
+        "published_at": "2024-10-28T09:39:06",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steady-at-start-of-actionpacked-week-euro-edges-higher-3685009"
+      },
+      {
+        "title": "Dollar edges lower after data as recent rally stalls",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar slipped for a second straight session, as a recent ascent lost steam, but the greenback was still on track for a fourth...",
+        "published_at": "2024-10-25T15:41:17",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-wobbles-vulnerable-to-political-reverberations-3682390"
+      },
+      {
+        "title": "Dollar on track for weekly gain; next week's payrolls looms large",
+        "description": "Investing.com - The U.S. dollar held largely steady Friday, on course for a fourth straight week of gains, underpinned by falling expectations of aggressive Fed rate cuts as well...",
+        "published_at": "2024-10-25T08:30:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-on-track-for-weekly-gain-next-weeks-payrolls-looms-large-3682528"
+      },
+      {
+        "title": "Asia FX muted as dollar holds weekly gains; yen steady with election in focus",
+        "description": "Investing.com-- Most Asian currencies weakened slightly on Friday as the dollar retained a bulk of its weekly gains on expectations of a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-25T04:08:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-holds-weekly-gains-yen-steady-with-election-in-focus-3682411"
+      },
+      {
+        "title": "Euro, yen climb as dollar rally takes a breather",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The euro and Japanese yen strengthened on Thursday as the U.S. dollar paused after rallying to a nearly three-month high, with the...",
+        "published_at": "2024-10-24T19:35:40",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-stands-tall-on-bets-for-slower-fed-cuts-potential-trump-win-3679168"
+      },
+      {
+        "title": "Harris win could fuel massive forex repricing - Standard Chartered",
+        "description": "Investing.com - The US dollar has risen strongly in October as traders have priced in the rising probability of a Trump win in the betting markets, said Standard Chartered...",
+        "published_at": "2024-10-24T09:13:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/harris-win-could-fuel-massive-forex-repricing--standard-chartered-3679613"
+      },
+      {
+        "title": "Dollar slips from three-month highs; euro gains after PMIs",
+        "description": "Investing.com - The U.S. dollar slipped slightly lower Thursday, but remained close to three-month highs underpinned by expectations for a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-24T08:11:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-threemonth-highs-euro-gains-after-pmis-3679530"
+      },
+      {
+        "title": "Asia FX nurses steep losses with yen near 3-mth low; dollar strong",
+        "description": "Investing.com-- Most Asian currencies steadied from recent losses on Thursday with the Japanese yen remaining close to near three-month lows, while the dollar remained underpinned...",
+        "published_at": "2024-10-24T04:09:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-nurses-steep-losses-with-yen-near-3mth-low-dollar-strong-3679257"
+      },
+      {
+        "title": "Dollar continues rally, hits 3-month high vs yen",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed above 153 against the yen for the first time in nearly three months on Wednesday on U.S. economic strength and an...",
+        "published_at": "2024-10-23T19:27:24",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/fed-outlook-pushes-dollar-to-2-12-month-peak-yen-under-pressure-3676507"
+      },
+      {
+        "title": "Dollar rises to highs; political uncertainty spurs safe haven demand",
+        "description": "Investing.com - The U.S. dollar climbed to new highs Wednesday, as uncertainty over U.S. interest rates and the upcoming presidential elections kept the safe haven in demand. At...",
+        "published_at": "2024-10-23T08:16:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-rises-to-highs-political-uncertainty-spurs-safe-haven-demand-3676751"
+      },
+      {
+        "title": "South Korean finance minister views dollar-won near 1,400 as new normal, Yonhap reports",
+        "description": "SEOUL (Reuters) - South Korea's finance minister said the won's current level near 1,400 per dollar should be regarded as a \"new normal\", the Yonhap news agency reported on...",
+        "published_at": "2024-10-23T08:10:36",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/south-korean-finance-minister-views-dollarwon-near-1400-as-new-normal-yonhap-reports-3676748"
+      },
+      {
+        "title": "Asia FX weakens, dollar at near 3-mth high amid rate, election jitters",
+        "description": "Investing.com-- Most Asian currencies weakened on Wednesday as uncertainty over U.S. interest rates and the upcoming presidential elections kept traders risk-averse, while the...",
+        "published_at": "2024-10-23T03:59:32",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-dollar-at-near-3mth-high-amid-rate-election-jitters-3676534"
+      },
+      {
+        "title": "As dollar eyes its biggest October gain in over a decade, BofA says time to fade",
+        "description": "Investing.com -- The dollar is enjoying a three-week win streak and is on track for its biggest October gains in over a decade, but analysts at BofA believe the bullish run is set...",
+        "published_at": "2024-10-23T00:18:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/as-dollar-eyes-its-biggest-october-gain-in-nearly-a-decade-bofa-says-time-to-fade-3676250"
+      },
+      {
+        "title": "Dollar hits to 2-1/2-month peak as US rates, election eyed",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) - The U.S. dollar rose to a fresh 2-1/2-month high on Tuesday, continuing its recent ascent on expectations the Federal Reserve will temper...",
+        "published_at": "2024-10-22T20:11:05",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-at-august-high-on-us-rates-view-election-3674220"
+      },
+      {
+        "title": "UBS sees EUR/USD climbing toward 1.16 by 2025",
+        "description": "On Tuesday, UBS projected a volatile period ahead for the EUR/USD currency pair, with expectations of a gradual rise above 1.10 and toward 1.16 by 2025. \"The US election poses a...",
+        "published_at": "2024-10-22T14:07:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/ubs-sees-eurusd-climbing-toward-116-by-2025-93CH-3675349"
+      },
+      {
+        "title": "Euro could fall 10% on Trump tariffs, tax cuts, Goldman says",
+        "description": "Investing.com -- Recent developments have reinforced the factors supporting the dollar's strength over the past decade but the upcoming US election could significantly alter this...",
+        "published_at": "2024-10-22T10:56:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/euro-could-fall-10-on-trump-tariffs-tax-cuts-goldman-says-3674737"
+      },
+      {
+        "title": "Dollar-positive risks from US election outcome \"moderate\", UBS says",
+        "description": "Investing.com -- The US dollar is generally trading above its implied fair value, potentially hinting at support from a recent uptick in the chances that Donald Trump will win...",
+        "published_at": "2024-10-22T10:13:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollarpositive-risks-from-us-election-outcome-moderate-ubs-says-3674520"
+      },
+      {
+        "title": "Dollar slips from highs; euro gains ahead of ECB speakers",
+        "description": "Investing.com - The U.S. dollar edged lower Tuesday, but remained near recent highs amid uncertainty over the pace of interest rate reductions as the US presidential election draws...",
+        "published_at": "2024-10-22T08:38:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-highs-euro-gains-ahead-of-ecb-speakers-3674388"
+      },
+      {
+        "title": "Asia FX weakens with yen near 3-mth low; dollar firm on rates, election jitters",
+        "description": "Investing.com-- Most Asian currencies moved in a flat-to-low range on Tuesday with the Japanese yen hitting its weakest level since late-July, while the dollar steadied near recent...",
+        "published_at": "2024-10-22T03:40:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-with-yen-near-3mth-low-dollar-firm-on-rates-election-jitters-3674234"
+      },
+      {
+        "title": "Dollar rises in tandem with US rates on economic view",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed on Monday, buoyed by a rise in U.S. bond yields, as a run of solid U.S. economic data suggested the Federal Reserve can...",
+        "published_at": "2024-10-21T19:56:43",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/bitcoin-at-3month-high-as-trump-odds-drive-currencies-3671969"
+      },
+      {
+        "title": "USD/CHF is reaching its upper limit - UBS",
+        "description": "Investing.com - The USD/CHF pair has been on a rollercoaster ride of late, but after a period of US dollar strength UBS thinks the pair may be reaching its upper limit. At 05:20 ET...",
+        "published_at": "2024-10-21T09:21:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/usdchf-is-reaching-its-upper-limit--ubs-3672253"
+      },
+      {
+        "title": "Dollar retains strength on Trump confidence; euro slips after German PPI",
+        "description": "Investing.com - The U.S. dollar edged higher Monday, retaining recent strength as the US presidential election draws near and polls point to a rising likelihood of former President...",
+        "published_at": "2024-10-21T08:38:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retains-strength-on-trump-confidence-euro-slips-after-german-ppi-3672205"
+      },
+      {
+        "title": "Dollar riding return of 'Trump Trade,' but gains will likely be fleeting: UBS",
+        "description": "Investing.com -- The dollar has enjoyed a boost from the return of the \"Trump trade\" as Republican presidential candidate Donald Trump's chances of returning to the White House...",
+        "published_at": "2024-10-18T21:00:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-riding-return-of-trump-trade-but-gains-will-likely-be-fleeting-ubs-3671696"
+      },
+      {
+        "title": "US dollar rally pauses, but uptrend intact; set for 3rd weekly gain",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar fell on Friday, taking a breather after five straight days of gains, as risk appetite increased following yet...",
+        "published_at": "2024-10-18T20:00:44",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-rides-trump-trade-toward-third-weekly-rise-3670036"
+      },
+      {
+        "title": "Dollar to retreat in 2025; try CHF, AUD and GBP - UBS",
+        "description": "Investing.com - Recent US economic data have been on the positive side, enabling the Us dollar regain some lost territory. But UBS warned this outperformance should moderate in...",
+        "published_at": "2024-10-18T13:24:30",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-to-retreat-in-2025-try-chf-aud-and-gbp--ubs-3671065"
+      },
+      {
+        "title": "Barclays sees potential rise in USD/INR amid market headwinds",
+        "description": "Barclays has indicated that the Reserve Bank of India (RBI) seems to be allowing the USD/INR exchange rate to find a new trading range, influenced by various economic factors.  The...",
+        "published_at": "2024-10-18T13:04:35",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/barclays-sees-potential-rise-in-usdinr-amid-market-headwinds-93CH-3671020"
+      },
+      {
+        "title": "This Forex pair could rise by 11% if Trump imposes a 60% tariff on China: Nomura",
+        "description": "Investing.com -- The USD/CNH currency pair could rise by around 11% if former U.S. President Donald Trump is re-elected and implements his proposed tariffs on Chinese imports,...",
+        "published_at": "2024-10-18T10:28:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/this-forex-pair-could-rise-by-11-if-trump-imposes-a-60-tariff-on-china-nomura-3670539"
+      },
+      {
+        "title": "Dollar stabilizes after gains; sterling boosted by retail sales",
+        "description": "Investing.com - The U.S. dollar slipped lower Friday, handing back some of the previous session’s gains on the back of strong retail sales, but remained on track for its third...",
+        "published_at": "2024-10-18T08:41:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
+        "published_at": "2024-10-18T04:16:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
+      },
+      {
+        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
+        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
+        "published_at": "2024-10-17T20:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
+      },
+      {
+        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
+        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
+        "published_at": "2024-10-17T07:45:54",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
+      },
+      {
+        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
+        "published_at": "2024-10-16T20:00:55",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
+      },
+      {
+        "title": "US dollar gains as US election draws nearer - UBS",
+        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
+        "published_at": "2024-10-16T10:35:07",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
+      }
+    ],
+    "USD_JPY": [
+      {
+        "title": "Dollar dips as US voters head to polls",
+        "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
+        "published_at": "2024-11-05T21:15:42",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-on-back-foot-as-trump-trades-unwind-aussie-wary-before-rba-3701038"
+      },
+      {
+        "title": "Dollar slips as US election arrives; uncertainty reigns",
+        "description": "Investing.com - The U.S. dollar slipped slightly Tuesday, limping into what is likely to be a very close presidential election, the result of which could drive significant foreign...",
+        "published_at": "2024-11-05T09:15:25",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-as-us-election-arrives-uncertainty-reigns-3701450"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies with election in focus; Aussie steady after RBA",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Tuesday, while the dollar steadied from recent losses as focus remained squarely on a tight U.S. presidential race...",
+        "published_at": "2024-11-05T04:10:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-with-election-in-focus-aussie-steady-after-rba-3701133"
+      },
+      {
+        "title": "Dollar slips as traders unwind Trump trades before election",
+        "description": "By Karen Brettell, Medha Singh NEW YORK (Reuters) -The U.S. dollar slipped on Monday as investors pulled out of Trump trades, which have benefited in recent weeks from speculation...",
+        "published_at": "2024-11-04T20:31:06",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-dips-as-us-election-outcome-remains-uncertain-fed-rate-cut-looms-3698581"
+      },
+      {
+        "title": "Dollar retreats ahead of election; Fed, BOE also in spotlight",
+        "description": "Investing.com - The U.S. dollar retreated Monday amid political uncertainty ahead of Tuesday’s presidential election and with the Federal Reserve expected to cut interest rates...",
+        "published_at": "2024-11-04T09:16:24",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retreats-ahead-of-election-fed-boe-also-in-spotlight-3698808"
+      },
+      {
+        "title": "Asia FX firms as dollar pares recent gains ahead of elections, Fed meeting",
+        "description": "Investing.com-- Most Asian currencies firmed on Monday as the dollar fell sharply from recent highs after soft labor data, with focus turning squarely to the upcoming presidential...",
+        "published_at": "2024-11-04T04:08:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-firms-as-dollar-pares-recent-gains-ahead-of-elections-fed-meeting-3698669"
+      },
+      {
+        "title": "Go long the dollar, BCA says as geopolitical risks to persist",
+        "description": "Investing.com -- BCA Research advises investors to take a tactical long position on the U.S. dollar, highlighting persistent geopolitical risks that position the greenback as a...",
+        "published_at": "2024-11-03T09:00:00",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/go-long-the-dollar-bca-says-as-geopolitical-risks-to-persist-3697709"
+      },
+      {
+        "title": "Dollar rebounds after weak jobs data; traders eye US election",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar rose against the euro and rebounded against most major currencies on Friday after traders digested data...",
+        "published_at": "2024-11-01T18:42:10",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-as-investors-eye-us-jobs-report-election-3696194"
+      },
+      {
+        "title": "Canadian dollar seen higher if economy rebounds: Reuters poll",
+        "description": "By Fergal Smith TORONTO (Reuters) - The Canadian dollar is expected to rally against its U.S. counterpart in the coming year as lower borrowing costs boost the domestic economy...",
+        "published_at": "2024-11-01T11:56:04",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/canadian-dollar-seen-higher-if-economy-rebounds-reuters-poll-3697128"
+      },
+      {
+        "title": "Dollar edges higher ahead of payrolls release; euro slips lower",
+        "description": "Investing.com - The U.S. dollar edged higher Friday, continuing October’s strength, ahead of the release of the widely-watched payrolls report. At 05:35 ET (09:35 GMT), the Dollar...",
+        "published_at": "2024-11-01T09:40:14",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-edges-higher-ahead-of-payrolls-release-euro-slips-lower-3696568"
+      },
+      {
+        "title": "US economic outperformance to keep dollar strong- Reuters poll",
+        "description": "By Sarupya Ganguly BENGALURU (Reuters) - The U.S. dollar will hold on to its recent strength over coming months on robust domestic economic data and continued scaling back of bets...",
+        "published_at": "2024-11-01T00:21:09",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-economic-outperformance-to-keep-dollar-strong-reuters-poll-3696178"
+      },
+      {
+        "title": "Dollar falls against yen, US data leaves rate cut hopes intact",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar fell against the yen on Thursday, after the Bank of Japan's less dovish remarks and U.S. data suggested...",
+        "published_at": "2024-10-31T18:26:08",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-struggles-before-boj-decision-dollar-stalls-ahead-of-jobs-data-3693213"
+      },
+      {
+        "title": "Dollar steadies ahead of payrolls; German retail sales rise",
+        "description": "Investing.com - The U.S. dollar traded in tight ranges Thursday, as traders digested some mixed economic data ahead of the widely-watched payrolls report which closes out the...",
+        "published_at": "2024-10-31T09:41:38",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-payrolls-german-retail-sales-rise-3693542"
+      },
+      {
+        "title": "US dollar softer ahead of election and jobs data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar softened against other major currencies on Wednesday, after stronger-than-expected U.S. data and a UK budget release set off...",
+        "published_at": "2024-10-30T20:12:34",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-dollar-rally-pauses-before-jobs-data-aussie-droops-on-rba-outlook-3689874"
+      },
+      {
+        "title": "Dollar pauses rally ahead of key labor data; euro gains on German GDP",
+        "description": "Investing.com - The U.S. dollar retreated from elevated levels Wednesday, pausing its recent rally ahead of the release of key macroeconomic data that could alter expectations for...",
+        "published_at": "2024-10-30T09:37:09",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-pauses-rally-ahead-of-key-labor-data-euro-gains-on-german-gdp-3690242"
+      },
+      {
+        "title": "Asia FX muted amid rate, election jitters; yen fragile ahead of BOJ",
+        "description": "Investing.com-- Most Asian currencies moved little on Wednesday as the dollar steadied with focus squarely on the upcoming presidential election and a string of key economic...",
+        "published_at": "2024-10-30T04:14:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-amid-rate-election-jitters-yen-fragile-ahead-of-boj-3689947"
+      },
+      {
+        "title": "Dollar peaks against yen ahead of US election and economic data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar hit three-month highs against the yen on Tuesday, but was little changed on the day against most major currencies as traders bided...",
+        "published_at": "2024-10-29T19:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-mired-in-political-uncertainty-dollar-looks-to-key-data-releases-3687116"
+      },
+      {
+        "title": "Dollar steadies ahead of key economic data deluge",
+        "description": "Investing.com - The U.S. dollar steadied at elevated levels Tuesday before the release of a string of key economic readings this week, while Japanese yen remained near a...",
+        "published_at": "2024-10-29T09:28:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-key-economic-data-deluge-3687475"
+      },
+      {
+        "title": "Asia FX softens with econ. data in focus; yen steadies amid intervention talk",
+        "description": "Investing.com-- Most Asian currencies weakened slightly on Tuesday, extending recent losses as traders remained risk-averse before a string of key economic readings this week. The...",
+        "published_at": "2024-10-29T03:50:36",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-softens-with-econ-data-in-focus-yen-steadies-amid-intervention-talk-3687144"
+      },
+      {
+        "title": "Asia FX at risk as dollar firms into US elections- JPM",
+        "description": "Investing.com-- Asian currencies are at risk of further weakness amid recent strength in the dollar, especially if the upcoming U.S. elections result in a Republican sweep,...",
+        "published_at": "2024-10-29T00:09:28",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-at-risk-as-dollar-firms-into-us-elections-jpm-3687096"
+      },
+      {
+        "title": "Dollar likely to end up higher as foreign central banks will step up rate cuts",
+        "description": "Investing.com -- The upcoming U.S. election is set to take the dollar on a wild run, economists at Wells Fargo said, but its eventual path is higher as foreign central bank are...",
+        "published_at": "2024-10-28T21:13:19",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-likely-to-end-up-higher-as-foreign-central-banks-will-step-up-rate-cuts-3686896"
+      },
+      {
+        "title": "Yen under pressure after Japan election",
+        "description": "By Laura Matthews, Tom Westbrook, Stefano Rebaudo NEW YORK/SINGAPORE (Reuters) -The yen hit three-month lows against the dollar on Monday, as Japan's ruling coalition's election...",
+        "published_at": "2024-10-28T14:51:26",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-slips-as-japans-election-result-clouds-boj-rate-hike-prospects-3684767"
+      },
+      {
+        "title": "Will LDP defeat weaken or strengthen the yen?",
+        "description": "Investing.com - The Japanese general election over the weekend saw a political shakeup with the loss of the ruling bloc's parliamentary majority, and Citigroup looks at the...",
+        "published_at": "2024-10-28T13:24:34",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/will-ldp-defeat-weaken-or-strengthen-the-yen-3685773"
+      },
+      {
+        "title": "Dollar steady at start of action-packed week; euro edges higher",
+        "description": "Investing.com - The U.S. dollar steadied Monday, on course for a hefty monthly gain, while the euro was steady at the start of an action-packed week. At 05:35 ET (09:35 GMT), the...",
+        "published_at": "2024-10-28T09:39:06",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steady-at-start-of-actionpacked-week-euro-edges-higher-3685009"
+      },
+      {
+        "title": "Asia FX weakens, yen slides after election quashes rate hike bets",
+        "description": "Investing.com-- Most Asian currencies weakened on Monday with the Japanese yen sliding to a three-month low amid bets that the loss of a parliamentary majority for Japan’s ruling...",
+        "published_at": "2024-10-28T04:05:54",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-yen-slides-after-election-quashes-rate-hike-bets-3684811"
+      },
+      {
+        "title": "Dollar edges lower after data as recent rally stalls",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar slipped for a second straight session, as a recent ascent lost steam, but the greenback was still on track for a fourth...",
+        "published_at": "2024-10-25T15:41:17",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-wobbles-vulnerable-to-political-reverberations-3682390"
+      },
+      {
+        "title": "Dollar on track for weekly gain; next week's payrolls looms large",
+        "description": "Investing.com - The U.S. dollar held largely steady Friday, on course for a fourth straight week of gains, underpinned by falling expectations of aggressive Fed rate cuts as well...",
+        "published_at": "2024-10-25T08:30:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-on-track-for-weekly-gain-next-weeks-payrolls-looms-large-3682528"
+      },
+      {
+        "title": "Asia FX muted as dollar holds weekly gains; yen steady with election in focus",
+        "description": "Investing.com-- Most Asian currencies weakened slightly on Friday as the dollar retained a bulk of its weekly gains on expectations of a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-25T04:08:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-holds-weekly-gains-yen-steady-with-election-in-focus-3682411"
+      },
+      {
+        "title": "Euro, yen climb as dollar rally takes a breather",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The euro and Japanese yen strengthened on Thursday as the U.S. dollar paused after rallying to a nearly three-month high, with the...",
+        "published_at": "2024-10-24T19:35:40",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-stands-tall-on-bets-for-slower-fed-cuts-potential-trump-win-3679168"
+      },
+      {
+        "title": "Harris win could fuel massive forex repricing - Standard Chartered",
+        "description": "Investing.com - The US dollar has risen strongly in October as traders have priced in the rising probability of a Trump win in the betting markets, said Standard Chartered...",
+        "published_at": "2024-10-24T09:13:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/harris-win-could-fuel-massive-forex-repricing--standard-chartered-3679613"
+      },
+      {
+        "title": "Dollar slips from three-month highs; euro gains after PMIs",
+        "description": "Investing.com - The U.S. dollar slipped slightly lower Thursday, but remained close to three-month highs underpinned by expectations for a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-24T08:11:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-threemonth-highs-euro-gains-after-pmis-3679530"
+      },
+      {
+        "title": "Asia FX nurses steep losses with yen near 3-mth low; dollar strong",
+        "description": "Investing.com-- Most Asian currencies steadied from recent losses on Thursday with the Japanese yen remaining close to near three-month lows, while the dollar remained underpinned...",
+        "published_at": "2024-10-24T04:09:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-nurses-steep-losses-with-yen-near-3mth-low-dollar-strong-3679257"
+      },
+      {
+        "title": "Japan warns against 'one-sided' currency moves as yen slides",
+        "description": "By Leika Kihara WASHINGTON (Reuters) - Japanese Finance Minister Katsunobu Kato issued a warning against currency speculation on Wednesday, expressing concern over \"one-sided,...",
+        "published_at": "2024-10-24T03:11:06",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/japan-warns-against-onesided-currency-moves-as-yen-slides-3679226"
+      },
+      {
+        "title": "Dollar continues rally, hits 3-month high vs yen",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed above 153 against the yen for the first time in nearly three months on Wednesday on U.S. economic strength and an...",
+        "published_at": "2024-10-23T19:27:24",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/fed-outlook-pushes-dollar-to-2-12-month-peak-yen-under-pressure-3676507"
+      },
+      {
+        "title": "Dollar rises to highs; political uncertainty spurs safe haven demand",
+        "description": "Investing.com - The U.S. dollar climbed to new highs Wednesday, as uncertainty over U.S. interest rates and the upcoming presidential elections kept the safe haven in demand. At...",
+        "published_at": "2024-10-23T08:16:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-rises-to-highs-political-uncertainty-spurs-safe-haven-demand-3676751"
+      },
+      {
+        "title": "South Korean finance minister views dollar-won near 1,400 as new normal, Yonhap reports",
+        "description": "SEOUL (Reuters) - South Korea's finance minister said the won's current level near 1,400 per dollar should be regarded as a \"new normal\", the Yonhap news agency reported on...",
+        "published_at": "2024-10-23T08:10:36",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/south-korean-finance-minister-views-dollarwon-near-1400-as-new-normal-yonhap-reports-3676748"
+      },
+      {
+        "title": "Asia FX weakens, dollar at near 3-mth high amid rate, election jitters",
+        "description": "Investing.com-- Most Asian currencies weakened on Wednesday as uncertainty over U.S. interest rates and the upcoming presidential elections kept traders risk-averse, while the...",
+        "published_at": "2024-10-23T03:59:32",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-dollar-at-near-3mth-high-amid-rate-election-jitters-3676534"
+      },
+      {
+        "title": "As dollar eyes its biggest October gain in over a decade, BofA says time to fade",
+        "description": "Investing.com -- The dollar is enjoying a three-week win streak and is on track for its biggest October gains in over a decade, but analysts at BofA believe the bullish run is set...",
+        "published_at": "2024-10-23T00:18:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/as-dollar-eyes-its-biggest-october-gain-in-nearly-a-decade-bofa-says-time-to-fade-3676250"
+      },
+      {
+        "title": "Dollar hits to 2-1/2-month peak as US rates, election eyed",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) - The U.S. dollar rose to a fresh 2-1/2-month high on Tuesday, continuing its recent ascent on expectations the Federal Reserve will temper...",
+        "published_at": "2024-10-22T20:11:05",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-at-august-high-on-us-rates-view-election-3674220"
+      },
+      {
+        "title": "UBS sees EUR/USD climbing toward 1.16 by 2025",
+        "description": "On Tuesday, UBS projected a volatile period ahead for the EUR/USD currency pair, with expectations of a gradual rise above 1.10 and toward 1.16 by 2025. \"The US election poses a...",
+        "published_at": "2024-10-22T14:07:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/ubs-sees-eurusd-climbing-toward-116-by-2025-93CH-3675349"
+      },
+      {
+        "title": "Euro could fall 10% on Trump tariffs, tax cuts, Goldman says",
+        "description": "Investing.com -- Recent developments have reinforced the factors supporting the dollar's strength over the past decade but the upcoming US election could significantly alter this...",
+        "published_at": "2024-10-22T10:56:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/euro-could-fall-10-on-trump-tariffs-tax-cuts-goldman-says-3674737"
+      },
+      {
+        "title": "Dollar-positive risks from US election outcome \"moderate\", UBS says",
+        "description": "Investing.com -- The US dollar is generally trading above its implied fair value, potentially hinting at support from a recent uptick in the chances that Donald Trump will win...",
+        "published_at": "2024-10-22T10:13:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollarpositive-risks-from-us-election-outcome-moderate-ubs-says-3674520"
+      },
+      {
+        "title": "Dollar slips from highs; euro gains ahead of ECB speakers",
+        "description": "Investing.com - The U.S. dollar edged lower Tuesday, but remained near recent highs amid uncertainty over the pace of interest rate reductions as the US presidential election draws...",
+        "published_at": "2024-10-22T08:38:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-highs-euro-gains-ahead-of-ecb-speakers-3674388"
+      },
+      {
+        "title": "Asia FX weakens with yen near 3-mth low; dollar firm on rates, election jitters",
+        "description": "Investing.com-- Most Asian currencies moved in a flat-to-low range on Tuesday with the Japanese yen hitting its weakest level since late-July, while the dollar steadied near recent...",
+        "published_at": "2024-10-22T03:40:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-with-yen-near-3mth-low-dollar-firm-on-rates-election-jitters-3674234"
+      },
+      {
+        "title": "Dollar rises in tandem with US rates on economic view",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed on Monday, buoyed by a rise in U.S. bond yields, as a run of solid U.S. economic data suggested the Federal Reserve can...",
+        "published_at": "2024-10-21T19:56:43",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/bitcoin-at-3month-high-as-trump-odds-drive-currencies-3671969"
+      },
+      {
+        "title": "USD/CHF is reaching its upper limit - UBS",
+        "description": "Investing.com - The USD/CHF pair has been on a rollercoaster ride of late, but after a period of US dollar strength UBS thinks the pair may be reaching its upper limit. At 05:20 ET...",
+        "published_at": "2024-10-21T09:21:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/usdchf-is-reaching-its-upper-limit--ubs-3672253"
+      },
+      {
+        "title": "Dollar retains strength on Trump confidence; euro slips after German PPI",
+        "description": "Investing.com - The U.S. dollar edged higher Monday, retaining recent strength as the US presidential election draws near and polls point to a rising likelihood of former President...",
+        "published_at": "2024-10-21T08:38:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retains-strength-on-trump-confidence-euro-slips-after-german-ppi-3672205"
+      },
+      {
+        "title": "Dollar riding return of 'Trump Trade,' but gains will likely be fleeting: UBS",
+        "description": "Investing.com -- The dollar has enjoyed a boost from the return of the \"Trump trade\" as Republican presidential candidate Donald Trump's chances of returning to the White House...",
+        "published_at": "2024-10-18T21:00:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-riding-return-of-trump-trade-but-gains-will-likely-be-fleeting-ubs-3671696"
+      },
+      {
+        "title": "US dollar rally pauses, but uptrend intact; set for 3rd weekly gain",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar fell on Friday, taking a breather after five straight days of gains, as risk appetite increased following yet...",
+        "published_at": "2024-10-18T20:00:44",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-rides-trump-trade-toward-third-weekly-rise-3670036"
+      },
+      {
+        "title": "Dollar to retreat in 2025; try CHF, AUD and GBP - UBS",
+        "description": "Investing.com - Recent US economic data have been on the positive side, enabling the Us dollar regain some lost territory. But UBS warned this outperformance should moderate in...",
+        "published_at": "2024-10-18T13:24:30",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-to-retreat-in-2025-try-chf-aud-and-gbp--ubs-3671065"
+      },
+      {
+        "title": "Barclays sees potential rise in USD/INR amid market headwinds",
+        "description": "Barclays has indicated that the Reserve Bank of India (RBI) seems to be allowing the USD/INR exchange rate to find a new trading range, influenced by various economic factors.  The...",
+        "published_at": "2024-10-18T13:04:35",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/barclays-sees-potential-rise-in-usdinr-amid-market-headwinds-93CH-3671020"
+      },
+      {
+        "title": "This Forex pair could rise by 11% if Trump imposes a 60% tariff on China: Nomura",
+        "description": "Investing.com -- The USD/CNH currency pair could rise by around 11% if former U.S. President Donald Trump is re-elected and implements his proposed tariffs on Chinese imports,...",
+        "published_at": "2024-10-18T10:28:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/this-forex-pair-could-rise-by-11-if-trump-imposes-a-60-tariff-on-china-nomura-3670539"
+      },
+      {
+        "title": "Dollar stabilizes after gains; sterling boosted by retail sales",
+        "description": "Investing.com - The U.S. dollar slipped lower Friday, handing back some of the previous session’s gains on the back of strong retail sales, but remained on track for its third...",
+        "published_at": "2024-10-18T08:41:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
+        "published_at": "2024-10-18T04:16:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
+      },
+      {
+        "title": "Japan top FX diplomat says recent yen moves 'one-sided' in fresh warning",
+        "description": "By Makiko Yamazaki and Rocky Swift TOKYO (Reuters) -Japan's top currency diplomat, Atsushi Mimura, said on Friday that recent currency moves are \"somewhat one-sided and rapid,\" in...",
+        "published_at": "2024-10-18T03:20:48",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/japan-top-fx-diplomat-says-recent-yen-moves-onesided-in-fresh-warning-3670039"
+      },
+      {
+        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
+        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
+        "published_at": "2024-10-17T20:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
+      },
+      {
+        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
+        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
+        "published_at": "2024-10-17T07:45:54",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
+      },
+      {
+        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
+        "published_at": "2024-10-16T20:00:55",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
+      },
+      {
+        "title": "US dollar gains as US election draws nearer - UBS",
+        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
+        "published_at": "2024-10-16T10:35:07",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
+      }
+    ],
+    "XAU_USD": [
+      {
+        "title": "Dollar dips as US voters head to polls",
+        "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
+        "published_at": "2024-11-05T21:15:42",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-on-back-foot-as-trump-trades-unwind-aussie-wary-before-rba-3701038"
+      },
+      {
+        "title": "Gold prices edge higher amid election uncertainty, Fed meeting",
+        "description": "Investing.com -- Gold prices were in holding pattern Tuesday,  ahead of a tight U.S. presidential election and a Federal Reserve meeting. At 3:36 p.m. ET (20:36 GMT), spot gold was...",
+        "published_at": "2024-11-05T20:39:23",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-steady-amid-election-uncertainty-fed-watch-3701170"
+      },
+      {
+        "title": "Oil prices edge up on Gulf of Mexico storm ahead of US election results",
+        "description": "By Scott DiSavino NEW YORK (Reuters) -Oil prices edged up about 1% on Tuesday with a storm expected to cut U.S. output in the Gulf of Mexico and as the U.S. dollar weakened on...",
+        "published_at": "2024-11-05T20:15:38",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/commodities-news/oil-edges-down-ahead-of-us-election-china-npc-meeting-3701029"
+      },
+      {
+        "title": "This is the path for gold prices to hit $3,400/oz: Bernstein",
+        "description": "Investing.com -- Bernstein analysts said in a note this week that gold could potentially reach $3,400 per ounce if U.S. real interest rates drop to zero, driven by fiscal policies...",
+        "published_at": "2024-11-05T15:26:20",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/this-is-the-path-for-gold-prices-to-hit-3400oz-bernstein-3702825"
+      },
+      {
+        "title": "Oil hedging activity hits record in October as traders eye market risks",
+        "description": "By Georgina McCartney HOUSTON (Reuters) - Investors ramped up oil futures and options trading in October to record levels in a bid to hedge growing uncertainty as war rages on in...",
+        "published_at": "2024-11-05T11:17:56",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/commodities-news/oil-hedging-activity-hits-record-in-october-as-traders-eye-market-risks-3701741"
+      },
+      {
+        "title": "Dollar slips as US election arrives; uncertainty reigns",
+        "description": "Investing.com - The U.S. dollar slipped slightly Tuesday, limping into what is likely to be a very close presidential election, the result of which could drive significant foreign...",
+        "published_at": "2024-11-05T09:15:25",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-as-us-election-arrives-uncertainty-reigns-3701450"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies with election in focus; Aussie steady after RBA",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Tuesday, while the dollar steadied from recent losses as focus remained squarely on a tight U.S. presidential race...",
+        "published_at": "2024-11-05T04:10:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-with-election-in-focus-aussie-steady-after-rba-3701133"
+      },
+      {
+        "title": "Dollar slips as traders unwind Trump trades before election",
+        "description": "By Karen Brettell, Medha Singh NEW YORK (Reuters) -The U.S. dollar slipped on Monday as investors pulled out of Trump trades, which have benefited in recent weeks from speculation...",
+        "published_at": "2024-11-04T20:31:06",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-dips-as-us-election-outcome-remains-uncertain-fed-rate-cut-looms-3698581"
+      },
+      {
+        "title": "Gold prices slightly higher amid election uncertainty, weaker dollar",
+        "description": "Investing.com-- Gold prices were slightly higher Monday, as election uncertainty and a weaker dollar continued to support a bid in the yellow metal.   Spot gold rose 0.1% to...",
+        "published_at": "2024-11-04T20:03:25",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-rise-with-elections-fed-meeting-in-focus-3698678"
+      },
+      {
+        "title": "Brazil prepares to remove illegal Amazon gold miners from Munduruku land",
+        "description": "By Ricardo Brito BRASILIA (Reuters) - Brazilian authorities are preparing to remove illegal gold miners from an Indigenous reservation in the Amazon (NASDAQ:AMZN) rainforest that...",
+        "published_at": "2024-11-04T16:05:27",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/commodities-news/brazil-prepares-to-remove-illegal-amazon-gold-miners-from-munduruku-land-3699947"
+      },
+      {
+        "title": "Dollar retreats ahead of election; Fed, BOE also in spotlight",
+        "description": "Investing.com - The U.S. dollar retreated Monday amid political uncertainty ahead of Tuesday’s presidential election and with the Federal Reserve expected to cut interest rates...",
+        "published_at": "2024-11-04T09:16:24",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retreats-ahead-of-election-fed-boe-also-in-spotlight-3698808"
+      },
+      {
+        "title": "Asia FX firms as dollar pares recent gains ahead of elections, Fed meeting",
+        "description": "Investing.com-- Most Asian currencies firmed on Monday as the dollar fell sharply from recent highs after soft labor data, with focus turning squarely to the upcoming presidential...",
+        "published_at": "2024-11-04T04:08:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-firms-as-dollar-pares-recent-gains-ahead-of-elections-fed-meeting-3698669"
+      },
+      {
+        "title": "Go long the dollar, BCA says as geopolitical risks to persist",
+        "description": "Investing.com -- BCA Research advises investors to take a tactical long position on the U.S. dollar, highlighting persistent geopolitical risks that position the greenback as a...",
+        "published_at": "2024-11-03T09:00:00",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/go-long-the-dollar-bca-says-as-geopolitical-risks-to-persist-3697709"
+      },
+      {
+        "title": "Options markets brace for US election Forex risk with volatility spike",
+        "description": "Options markets indicated a sharp increase in implied volatility, particularly as the tenor of the options included the upcoming U.S. election. Currencies such as the Euro (EUR),...",
+        "published_at": "2024-11-03T08:00:00",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/options-markets-brace-for-us-election-forex-risk-with-volatility-spike-3697933"
+      },
+      {
+        "title": "Dollar rebounds after weak jobs data; traders eye US election",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar rose against the euro and rebounded against most major currencies on Friday after traders digested data...",
+        "published_at": "2024-11-01T18:42:10",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-as-investors-eye-us-jobs-report-election-3696194"
+      },
+      {
+        "title": "Canadian dollar seen higher if economy rebounds: Reuters poll",
+        "description": "By Fergal Smith TORONTO (Reuters) - The Canadian dollar is expected to rally against its U.S. counterpart in the coming year as lower borrowing costs boost the domestic economy...",
+        "published_at": "2024-11-01T11:56:04",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/canadian-dollar-seen-higher-if-economy-rebounds-reuters-poll-3697128"
+      },
+      {
+        "title": "Dollar edges higher ahead of payrolls release; euro slips lower",
+        "description": "Investing.com - The U.S. dollar edged higher Friday, continuing October’s strength, ahead of the release of the widely-watched payrolls report. At 05:35 ET (09:35 GMT), the Dollar...",
+        "published_at": "2024-11-01T09:40:14",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-edges-higher-ahead-of-payrolls-release-euro-slips-lower-3696568"
+      },
+      {
+        "title": "US economic outperformance to keep dollar strong- Reuters poll",
+        "description": "By Sarupya Ganguly BENGALURU (Reuters) - The U.S. dollar will hold on to its recent strength over coming months on robust domestic economic data and continued scaling back of bets...",
+        "published_at": "2024-11-01T00:21:09",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-economic-outperformance-to-keep-dollar-strong-reuters-poll-3696178"
+      },
+      {
+        "title": "Dollar falls against yen, US data leaves rate cut hopes intact",
+        "description": "By Saqib Iqbal Ahmed and Laura Matthews NEW YORK (Reuters) -The dollar fell against the yen on Thursday, after the Bank of Japan's less dovish remarks and U.S. data suggested...",
+        "published_at": "2024-10-31T18:26:08",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-struggles-before-boj-decision-dollar-stalls-ahead-of-jobs-data-3693213"
+      },
+      {
+        "title": "Gold edges lower after US inflation data; near record highs",
+        "description": "Investing.com -- Gold prices slipped lower Thursday, but remained just below record levels as political uncertainty spurred safe haven demand ahead of the week's key economic...",
+        "published_at": "2024-10-31T13:24:35",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-steady-near-record-high-with-econ-data-us-elections-in-focus-3693419"
+      },
+      {
+        "title": "Beyond the hedge: How C3 funds is turning gold into a cash cow",
+        "description": "Investing.com -- In a recent interview, Investing.com spoke with Luciano Duque, the Chief Investment Officer of C3 Bullion, and Christopher Werner, the chairman and CEO of C3...",
+        "published_at": "2024-10-31T13:08:06",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/beyond-the-hedge-how-c3-funds-is-turning-gold-into-a-cash-cow-3694587"
+      },
+      {
+        "title": "Oil prices rise on benign US inflation, inventory draw,",
+        "description": "Investing.com -- Oil prices rose Thursday, extending gains from the prior session on the back of benign inflation as well as an unexpected draw in U.S. gasoline inventories, which...",
+        "published_at": "2024-10-31T12:52:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/oil-prices-rise-on-us-inventory-draw-opec-output-hike-delay-3693428"
+      },
+      {
+        "title": "Strategist sees additional upside for  Bitcoin and gold prices if Trump wins",
+        "description": "Investing.com -- JPMorgan strategists said in a note Thursday that Bitcoin and gold could see significant gains if former President Donald Trump wins the upcoming U.S. election, as...",
+        "published_at": "2024-10-31T10:28:15",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/strategist-sees-additional-upside-for--bitcoin-and-gold-prices-if-trump-wins-3693799"
+      },
+      {
+        "title": "Dollar steadies ahead of payrolls; German retail sales rise",
+        "description": "Investing.com - The U.S. dollar traded in tight ranges Thursday, as traders digested some mixed economic data ahead of the widely-watched payrolls report which closes out the...",
+        "published_at": "2024-10-31T09:41:38",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-payrolls-german-retail-sales-rise-3693542"
+      },
+      {
+        "title": "US dollar softer ahead of election and jobs data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar softened against other major currencies on Wednesday, after stronger-than-expected U.S. data and a UK budget release set off...",
+        "published_at": "2024-10-30T20:12:34",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/us-dollar-rally-pauses-before-jobs-data-aussie-droops-on-rba-outlook-3689874"
+      },
+      {
+        "title": "Gold prices hit record high amid election uncertainty",
+        "description": "Investing.com-- Gold prices climbed at a record high Wednesday as safe haven demand was boosted by increased political uncertainty in the U.S. and Japan.  The yellow metal had a...",
+        "published_at": "2024-10-30T19:51:53",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-hit-record-high-amid-election-jitters-rate-uncertainty-3689873"
+      },
+      {
+        "title": "Dollar pauses rally ahead of key labor data; euro gains on German GDP",
+        "description": "Investing.com - The U.S. dollar retreated from elevated levels Wednesday, pausing its recent rally ahead of the release of key macroeconomic data that could alter expectations for...",
+        "published_at": "2024-10-30T09:37:09",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-pauses-rally-ahead-of-key-labor-data-euro-gains-on-german-gdp-3690242"
+      },
+      {
+        "title": "Asia FX muted amid rate, election jitters; yen fragile ahead of BOJ",
+        "description": "Investing.com-- Most Asian currencies moved little on Wednesday as the dollar steadied with focus squarely on the upcoming presidential election and a string of key economic...",
+        "published_at": "2024-10-30T04:14:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-amid-rate-election-jitters-yen-fragile-ahead-of-boj-3689947"
+      },
+      {
+        "title": "Dollar peaks against yen ahead of US election and economic data",
+        "description": "By Laura Matthews NEW YORK (Reuters) -The dollar hit three-month highs against the yen on Tuesday, but was little changed on the day against most major currencies as traders bided...",
+        "published_at": "2024-10-29T19:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-mired-in-political-uncertainty-dollar-looks-to-key-data-releases-3687116"
+      },
+      {
+        "title": "Gold prices touch fresh record high amid election uncertainty, economic data",
+        "description": "Investing.com -- Gold prices touched a fresh record high on Tuesday, as safe haven demand for the yellow metal was supported by weaker economic data and uncertainty in the run-up...",
+        "published_at": "2024-10-29T18:06:54",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-rise-record-highs-close-amid-election-rate-uncertainty-3687222"
+      },
+      {
+        "title": "Dollar steadies ahead of key economic data deluge",
+        "description": "Investing.com - The U.S. dollar steadied at elevated levels Tuesday before the release of a string of key economic readings this week, while Japanese yen remained near a...",
+        "published_at": "2024-10-29T09:28:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steadies-ahead-of-key-economic-data-deluge-3687475"
+      },
+      {
+        "title": "Asia FX softens with econ. data in focus; yen steadies amid intervention talk",
+        "description": "Investing.com-- Most Asian currencies weakened slightly on Tuesday, extending recent losses as traders remained risk-averse before a string of key economic readings this week. The...",
+        "published_at": "2024-10-29T03:50:36",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-softens-with-econ-data-in-focus-yen-steadies-amid-intervention-talk-3687144"
+      },
+      {
+        "title": "Asia FX at risk as dollar firms into US elections- JPM",
+        "description": "Investing.com-- Asian currencies are at risk of further weakness amid recent strength in the dollar, especially if the upcoming U.S. elections result in a Republican sweep,...",
+        "published_at": "2024-10-29T00:09:28",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-at-risk-as-dollar-firms-into-us-elections-jpm-3687096"
+      },
+      {
+        "title": "Dollar likely to end up higher as foreign central banks will step up rate cuts",
+        "description": "Investing.com -- The upcoming U.S. election is set to take the dollar on a wild run, economists at Wells Fargo said, but its eventual path is higher as foreign central bank are...",
+        "published_at": "2024-10-28T21:13:19",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-likely-to-end-up-higher-as-foreign-central-banks-will-step-up-rate-cuts-3686896"
+      },
+      {
+        "title": "Gold prices pare losses despite easing Middle East risks",
+        "description": "Investing.com-- Gold prices pared earlier losses to remain record highs in Asian trade on Monday as easing concerns over a bigger conflict in the Middle East dented safe haven...",
+        "published_at": "2024-10-28T17:23:21",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-fall-as-easing-meast-risks-dent-haven-demand-3684837"
+      },
+      {
+        "title": "Yen under pressure after Japan election",
+        "description": "By Laura Matthews, Tom Westbrook, Stefano Rebaudo NEW YORK/SINGAPORE (Reuters) -The yen hit three-month lows against the dollar on Monday, as Japan's ruling coalition's election...",
+        "published_at": "2024-10-28T14:51:26",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-slips-as-japans-election-result-clouds-boj-rate-hike-prospects-3684767"
+      },
+      {
+        "title": "Oil prices slump; limited Israeli strike sees risk premium fall away",
+        "description": "Investing.com-- Oil prices fell sharply Monday, as the weekend's Israeli strike against Iran avoided oil and nuclear facilities, making the future disruption of energy supplies...",
+        "published_at": "2024-10-28T12:54:33",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/oil-prices-slide-4-after-israel-strike-on-iran-less-severe-than-feared-3684777"
+      },
+      {
+        "title": "Dollar steady at start of action-packed week; euro edges higher",
+        "description": "Investing.com - The U.S. dollar steadied Monday, on course for a hefty monthly gain, while the euro was steady at the start of an action-packed week. At 05:35 ET (09:35 GMT), the...",
+        "published_at": "2024-10-28T09:39:06",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-steady-at-start-of-actionpacked-week-euro-edges-higher-3685009"
+      },
+      {
+        "title": "Oil prices notch positive week amid ongoing Middle East tensions",
+        "description": "Investing.com -- Oil prices settled higher Friday, wrapping up a positive  week as persistent concerns over the Middle East conflict kept a risk premium in play.  At 2:30 p.m. ET...",
+        "published_at": "2024-10-25T20:01:41",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/oil-prices-rise-head-for-weekly-gains-on-meast-tensions-3682389"
+      },
+      {
+        "title": "Oil settles up, weekly gain 4% as investors weigh Middle East risk and US election",
+        "description": "By Georgina McCartney HOUSTON (Reuters) -Oil prices settled higher on Friday and gained 4% on the week, with investors taking stock of the ongoing conflict in the Middle East as...",
+        "published_at": "2024-10-25T19:05:43",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/commodities-news/oil-heads-for-weekly-gain-as-middle-east-tensions-keep-traders-on-edge-3682381"
+      },
+      {
+        "title": "UBS continues to rate gold as 'attractive' despite year-to-end rally",
+        "description": "XAU/USD prices hit a new all-time high, marking the metal's sixth weekly gain in the past seven weeks. This year alone, gold has seen a 32% increase in value, spurred by a...",
+        "published_at": "2024-10-25T16:44:38",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/ubs-continues-to-rate-gold-as-attractive-despite-yeartoend-rally-3683960"
+      },
+      {
+        "title": "Dollar edges lower after data as recent rally stalls",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar slipped for a second straight session, as a recent ascent lost steam, but the greenback was still on track for a fourth...",
+        "published_at": "2024-10-25T15:41:17",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/yen-wobbles-vulnerable-to-political-reverberations-3682390"
+      },
+      {
+        "title": "Dollar on track for weekly gain; next week's payrolls looms large",
+        "description": "Investing.com - The U.S. dollar held largely steady Friday, on course for a fourth straight week of gains, underpinned by falling expectations of aggressive Fed rate cuts as well...",
+        "published_at": "2024-10-25T08:30:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-on-track-for-weekly-gain-next-weeks-payrolls-looms-large-3682528"
+      },
+      {
+        "title": "Gold prices fall but record highs remain in sight",
+        "description": "Investing.com-- Gold prices fell slightly in Asian trade on Friday, remaining in sight of record highs hit earlier this week as anticipation of a tight U.S. presidential election...",
+        "published_at": "2024-10-25T05:05:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-fall-but-record-highs-remain-in-sight-3682437"
+      },
+      {
+        "title": "Asia FX muted as dollar holds weekly gains; yen steady with election in focus",
+        "description": "Investing.com-- Most Asian currencies weakened slightly on Friday as the dollar retained a bulk of its weekly gains on expectations of a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-25T04:08:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-holds-weekly-gains-yen-steady-with-election-in-focus-3682411"
+      },
+      {
+        "title": "Japan, US finance chiefs discussed FX moves in bilateral meeting, official says",
+        "description": "By Leika Kihara WASHINGTON (Reuters) -Japanese Finance Minister Katsunobu Kato and U.S. Treasury Secretary Janet Yellen discussed recent exchange-rate moves, among other topics,...",
+        "published_at": "2024-10-24T23:50:41",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/japan-us-finance-chiefs-discussed-fx-moves-in-bilateral-meeting-3682263"
+      },
+      {
+        "title": "Euro, yen climb as dollar rally takes a breather",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The euro and Japanese yen strengthened on Thursday as the U.S. dollar paused after rallying to a nearly three-month high, with the...",
+        "published_at": "2024-10-24T19:35:40",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-stands-tall-on-bets-for-slower-fed-cuts-potential-trump-win-3679168"
+      },
+      {
+        "title": "Harris win could fuel massive forex repricing - Standard Chartered",
+        "description": "Investing.com - The US dollar has risen strongly in October as traders have priced in the rising probability of a Trump win in the betting markets, said Standard Chartered...",
+        "published_at": "2024-10-24T09:13:08",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/harris-win-could-fuel-massive-forex-repricing--standard-chartered-3679613"
+      },
+      {
+        "title": "Dollar slips from three-month highs; euro gains after PMIs",
+        "description": "Investing.com - The U.S. dollar slipped slightly lower Thursday, but remained close to three-month highs underpinned by expectations for a slower pace of interest rate cuts by the...",
+        "published_at": "2024-10-24T08:11:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-threemonth-highs-euro-gains-after-pmis-3679530"
+      },
+      {
+        "title": "Gold prices rise after falling from record highs amid rate, election jitters",
+        "description": "Investing.com-- Gold prices rose slightly in Asian trade on Thursday, but were nursing a tumble from record highs as anxiety over the U.S. election and a shifting outlook for...",
+        "published_at": "2024-10-24T04:52:55",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-rise-after-falling-from-record-highs-amid-rate-election-jitters-3679283"
+      },
+      {
+        "title": "Asia FX nurses steep losses with yen near 3-mth low; dollar strong",
+        "description": "Investing.com-- Most Asian currencies steadied from recent losses on Thursday with the Japanese yen remaining close to near three-month lows, while the dollar remained underpinned...",
+        "published_at": "2024-10-24T04:09:04",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-nurses-steep-losses-with-yen-near-3mth-low-dollar-strong-3679257"
+      },
+      {
+        "title": "Dollar continues rally, hits 3-month high vs yen",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed above 153 against the yen for the first time in nearly three months on Wednesday on U.S. economic strength and an...",
+        "published_at": "2024-10-23T19:27:24",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/fed-outlook-pushes-dollar-to-2-12-month-peak-yen-under-pressure-3676507"
+      },
+      {
+        "title": "Dollar rises to highs; political uncertainty spurs safe haven demand",
+        "description": "Investing.com - The U.S. dollar climbed to new highs Wednesday, as uncertainty over U.S. interest rates and the upcoming presidential elections kept the safe haven in demand. At...",
+        "published_at": "2024-10-23T08:16:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-rises-to-highs-political-uncertainty-spurs-safe-haven-demand-3676751"
+      },
+      {
+        "title": "South Korean finance minister views dollar-won near 1,400 as new normal, Yonhap reports",
+        "description": "SEOUL (Reuters) - South Korea's finance minister said the won's current level near 1,400 per dollar should be regarded as a \"new normal\", the Yonhap news agency reported on...",
+        "published_at": "2024-10-23T08:10:36",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/south-korean-finance-minister-views-dollarwon-near-1400-as-new-normal-yonhap-reports-3676748"
+      },
+      {
+        "title": "Asia FX weakens, dollar at near 3-mth high amid rate, election jitters",
+        "description": "Investing.com-- Most Asian currencies weakened on Wednesday as uncertainty over U.S. interest rates and the upcoming presidential elections kept traders risk-averse, while the...",
+        "published_at": "2024-10-23T03:59:32",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-dollar-at-near-3mth-high-amid-rate-election-jitters-3676534"
+      },
+      {
+        "title": "As dollar eyes its biggest October gain in over a decade, BofA says time to fade",
+        "description": "Investing.com -- The dollar is enjoying a three-week win streak and is on track for its biggest October gains in over a decade, but analysts at BofA believe the bullish run is set...",
+        "published_at": "2024-10-23T00:18:49",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/as-dollar-eyes-its-biggest-october-gain-in-nearly-a-decade-bofa-says-time-to-fade-3676250"
+      },
+      {
+        "title": "Dollar hits to 2-1/2-month peak as US rates, election eyed",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) - The U.S. dollar rose to a fresh 2-1/2-month high on Tuesday, continuing its recent ascent on expectations the Federal Reserve will temper...",
+        "published_at": "2024-10-22T20:11:05",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-steady-at-august-high-on-us-rates-view-election-3674220"
+      },
+      {
+        "title": "South African rand supported by carry trade and precious metals",
+        "description": "JOHANNESBURG (Reuters) -The South African rand was stronger on Tuesday, buoyed by global precious metals prices and its appeal for carry trades. At 1502 GMT, the rand traded at...",
+        "published_at": "2024-10-22T15:37:11",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/south-african-rand-supported-by-carry-trade-and-precious-metals-3674391"
+      },
+      {
+        "title": "UBS sees EUR/USD climbing toward 1.16 by 2025",
+        "description": "On Tuesday, UBS projected a volatile period ahead for the EUR/USD currency pair, with expectations of a gradual rise above 1.10 and toward 1.16 by 2025. \"The US election poses a...",
+        "published_at": "2024-10-22T14:07:01",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/ubs-sees-eurusd-climbing-toward-116-by-2025-93CH-3675349"
+      },
+      {
+        "title": "Euro could fall 10% on Trump tariffs, tax cuts, Goldman says",
+        "description": "Investing.com -- Recent developments have reinforced the factors supporting the dollar's strength over the past decade but the upcoming US election could significantly alter this...",
+        "published_at": "2024-10-22T10:56:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/euro-could-fall-10-on-trump-tariffs-tax-cuts-goldman-says-3674737"
+      },
+      {
+        "title": "Dollar-positive risks from US election outcome \"moderate\", UBS says",
+        "description": "Investing.com -- The US dollar is generally trading above its implied fair value, potentially hinting at support from a recent uptick in the chances that Donald Trump will win...",
+        "published_at": "2024-10-22T10:13:57",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollarpositive-risks-from-us-election-outcome-moderate-ubs-says-3674520"
+      },
+      {
+        "title": "Goldman Sachs says euro could drop 10% under Trump tariffs and tax cuts",
+        "description": "By Harry Robertson LONDON (Reuters) - Goldman Sachs said on Tuesday the euro could fall as much as 10% - implying a drop below $1 from current levels - in a scenario in which...",
+        "published_at": "2024-10-22T09:16:19",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/forex-news/goldman-sachs-says-euro-could-drop-10-under-trump-tariffs-and-tax-cuts-3674395"
+      },
+      {
+        "title": "Dollar slips from highs; euro gains ahead of ECB speakers",
+        "description": "Investing.com - The U.S. dollar edged lower Tuesday, but remained near recent highs amid uncertainty over the pace of interest rate reductions as the US presidential election draws...",
+        "published_at": "2024-10-22T08:38:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-slips-from-highs-euro-gains-ahead-of-ecb-speakers-3674388"
+      },
+      {
+        "title": "Asia FX weakens with yen near 3-mth low; dollar firm on rates, election jitters",
+        "description": "Investing.com-- Most Asian currencies moved in a flat-to-low range on Tuesday with the Japanese yen hitting its weakest level since late-July, while the dollar steadied near recent...",
+        "published_at": "2024-10-22T03:40:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-weakens-with-yen-near-3mth-low-dollar-firm-on-rates-election-jitters-3674234"
+      },
+      {
+        "title": "Dollar rises in tandem with US rates on economic view",
+        "description": "By Chuck Mikolajczak NEW YORK (Reuters) -The dollar climbed on Monday, buoyed by a rise in U.S. bond yields, as a run of solid U.S. economic data suggested the Federal Reserve can...",
+        "published_at": "2024-10-21T19:56:43",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/bitcoin-at-3month-high-as-trump-odds-drive-currencies-3671969"
+      },
+      {
+        "title": "USD/CHF is reaching its upper limit - UBS",
+        "description": "Investing.com - The USD/CHF pair has been on a rollercoaster ride of late, but after a period of US dollar strength UBS thinks the pair may be reaching its upper limit. At 05:20 ET...",
+        "published_at": "2024-10-21T09:21:12",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/usdchf-is-reaching-its-upper-limit--ubs-3672253"
+      },
+      {
+        "title": "Dollar retains strength on Trump confidence; euro slips after German PPI",
+        "description": "Investing.com - The U.S. dollar edged higher Monday, retaining recent strength as the US presidential election draws near and polls point to a rising likelihood of former President...",
+        "published_at": "2024-10-21T08:38:43",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-retains-strength-on-trump-confidence-euro-slips-after-german-ppi-3672205"
+      },
+      {
+        "title": "Asia FX muted, yuan steady after China rate cut",
+        "description": "Investing.com-- Most Asian currencies moved in a tight range on Monday, with the yuan steady after the People’s Bank cut interest rates slightly more than expected, while the...",
+        "published_at": "2024-10-21T03:42:53",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-yuan-steady-after-china-rate-cut-3671987"
+      },
+      {
+        "title": "Dollar riding return of 'Trump Trade,' but gains will likely be fleeting: UBS",
+        "description": "Investing.com -- The dollar has enjoyed a boost from the return of the \"Trump trade\" as Republican presidential candidate Donald Trump's chances of returning to the White House...",
+        "published_at": "2024-10-18T21:00:03",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-riding-return-of-trump-trade-but-gains-will-likely-be-fleeting-ubs-3671696"
+      },
+      {
+        "title": "US dollar rally pauses, but uptrend intact; set for 3rd weekly gain",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar fell on Friday, taking a breather after five straight days of gains, as risk appetite increased following yet...",
+        "published_at": "2024-10-18T20:00:44",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-rides-trump-trade-toward-third-weekly-rise-3670036"
+      },
+      {
+        "title": "Dollar to retreat in 2025; try CHF, AUD and GBP - UBS",
+        "description": "Investing.com - Recent US economic data have been on the positive side, enabling the Us dollar regain some lost territory. But UBS warned this outperformance should moderate in...",
+        "published_at": "2024-10-18T13:24:30",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-to-retreat-in-2025-try-chf-aud-and-gbp--ubs-3671065"
+      },
+      {
+        "title": "Barclays sees potential rise in USD/INR amid market headwinds",
+        "description": "Barclays has indicated that the Reserve Bank of India (RBI) seems to be allowing the USD/INR exchange rate to find a new trading range, influenced by various economic factors.  The...",
+        "published_at": "2024-10-18T13:04:35",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/barclays-sees-potential-rise-in-usdinr-amid-market-headwinds-93CH-3671020"
+      },
+      {
+        "title": "This Forex pair could rise by 11% if Trump imposes a 60% tariff on China: Nomura",
+        "description": "Investing.com -- The USD/CNH currency pair could rise by around 11% if former U.S. President Donald Trump is re-elected and implements his proposed tariffs on Chinese imports,...",
+        "published_at": "2024-10-18T10:28:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/this-forex-pair-could-rise-by-11-if-trump-imposes-a-60-tariff-on-china-nomura-3670539"
+      },
+      {
+        "title": "Dollar stabilizes after gains; sterling boosted by retail sales",
+        "description": "Investing.com - The U.S. dollar slipped lower Friday, handing back some of the previous session’s gains on the back of strong retail sales, but remained on track for its third...",
+        "published_at": "2024-10-18T08:41:45",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
+      },
+      {
+        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
+        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
+        "published_at": "2024-10-18T04:16:17",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
+      },
+      {
+        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
+        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
+        "published_at": "2024-10-17T20:36:16",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
+      },
+      {
+        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
+        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
+        "published_at": "2024-10-17T07:45:54",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
+      },
+      {
+        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
+        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
+        "published_at": "2024-10-16T20:00:55",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
+      },
+      {
+        "title": "US dollar gains as US election draws nearer - UBS",
+        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
+        "published_at": "2024-10-16T10:35:07",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
+      }
+    ]
+  }
+}

@@ -2,6 +2,7 @@ from oanda_data import OandaDataFetcher
 from models.data_processor import ForexDataset, update_saved_scalers
 from models.lstm_model import ForexLSTM
 from models.trainer import ModelTrainer
+from models.model_manager import ModelManager
 from sentiment.news_manager import NewsManager
 from strategy.base_strategy import BaseStrategy
 import torch
@@ -282,9 +283,25 @@ class PositionManager:
 class ForexAnalyzer:
     def __init__(self):
         self.data_fetcher = OandaDataFetcher()
-        self.position_manager = PositionManager(self.data_fetcher)
+        
+        # Initialize data processor with initial data
+        initial_data = {}
+        for pair in config.CURRENCY_PAIRS:
+            data = self.data_fetcher.fetch_historical_data(
+                instrument=pair,
+                count=200,
+                granularity="M5"
+            )
+            if data is not None:
+                initial_data[pair] = data
+        
+        # Initialize with data to fit the scalers
+        self.data_processor = ForexDataset(data=initial_data[config.CURRENCY_PAIRS[0]])
+        
         self.news_manager = NewsManager()
         self.strategy = BaseStrategy()
+        self.position_manager = PositionManager(self.data_fetcher)
+        self.model_manager = ModelManager()
         self.previous_predictions = {}
         self.trainers = {
             pair: ReinforcementTrainer(pair) 
@@ -523,6 +540,14 @@ class ForexAnalyzer:
         """Full analysis including opening new positions - runs every 15 minutes"""
         try:
             print(f"\nFull Analysis - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            
+            # First update models with latest data
+            for pair in config.CURRENCY_PAIRS:
+                update_model_with_latest_data(
+                    currency_pair=pair,
+                    oanda_fetcher=self.data_fetcher,
+                    data_processor=self.data_processor
+                )
             
             # Run analysis for all pairs
             analyses = []
