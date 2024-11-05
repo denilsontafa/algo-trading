@@ -86,14 +86,32 @@ class ReinforcementTrainer:
         }
 
 def update_model_with_latest_data(currency_pair, oanda_fetcher, data_processor):
-    """
-    Function to be called every 15 minutes to update the model
-    """
+    """Function to update model with data from the last 15 minutes"""
     try:
-        # Initialize reinforcement trainer
-        rl_trainer = ReinforcementTrainer(currency_pair)
+        # Calculate time window
+        end_time = datetime.now()
+        start_time = end_time - timedelta(minutes=15)
         
-        # Load the current model
+        print(f"\nUpdating model for {currency_pair}")
+        print(f"Time window: {start_time.strftime('%Y-%m-%d %H:%M:%S')} to {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+        
+        # Get training window data (60 periods for context + last 15 min)
+        training_data = oanda_fetcher.fetch_historical_data(
+            instrument=currency_pair,
+            count=65,  # 60 for context + 5 for last 15 min (M3 granularity)
+            granularity="M3"  # Use M3 granularity for more precise updates
+        )
+        
+        if training_data is None or len(training_data) < 65:
+            print(f"Insufficient training data for {currency_pair}")
+            return None
+            
+        # Split data into context and recent
+        context_data = training_data[:-5]  # First 60 periods
+        recent_data = training_data[-5:]   # Last 5 periods (15 minutes)
+        
+        # Initialize trainer and load model
+        rl_trainer = ReinforcementTrainer(currency_pair)
         model_manager = ModelManager()
         model, metrics = model_manager.load_model(currency_pair)
         
@@ -103,33 +121,47 @@ def update_model_with_latest_data(currency_pair, oanda_fetcher, data_processor):
             
         model.to(rl_trainer.device)
         
-        # Get latest data
-        latest_data = oanda_fetcher.fetch_historical_data(
-            instrument=currency_pair,
-            count=61  # 60 for sequence + 1 for the actual outcome
-        )
+        # Process context data
+        processed_context = data_processor.process_data(context_data)
         
-        if latest_data is None or len(latest_data) < 61:
-            raise ValueError("Insufficient data fetched")
+        # Get actual outcomes from recent data
+        actual_outcomes = recent_data['close'].values
         
-        # Process the data
-        processed_data = data_processor.process_data(latest_data[:-1])  # All except last point
-        actual_outcome = latest_data.iloc[-1]['close']  # Last point is the actual outcome
+        # Perform reinforcement learning updates
+        results = []
+        for i, actual_price in enumerate(actual_outcomes):
+            # Make prediction using context
+            with torch.no_grad():
+                prediction = model(processed_context)
+                
+            # Calculate reward and update model
+            result = rl_trainer.reinforce_model(
+                model=model,
+                latest_data=processed_context,
+                actual_outcome=actual_price
+            )
+            results.append(result)
+            
+            # Update context for next prediction
+            if i < len(actual_outcomes) - 1:
+                new_data = recent_data.iloc[i:i+1]
+                processed_new = data_processor.process_data(new_data)
+                processed_context = torch.cat([processed_context[1:], processed_new], dim=0)
         
-        # Reinforce the model
-        results = rl_trainer.reinforce_model(
-            model=model,
-            latest_data=processed_data,
-            actual_outcome=actual_outcome
-        )
+        # Calculate average metrics
+        avg_results = {
+            'reward': np.mean([r['reward'] for r in results]),
+            'loss': np.mean([r['loss'] for r in results]),
+            'prediction_error': np.mean([abs(r['prediction'] - r['actual']) for r in results])
+        }
         
         print(f"\nModel Update Results for {currency_pair}:")
-        print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print(f"Reward: {results['reward']:.6f}")
-        print(f"Loss: {results['loss']:.6f}")
-        print(f"Prediction Error: {abs(results['prediction'] - results['actual']):.6f}")
+        print(f"Updates performed: {len(results)}")
+        print(f"Average Reward: {avg_results['reward']:.6f}")
+        print(f"Average Loss: {avg_results['loss']:.6f}")
+        print(f"Average Prediction Error: {avg_results['prediction_error']:.6f}")
         
-        return results
+        return avg_results
         
     except Exception as e:
         print(f"Error updating model for {currency_pair}: {str(e)}")

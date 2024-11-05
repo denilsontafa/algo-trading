@@ -73,19 +73,32 @@ class OandaDataFetcher:
             print(f"Error getting open trades: {str(e)}")
             return []
 
-    def fetch_historical_data(self, 
-                            instrument=config.INSTRUMENT, 
-                            granularity=config.GRANULARITY, 
-                            count=config.CANDLE_COUNT):
-        """Fetch historical candlestick data from OANDA"""
+    def fetch_historical_data(self, instrument: str, count: int = None, 
+                             granularity: str = None, start_time: datetime = None,
+                             end_time: datetime = None) -> pd.DataFrame:
+        """
+        Fetch historical candlestick data from OANDA
+        Can specify either count or time window (start_time and end_time)
+        """
         params = {
-            "count": count,
-            "granularity": granularity,
+            "granularity": granularity or config.GRANULARITY,
             "price": "M"
         }
         
+        # Handle time window if specified
+        if start_time and end_time:
+            params["from"] = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+            params["to"] = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+        else:
+            params["count"] = count or config.CANDLE_COUNT
+        
         try:
-            print(f"Fetching {count} candles of {granularity} data for {instrument}...")
+            print(f"Fetching {granularity} data for {instrument}...")
+            if start_time and end_time:
+                print(f"Time window: {start_time} to {end_time}")
+            else:
+                print(f"Count: {params.get('count')} candles")
+                
             r = instruments.InstrumentsCandles(instrument=instrument, params=params)
             self.client.request(r)
             
@@ -100,15 +113,15 @@ class OandaDataFetcher:
                         'close': float(candle['mid']['c']),
                         'volume': int(candle['volume'])
                     })
-                    
+            
             df = pd.DataFrame(data)
-            if len(df) > 0:
-                df.set_index('timestamp', inplace=True)
-                return df
-            else:
-                print("No data received from OANDA")
+            if len(df) == 0:
+                print(f"No data received from OANDA for {instrument}")
                 return None
+                
+            df.set_index('timestamp', inplace=True)
+            return df
             
         except Exception as e:
-            print(f"Error fetching data: {str(e)}")
+            print(f"Error fetching data for {instrument}: {str(e)}")
             return None
