@@ -128,20 +128,35 @@ class PositionManager:
     def _should_close_position(self, position: Dict) -> bool:
         """Determine if a position should be closed"""
         try:
-            # Take Profit (0.6%)
+            # Take Profit (0.3%)
             if position['pnl_pct'] >= self.profit_target_pct:
-                print(f"Closing position: Profit target {self.profit_target_pct:.1%} reached")
+                print(f"Closing position: Profit target 0.3% reached")
                 return True
             
-            # Tighter Stop Loss (0.3%)
-            if position['pnl_pct'] <= self.stop_loss_pct:  # Changed from -0.005
-                print(f"Closing position: Stop loss 0.3% hit")
+            # Stop Loss (0.15%)
+            if position['pnl_pct'] <= -self.stop_loss_pct:
+                print(f"Closing position: Stop loss 0.15% hit")
                 return True
             
             # Trailing stop when in profit
             if position['pnl_pct'] > 0.001:  # If in profit (0.1%)
-                # More aggressive trailing - 60% of current profit
-                trailing_stop = min(position['pnl_pct'] * 0.6, self.stop_loss_pct)
+                # Tighter trailing - 70% of current profit
+                trailing_stop = min(position['pnl_pct'] * 0.7, self.stop_loss_pct)
+                
+                if position['direction'] == 'BUY':
+                    if position.get('highest_price', 0) < position['current_price']:
+                        position['highest_price'] = position['current_price']
+                    price_from_high = (position['highest_price'] - position['current_price']) / position['highest_price']
+                    if price_from_high > trailing_stop:
+                        print(f"Closing position: Trailing stop triggered")
+                        return True
+                else:  # SELL
+                    if position.get('lowest_price', float('inf')) > position['current_price']:
+                        position['lowest_price'] = position['current_price']
+                    price_from_low = (position['current_price'] - position['lowest_price']) / position['lowest_price']
+                    if price_from_low > trailing_stop:
+                        print(f"Closing position: Trailing stop triggered")
+                        return True
             
             # Maximum hold time exceeded
             if position['hold_time'] >= self.max_hold_time:
