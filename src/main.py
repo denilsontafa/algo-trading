@@ -1,5 +1,5 @@
 from oanda_data import OandaDataFetcher
-from models.data_processor import ForexDataset
+from models.data_processor import ForexDataset, update_saved_scalers
 from models.lstm_model import ForexLSTM
 from models.trainer import ModelTrainer
 from sentiment.news_manager import NewsManager
@@ -445,6 +445,9 @@ class ForexAnalyzer:
                     print("Warning: High volatility - Consider smaller position size")
 
 def main():
+    # Update saved scalers to current version
+    update_saved_scalers()
+    
     analyzer = ForexAnalyzer()
     
     # Schedule analysis using config interval

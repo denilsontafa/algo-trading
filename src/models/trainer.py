@@ -111,6 +111,20 @@ class ModelTrainer:
         
         return model, metrics
 
+    def save_model(self, model: ForexLSTM, pair: str):
+        """Save model weights securely"""
+        model_path = f'models/model_{pair}.pth'
+        try:
+            # Save only the model weights
+            torch.save(
+                model.state_dict(),
+                model_path,
+                _use_new_zipfile_serialization=True
+            )
+            print(f"Saved model for {pair}")
+        except Exception as e:
+            print(f"Error saving model for {pair}: {str(e)}")
+
 if __name__ == "__main__":
     # Test training
     from data_processor import ForexDataset

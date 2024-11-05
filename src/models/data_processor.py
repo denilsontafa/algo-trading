@@ -2,6 +2,9 @@ import torch
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils.data import Dataset, DataLoader
+import pickle
+import os
+import config
 
 class ForexDataset(Dataset):
     def __init__(self, data=None, sequence_length=60):
@@ -78,3 +81,32 @@ class ForexDataset(Dataset):
             return (torch.FloatTensor(self.sequences[idx]), 
                    torch.FloatTensor(self.targets[idx]))
         raise IndexError("Dataset not initialized with data")
+
+def update_saved_scalers():
+    """Update saved scalers to current sklearn version"""
+    from sklearn.preprocessing import MinMaxScaler
+    import pickle
+    import os
+    
+    for pair in config.CURRENCY_PAIRS:
+        scaler_path = f'models/scaler_{pair}.pkl'
+        if os.path.exists(scaler_path):
+            # Create new scaler with same parameters
+            scaler = MinMaxScaler()
+            try:
+                # Load old scaler data
+                with open(scaler_path, 'rb') as f:
+                    old_scaler = pickle.load(f)
+                    scaler.min_ = old_scaler.min_
+                    scaler.scale_ = old_scaler.scale_
+                    scaler.data_min_ = old_scaler.data_min_
+                    scaler.data_max_ = old_scaler.data_max_
+                    scaler.data_range_ = old_scaler.data_range_
+                
+                # Save new scaler
+                with open(scaler_path, 'wb') as f:
+                    pickle.dump(scaler, f)
+                    
+                print(f"Updated scaler for {pair}")
+            except Exception as e:
+                print(f"Error updating scaler for {pair}: {str(e)}")
