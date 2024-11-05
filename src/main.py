@@ -669,32 +669,57 @@ class ForexAnalyzer:
                 return
             
             print("\nChecking open positions:")
-            for pair, pos in self.position_manager.open_positions.items():
-                current_price = float(self.data_fetcher.get_current_price(pair))
-                entry_price = pos['entry_price']
-                
-                # Calculate profit/loss
-                if pos['direction'] == 'BUY':
-                    pnl_pct = (current_price - entry_price) / entry_price
-                else:  # SELL
-                    pnl_pct = (entry_price - current_price) / entry_price
-                
-                # Update position info
-                pos['current_price'] = current_price
-                pos['pnl_pct'] = pnl_pct
-                pos['hold_time'] = datetime.now() - pos['open_time']
-                
-                print(f"\n{pair} {pos['direction']}:")
-                print(f"Entry: {entry_price:.5f}")
-                print(f"Current: {current_price:.5f}")
-                print(f"P/L: {pnl_pct:.2%}")
-                print(f"Hold time: {pos['hold_time']}")
-                
-                # Check if position should be closed
-                if self.position_manager._should_close_position(pos):
-                    print(f"Closing position for {pair}")
-                    self.position_manager._close_position(pair)
+            positions_to_check = self.position_manager.open_positions.copy()  # Create a copy to avoid modification during iteration
             
+            for pair, pos in positions_to_check.items():
+                try:
+                    current_price = float(self.data_fetcher.get_current_price(pair))
+                    entry_price = pos['entry_price']
+                    
+                    # Calculate profit/loss
+                    if pos['direction'] == 'BUY':
+                        pnl_pct = (current_price - entry_price) / entry_price
+                    else:  # SELL
+                        pnl_pct = (entry_price - current_price) / entry_price
+                    
+                    # Update position info
+                    pos['current_price'] = current_price
+                    pos['pnl_pct'] = pnl_pct
+                    pos['hold_time'] = datetime.now() - pos['open_time']
+                    
+                    # Update highest/lowest prices for trailing stops
+                    if pos['direction'] == 'BUY':
+                        pos['highest_price'] = max(pos.get('highest_price', current_price), current_price)
+                    else:
+                        pos['lowest_price'] = min(pos.get('lowest_price', current_price), current_price)
+                    
+                    print(f"\n{pair} {pos['direction']}:")
+                    print(f"Entry: {entry_price:.5f}")
+                    print(f"Current: {current_price:.5f}")
+                    print(f"P/L: {pnl_pct:.2%}")
+                    print(f"Hold time: {pos['hold_time']}")
+                    if pos['direction'] == 'BUY':
+                        print(f"Highest: {pos['highest_price']:.5f}")
+                    else:
+                        print(f"Lowest: {pos['lowest_price']:.5f}")
+                    
+                    # Check if position should be closed
+                    if self.position_manager._should_close_position(pos):
+                        print(f"Closing position for {pair}")
+                        self.position_manager._close_position(pair)
+                    
+                except Exception as e:
+                    print(f"Error checking position for {pair}: {str(e)}")
+                    continue  # Continue checking other positions even if one fails
+            
+            # Print summary of remaining positions
+            if self.position_manager.open_positions:
+                print("\nCurrent open positions:")
+                for pair, pos in self.position_manager.open_positions.items():
+                    print(f"{pair} {pos['direction']}: {pos['pnl_pct']:.2%} P/L")
+            else:
+                print("\nNo positions remaining open")
+                
         except Exception as e:
             print(f"Error checking positions: {str(e)}")
 
