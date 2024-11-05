@@ -32,7 +32,6 @@ ENV/
 *.swo
 
 # Project specific
-config.py
 .env
 *.log
 models/*.pkl
