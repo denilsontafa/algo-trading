@@ -133,9 +133,9 @@ class PositionManager:
                 print(f"Closing position: Profit target {self.profit_target_pct:.1%} reached")
                 return True
             
-            # Stop Loss (0.3%)
-            if position['pnl_pct'] <= -self.stop_loss_pct:
-                print(f"Closing position: Stop loss {self.stop_loss_pct:.1%} hit")
+            # Tighter Stop Loss (0.3%)
+            if position['pnl_pct'] <= self.stop_loss_pct:  # Changed from -0.005
+                print(f"Closing position: Stop loss 0.3% hit")
                 return True
             
             # Trailing stop when in profit
