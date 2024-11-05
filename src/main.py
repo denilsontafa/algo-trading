@@ -646,19 +646,66 @@ class ForexAnalyzer:
             print(f"Error calculating volatility: {str(e)}")
             return 0.5  # Return moderate volatility on error
 
+    def check_positions(self):
+        """Check and update existing positions"""
+        try:
+            print(f"\nPosition Check - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            
+            # Run analysis for all pairs
+            analyses = []
+            for pair in config.CURRENCY_PAIRS:
+                analysis = self.analyze_pair(pair)
+                if analysis:
+                    analyses.append(analysis)
+                    
+                    # Update model if we have previous predictions
+                    if pair in self.previous_predictions:
+                        prev_pred = self.previous_predictions[pair]
+                        results = update_model_with_latest_data(
+                            currency_pair=pair,
+                            oanda_fetcher=self.data_fetcher,
+                            data_processor=self
+                        )
+                        
+                        if results:
+                            print(f"\nModel Update - {pair}:")
+                            print(f"Previous Prediction: {prev_pred['price']:.5f}")
+                            print(f"Actual Price: {analysis['current_price']:.5f}")
+                            print(f"Reward: {results['reward']:.4f}")
+                            print(f"Loss: {results['loss']:.6f}")
+                    
+                    # Store current prediction for next update
+                    self.previous_predictions[pair] = {
+                        'price': analysis['predicted_price'],
+                        'timestamp': datetime.now()
+                    }
+            
+            # Manage trading positions
+            if analyses:  # Only manage positions if we have analyses
+                self.position_manager.manage_positions(analyses)
+                
+        except Exception as e:
+            print(f"Error in position check: {str(e)}")
+
 def main():
     # Update saved scalers to current version
     update_saved_scalers()
     
     analyzer = ForexAnalyzer()
     
-    # Schedule analysis using config interval
+    # Schedule full analysis every 15 minutes
     schedule.every(config.ANALYSIS_INTERVAL).minutes.do(analyzer.run_scheduled_analysis)
     
-    # Run immediately on start
+    # Schedule position checks every 5 minutes
+    schedule.every(5).minutes.do(analyzer.check_positions)
+    
+    # Run analysis immediately on start
     analyzer.run_scheduled_analysis()
     
-    print(f"\nScheduler started with {config.ANALYSIS_INTERVAL} minute interval. Press Ctrl+C to stop.")
+    print(f"\nScheduler started:")
+    print(f"- Full analysis every {config.ANALYSIS_INTERVAL} minutes")
+    print(f"- Position checks every 5 minutes")
+    print("Press Ctrl+C to stop.")
     
     try:
         while True:
