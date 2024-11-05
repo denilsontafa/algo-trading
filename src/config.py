@@ -184,5 +184,5 @@ WEIGHTS = {
 }
 
 # Update Intervals
-ANALYSIS_INTERVAL = 1  # minutes
+ANALYSIS_INTERVAL = 15  # minutes
 MODEL_UPDATE_INTERVAL = 15  # minutes
