@@ -34,9 +34,6 @@ ENV/
 # Project specific
 .env
 *.log
-models/*.pkl
-*.pth
-data/
 logs/
 
 # Jupyter Notebook

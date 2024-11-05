@@ -1,0 +1,354 @@
+{
+  "timestamp": "2024-11-05T12:37:43.638704",
+  "articles": [
+    {
+      "title": "Dollar slips as US election arrives; uncertainty reigns",
+      "published_at": "2024-11-05T09:15:25",
+      "sentiment_score": -0.09017,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar slips as FX traders gird for US election outcome",
+      "published_at": "2024-11-05T09:10:47",
+      "sentiment_score": -0.03,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX muted as dollar steadies with election in focus; Aussie steady after RBA",
+      "published_at": "2024-11-05T04:10:08",
+      "sentiment_score": -0.2658538095238095,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar slips as traders unwind Trump trades before election",
+      "published_at": "2024-11-04T20:31:06",
+      "sentiment_score": 0.02045454545454545,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar retreats ahead of election; Fed, BOE also in spotlight",
+      "published_at": "2024-11-04T09:16:24",
+      "sentiment_score": -0.1046,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX firms as dollar pares recent gains ahead of elections, Fed meeting",
+      "published_at": "2024-11-04T04:08:12",
+      "sentiment_score": 0.26175,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Go long the dollar, BCA says as geopolitical risks to persist",
+      "published_at": "2024-11-03T09:00:00",
+      "sentiment_score": -0.36073,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Options markets brace for US election Forex risk with volatility spike",
+      "published_at": "2024-11-03T08:00:00",
+      "sentiment_score": 0.040286666666666665,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "If Trump, GOP win big on Tuesday, then sell euro, French bonds fast: expert",
+      "published_at": "2024-11-01T21:26:41",
+      "sentiment_score": 0.6452397959183673,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar rebounds after weak jobs data; traders eye US election",
+      "published_at": "2024-11-01T18:42:10",
+      "sentiment_score": -0.2528481818181818,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Canadian dollar seen higher if economy rebounds: Reuters poll",
+      "published_at": "2024-11-01T11:56:04",
+      "sentiment_score": 0.41533,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar edges higher ahead of payrolls release; euro slips lower",
+      "published_at": "2024-11-01T09:40:14",
+      "sentiment_score": 0.50368,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "US economic outperformance to keep dollar strong- Reuters poll",
+      "published_at": "2024-11-01T00:21:09",
+      "sentiment_score": 0.6268666666666666,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar falls against yen, US data leaves rate cut hopes intact",
+      "published_at": "2024-10-31T18:26:08",
+      "sentiment_score": 0.04823454545454545,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar steadies ahead of payrolls; German retail sales rise",
+      "published_at": "2024-10-31T09:41:38",
+      "sentiment_score": 0.14321714285714285,
+      "impact_weight": 1.0
+    },
+    {
+      "title": "US dollar softer ahead of election and jobs data",
+      "published_at": "2024-10-30T20:12:34",
+      "sentiment_score": 0.0073863636363636345,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar pauses rally ahead of key labor data; euro gains on German GDP",
+      "published_at": "2024-10-30T09:37:09",
+      "sentiment_score": 0.4617899999999999,
+      "impact_weight": 1.0
+    },
+    {
+      "title": "Asia FX muted amid rate, election jitters; yen fragile ahead of BOJ",
+      "published_at": "2024-10-30T04:14:17",
+      "sentiment_score": 0.025624999999999995,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar peaks against yen ahead of US election and economic data",
+      "published_at": "2024-10-29T19:36:16",
+      "sentiment_score": 0.04268181818181818,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar steadies ahead of key economic data deluge",
+      "published_at": "2024-10-29T09:28:49",
+      "sentiment_score": 0.024999999999999998,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX at risk as dollar firms into US elections- JPM",
+      "published_at": "2024-10-29T00:09:28",
+      "sentiment_score": -0.29505,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar likely to end up higher as foreign central banks will step up rate cuts",
+      "published_at": "2024-10-28T21:13:19",
+      "sentiment_score": 0.265965,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Yen under pressure after Japan election",
+      "published_at": "2024-10-28T14:51:26",
+      "sentiment_score": -0.28025090909090905,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar steady at start of action-packed week; euro edges higher",
+      "published_at": "2024-10-28T09:39:06",
+      "sentiment_score": 0.3255933333333333,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar edges lower after data as recent rally stalls",
+      "published_at": "2024-10-25T15:41:17",
+      "sentiment_score": -0.0012418181818181807,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar on track for weekly gain; next week's payrolls looms large",
+      "published_at": "2024-10-25T08:30:01",
+      "sentiment_score": 0.05291714285714285,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX muted as dollar holds weekly gains; yen steady with election in focus",
+      "published_at": "2024-10-25T04:08:17",
+      "sentiment_score": 0.37559999999999993,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Euro, yen climb as dollar rally takes a breather",
+      "published_at": "2024-10-24T19:35:40",
+      "sentiment_score": 0.43985727272727265,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Harris win could fuel massive forex repricing - Standard Chartered",
+      "published_at": "2024-10-24T09:13:08",
+      "sentiment_score": 0.7077266666666666,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar slips from three-month highs; euro gains after PMIs",
+      "published_at": "2024-10-24T08:11:04",
+      "sentiment_score": 0.22383999999999998,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX nurses steep losses with yen near 3-mth low; dollar strong",
+      "published_at": "2024-10-24T04:09:04",
+      "sentiment_score": -0.38618,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar continues rally, hits 3-month high vs yen",
+      "published_at": "2024-10-23T19:27:24",
+      "sentiment_score": 0.4881481818181818,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar rises to highs; political uncertainty spurs safe haven demand",
+      "published_at": "2024-10-23T08:16:43",
+      "sentiment_score": 0.40638727272727265,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "South Korean finance minister views dollar-won near 1,400 as new normal, Yonhap reports",
+      "published_at": "2024-10-23T08:10:36",
+      "sentiment_score": 0.033116883116883114,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX weakens, dollar at near 3-mth high amid rate, election jitters",
+      "published_at": "2024-10-23T03:59:32",
+      "sentiment_score": -0.29622000000000004,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "As dollar eyes its biggest October gain in over a decade, BofA says time to fade",
+      "published_at": "2024-10-23T00:18:49",
+      "sentiment_score": 0.8010599999999999,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar hits to 2-1/2-month peak as US rates, election eyed",
+      "published_at": "2024-10-22T20:11:05",
+      "sentiment_score": 0.2945218181818181,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "UBS sees EUR/USD climbing toward 1.16 by 2025",
+      "published_at": "2024-10-22T14:07:01",
+      "sentiment_score": 0.14160999999999999,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Euro could fall 10% on Trump tariffs, tax cuts, Goldman says",
+      "published_at": "2024-10-22T10:56:57",
+      "sentiment_score": 0.21131499999999998,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar-positive risks from US election outcome \"moderate\", UBS says",
+      "published_at": "2024-10-22T10:13:57",
+      "sentiment_score": 0.5752585714285714,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Goldman Sachs says euro could drop 10% under Trump tariffs and tax cuts",
+      "published_at": "2024-10-22T09:16:19",
+      "sentiment_score": -0.48456999999999995,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar slips from highs; euro gains ahead of ECB speakers",
+      "published_at": "2024-10-22T08:38:45",
+      "sentiment_score": 0.22219999999999995,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Asia FX weakens with yen near 3-mth low; dollar firm on rates, election jitters",
+      "published_at": "2024-10-22T03:40:03",
+      "sentiment_score": -0.5214399999999999,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar rises in tandem with US rates on economic view",
+      "published_at": "2024-10-21T19:56:43",
+      "sentiment_score": 0.2782272727272727,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "USD/CHF is reaching its upper limit - UBS",
+      "published_at": "2024-10-21T09:21:12",
+      "sentiment_score": 0.5191499999999999,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar retains strength on Trump confidence; euro slips after German PPI",
+      "published_at": "2024-10-21T08:38:43",
+      "sentiment_score": 0.6429499999999999,
+      "impact_weight": 1.0
+    },
+    {
+      "title": "Dollar riding return of 'Trump Trade,' but gains will likely be fleeting: UBS",
+      "published_at": "2024-10-18T21:00:03",
+      "sentiment_score": 0.6961700000000001,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "US dollar rally pauses, but uptrend intact; set for 3rd weekly gain",
+      "published_at": "2024-10-18T20:00:44",
+      "sentiment_score": 0.6228172727272727,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar to retreat in 2025; try CHF, AUD and GBP - UBS",
+      "published_at": "2024-10-18T13:24:30",
+      "sentiment_score": -0.20595454545454545,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Barclays sees potential rise in USD/INR amid market headwinds",
+      "published_at": "2024-10-18T13:04:35",
+      "sentiment_score": 0.16683727272727272,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "This Forex pair could rise by 11% if Trump imposes a 60% tariff on China: Nomura",
+      "published_at": "2024-10-18T10:28:10",
+      "sentiment_score": 0.20719999999999997,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Dollar stabilizes after gains; sterling boosted by retail sales",
+      "published_at": "2024-10-18T08:41:45",
+      "sentiment_score": 0.43558,
+      "impact_weight": 1.0
+    },
+    {
+      "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
+      "published_at": "2024-10-18T04:16:17",
+      "sentiment_score": 0.6063035714285714,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
+      "published_at": "2024-10-17T20:36:16",
+      "sentiment_score": 0.0669218181818182,
+      "impact_weight": 1.0
+    },
+    {
+      "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
+      "published_at": "2024-10-17T07:45:54",
+      "sentiment_score": 0.08583428571428571,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
+      "published_at": "2024-10-16T20:00:55",
+      "sentiment_score": 0.5657872727272727,
+      "impact_weight": 1.0
+    },
+    {
+      "title": "US dollar gains as US election draws nearer - UBS",
+      "published_at": "2024-10-16T10:35:07",
+      "sentiment_score": 0.72212,
+      "impact_weight": 0.5
+    },
+    {
+      "title": "Sell euro rallies around the ECB meeting - Citi",
+      "published_at": "2024-10-16T09:28:53",
+      "sentiment_score": 0.03,
+      "impact_weight": 0.5
+    }
+  ],
+  "overall_sentiment": -0.08955000000268208
+}
