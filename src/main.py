@@ -448,9 +448,9 @@ class ForexAnalyzer:
             return 0.0
     
     def run_scheduled_analysis(self):
-        """Run analysis and update models"""
+        """Full analysis including opening new positions - runs every 15 minutes"""
         try:
-            print(f"\nForex Analysis - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"\nFull Analysis - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
             
             # Run analysis for all pairs
             analyses = []
@@ -458,35 +458,11 @@ class ForexAnalyzer:
                 analysis = self.analyze_pair(pair)
                 if analysis:
                     analyses.append(analysis)
-                    
-                    # Update model if we have previous predictions
-                    if pair in self.previous_predictions:
-                        prev_pred = self.previous_predictions[pair]
-                        results = update_model_with_latest_data(
-                            currency_pair=pair,
-                            oanda_fetcher=self.data_fetcher,
-                            data_processor=self
-                        )
-                        
-                        if results:
-                            print(f"\nModel Update - {pair}:")
-                            print(f"Previous Prediction: {prev_pred['price']:.5f}")
-                            print(f"Actual Price: {analysis['current_price']:.5f}")
-                            print(f"Reward: {results['reward']:.4f}")
-                            print(f"Loss: {results['loss']:.6f}")
-                    
-                    # Store current prediction for next update
-                    self.previous_predictions[pair] = {
-                        'price': analysis['predicted_price'],
-                        'timestamp': datetime.now()
-                    }
             
-            # Display results
-            self._display_analysis(analyses)
-            
-            # Manage trading positions
-            if analyses:  # Only manage positions if we have analyses
-                self.position_manager.manage_positions(analyses)
+            # Display results and manage positions
+            if analyses:
+                self._display_analysis(analyses)
+                self.position_manager._open_new_position(analyses)
                 
         except Exception as e:
             print(f"Error in scheduled analysis: {str(e)}")
@@ -684,45 +660,43 @@ class ForexAnalyzer:
             return 0.5  # Return moderate volatility on error
 
     def check_positions(self):
-        """Check and update existing positions"""
+        """Only check and manage existing positions"""
         try:
             print(f"\nPosition Check - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
             
-            # Run analysis for all pairs
-            analyses = []
-            for pair in config.CURRENCY_PAIRS:
-                analysis = self.analyze_pair(pair)
-                if analysis:
-                    analyses.append(analysis)
-                    
-                    # Update model if we have previous predictions
-                    if pair in self.previous_predictions:
-                        prev_pred = self.previous_predictions[pair]
-                        results = update_model_with_latest_data(
-                            currency_pair=pair,
-                            oanda_fetcher=self.data_fetcher,
-                            data_processor=self
-                        )
-                        
-                        if results:
-                            print(f"\nModel Update - {pair}:")
-                            print(f"Previous Prediction: {prev_pred['price']:.5f}")
-                            print(f"Actual Price: {analysis['current_price']:.5f}")
-                            print(f"Reward: {results['reward']:.4f}")
-                            print(f"Loss: {results['loss']:.6f}")
-                    
-                    # Store current prediction for next update
-                    self.previous_predictions[pair] = {
-                        'price': analysis['predicted_price'],
-                        'timestamp': datetime.now()
-                    }
+            if not self.position_manager.open_positions:
+                print("No open positions to check")
+                return
             
-            # Manage trading positions
-            if analyses:  # Only manage positions if we have analyses
-                self.position_manager.manage_positions(analyses)
+            print("\nChecking open positions:")
+            for pair, pos in self.position_manager.open_positions.items():
+                current_price = float(self.data_fetcher.get_current_price(pair))
+                entry_price = pos['entry_price']
                 
+                # Calculate profit/loss
+                if pos['direction'] == 'BUY':
+                    pnl_pct = (current_price - entry_price) / entry_price
+                else:  # SELL
+                    pnl_pct = (entry_price - current_price) / entry_price
+                
+                # Update position info
+                pos['current_price'] = current_price
+                pos['pnl_pct'] = pnl_pct
+                pos['hold_time'] = datetime.now() - pos['open_time']
+                
+                print(f"\n{pair} {pos['direction']}:")
+                print(f"Entry: {entry_price:.5f}")
+                print(f"Current: {current_price:.5f}")
+                print(f"P/L: {pnl_pct:.2%}")
+                print(f"Hold time: {pos['hold_time']}")
+                
+                # Check if position should be closed
+                if self.position_manager._should_close_position(pos):
+                    print(f"Closing position for {pair}")
+                    self.position_manager._close_position(pair)
+            
         except Exception as e:
-            print(f"Error in position check: {str(e)}")
+            print(f"Error checking positions: {str(e)}")
 
 def main():
     # Update saved scalers to current version
@@ -736,11 +710,11 @@ def main():
     # Schedule position checks every 5 minutes
     schedule.every(5).minutes.do(analyzer.check_positions)
     
-    # Run analysis immediately on start
+    # Run full analysis immediately on start
     analyzer.run_scheduled_analysis()
     
     print(f"\nScheduler started:")
-    print(f"- Full analysis every {config.ANALYSIS_INTERVAL} minutes")
+    print(f"- Full analysis and new positions every {config.ANALYSIS_INTERVAL} minutes")
     print(f"- Position checks every 5 minutes")
     print("Press Ctrl+C to stop.")
     
