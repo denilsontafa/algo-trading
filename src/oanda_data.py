@@ -68,9 +68,12 @@ class OandaDataFetcher:
         try:
             r = trades.OpenTrades(self.account_id)
             response = self.client.request(r)
-            return response['trades']
+            trades_list = response.get('trades', [])
+            print(f"Raw trades response: {response}")  # Debug logging
+            return trades_list
         except Exception as e:
             print(f"Error getting open trades: {str(e)}")
+            print(f"Full error details: {type(e).__name__}: {str(e)}")
             return []
 
     def fetch_historical_data(self, instrument: str, count: int = None, 

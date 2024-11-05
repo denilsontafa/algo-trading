@@ -37,44 +37,47 @@ class PositionManager:
     def _load_existing_positions(self):
         """Load existing positions from Oanda on startup"""
         try:
-            # Get open positions from Oanda
-            positions = self.oanda_client.get_open_positions()
+            print("\nAttempting to load positions from Oanda...")
             
-            print("\nLoading existing positions from Oanda:")
-            for position in positions:
-                instrument = position['instrument']
-                long_units = float(position.get('long', {}).get('units', 0))
-                short_units = float(position.get('short', {}).get('units', 0))
-                
-                if long_units > 0:
-                    direction = 'BUY'
-                    units = long_units
-                    price = float(position['long']['averagePrice'])
-                else:
-                    direction = 'SELL'
-                    units = abs(short_units)
-                    price = float(position['short']['averagePrice'])
-                
-                # Get trade details
-                trade = self.oanda_client.get_trade(position['id'])
-                open_time = datetime.strptime(trade['openTime'], '%Y-%m-%dT%H:%M:%S.%fZ')
-                
-                self.open_positions[instrument] = {
-                    'direction': direction,
-                    'entry_price': price,
-                    'open_time': open_time,
-                    'trade_id': position['id'],
-                    'units': units,
-                    'highest_price': price if direction == 'BUY' else float('inf'),
-                    'lowest_price': price if direction == 'SELL' else 0,
-                }
-                
-                print(f"Loaded {instrument} {direction} position:")
-                print(f"Entry price: {price:.5f}")
-                print(f"Units: {units}")
-                print(f"Open time: {open_time}")
+            # Use get_open_trades instead of get_open_positions
+            trades = self.oanda_client.get_open_trades()
             
-            if not positions:
+            print(f"Found {len(trades)} open positions")
+            
+            for trade in trades:
+                try:
+                    instrument = trade['instrument']
+                    units = float(trade['currentUnits'])
+                    
+                    if units > 0:
+                        direction = 'BUY'
+                    else:
+                        direction = 'SELL'
+                        units = abs(units)
+                    
+                    price = float(trade['price'])
+                    open_time = datetime.strptime(trade['openTime'].split('.')[0], '%Y-%m-%dT%H:%M:%S')
+                    
+                    self.open_positions[instrument] = {
+                        'direction': direction,
+                        'entry_price': price,
+                        'open_time': open_time,
+                        'trade_id': trade['id'],
+                        'units': units,
+                        'highest_price': price if direction == 'BUY' else float('inf'),
+                        'lowest_price': price if direction == 'SELL' else 0,
+                    }
+                    
+                    print(f"Loaded {instrument} {direction} position:")
+                    print(f"Entry price: {price:.5f}")
+                    print(f"Units: {units}")
+                    print(f"Open time: {open_time}")
+                    
+                except Exception as e:
+                    print(f"Error processing trade {trade.get('id', 'unknown')}: {str(e)}")
+                    continue
+            
+            if not trades:
                 print("No existing positions found")
                 
         except Exception as e:
