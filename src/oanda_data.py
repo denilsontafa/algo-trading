@@ -74,31 +74,19 @@ class OandaDataFetcher:
             return []
 
     def fetch_historical_data(self, instrument: str, count: int = None, 
-                             granularity: str = None, start_time: datetime = None,
-                             end_time: datetime = None) -> pd.DataFrame:
+                             granularity: str = "M15") -> pd.DataFrame:
         """
         Fetch historical candlestick data from OANDA
         Can specify either count or time window (start_time and end_time)
         """
         params = {
-            "granularity": granularity or config.GRANULARITY,
+            "count": count or config.CANDLE_COUNT,
+            "granularity": granularity,
             "price": "M"
         }
         
-        # Handle time window if specified
-        if start_time and end_time:
-            params["from"] = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
-            params["to"] = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
-        else:
-            params["count"] = count or config.CANDLE_COUNT
-        
         try:
-            print(f"Fetching {granularity} data for {instrument}...")
-            if start_time and end_time:
-                print(f"Time window: {start_time} to {end_time}")
-            else:
-                print(f"Count: {params.get('count')} candles")
-                
+            print(f"Fetching {params['count']} candles of {granularity} data for {instrument}...")
             r = instruments.InstrumentsCandles(instrument=instrument, params=params)
             self.client.request(r)
             

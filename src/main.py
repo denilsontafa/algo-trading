@@ -224,67 +224,53 @@ class ForexAnalyzer:
         }
     
     def _get_model_prediction(self, pair: str, data: pd.DataFrame) -> float:
-        """Get prediction from trained model"""
+        """Get price prediction from the model"""
         try:
-            # Load the trained model and scaler
-            model_path = f"models/base_models/{pair}_model.pth"
-            scaler_path = f"models/scalers/{pair}_scaler.pkl"
-            
-            if not os.path.exists(model_path) or not os.path.exists(scaler_path):
-                print(f"No trained model or scaler found for {pair}")
+            # Load model
+            model_path = f'models/model_{pair}.pth'
+            if not os.path.exists(model_path):
+                print(f"No model found for {pair}")
                 return data.close.iloc[-1]
-            
-            # Load the scaler
-            with open(scaler_path, 'rb') as f:
-                target_scaler = pickle.load(f)
-            
-            # Prepare the data
-            sequence_length = 60
-            features = self._prepare_features(data.tail(sequence_length))
-            
+                
             try:
-                # Load the model
-                checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
+                # Load model with weights_only=True
+                state_dict = torch.load(
+                    model_path,
+                    map_location=torch.device('cpu'),
+                    weights_only=True  # Add this parameter
+                )
                 
-                if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
-                    model = ForexLSTM(
-                        input_size=features.shape[1],
-                        hidden_size=64,
-                        num_layers=2,
-                        dropout=0.2
-                    )
-                    model.load_state_dict(checkpoint['model_state_dict'])
-                else:
-                    model = checkpoint
-                
+                model = ForexLSTM(
+                    input_size=len(config.TECHNICAL_INDICATORS),
+                    hidden_size=64,
+                    num_layers=2
+                )
+                model.load_state_dict(state_dict)
                 model.eval()
                 
-                # Prepare input tensor
-                X = torch.FloatTensor(features).unsqueeze(0)
+                # Prepare features
+                features = self._prepare_features(data)
+                features_tensor = torch.FloatTensor(features).unsqueeze(0)
                 
                 # Make prediction
                 with torch.no_grad():
-                    prediction = model(X)
-                    # Inverse transform the prediction
-                    predicted_price = target_scaler.inverse_transform(
-                        prediction.numpy().reshape(-1, 1)
-                    )[0][0]
-                
-                # Validate prediction with pair-specific thresholds
+                    prediction = model(features_tensor)
+                    
+                predicted_price = prediction.item()
                 current_price = data.close.iloc[-1]
+                
+                # Calculate direction and maximum allowed change
+                direction = np.sign(predicted_price - current_price)
                 max_change = self._get_max_change_threshold(pair)
                 
-                price_change_pct = abs((predicted_price - current_price) / current_price)
-                if price_change_pct > max_change:
-                    print(f"Warning: Prediction for {pair} ({price_change_pct:.2%} change) exceeds threshold of {max_change:.2%}")
-                    direction = 1 if predicted_price > current_price else -1
+                # Limit the prediction to maximum allowed change
+                if abs(predicted_price - current_price) / current_price > max_change:
                     predicted_price = current_price * (1 + direction * max_change)
                 
                 return predicted_price
                 
             except Exception as e:
                 print(f"Error during model prediction: {str(e)}")
-                print(f"Current price: {data.close.iloc[-1]}")
                 return data.close.iloc[-1]
             
         except Exception as e:

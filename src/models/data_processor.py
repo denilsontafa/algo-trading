@@ -91,9 +91,10 @@ def update_saved_scalers():
     for pair in config.CURRENCY_PAIRS:
         scaler_path = f'models/scaler_{pair}.pkl'
         if os.path.exists(scaler_path):
-            # Create new scaler with same parameters
-            scaler = MinMaxScaler()
             try:
+                # Create new scaler
+                scaler = MinMaxScaler()
+                
                 # Load old scaler data
                 with open(scaler_path, 'rb') as f:
                     old_scaler = pickle.load(f)
