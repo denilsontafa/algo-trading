@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "timestamp": "2024-11-05T15:26:41.744292",
+=======
+  "timestamp": "2024-11-05T14:45:02.985521",
+>>>>>>> Stashed changes
   "articles": [
     {
       "title": "Dollar slips as FX traders gird for US election outcome",
@@ -326,5 +330,9 @@
       "impact_weight": 0.5
     }
   ],
+<<<<<<< Updated upstream
   "overall_sentiment": 0.004553719658457351
+=======
+  "overall_sentiment": 0.004553719538675544
+>>>>>>> Stashed changes
 }
