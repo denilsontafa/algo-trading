@@ -1,0 +1,10 @@
+oandapyV20
+pandas
+numpy
+torch
+scikit-learn
+ta
+nltk
+schedule
+tabulate
+python-dotenv 
