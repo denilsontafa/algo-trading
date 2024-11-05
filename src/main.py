@@ -128,15 +128,20 @@ class PositionManager:
     def _should_close_position(self, position: Dict) -> bool:
         """Determine if a position should be closed"""
         try:
-            # Profit target reached
+            # Take Profit (0.6%)
             if position['pnl_pct'] >= self.profit_target_pct:
                 print(f"Closing position: Profit target {self.profit_target_pct:.1%} reached")
                 return True
             
-            # Stop loss hit
+            # Stop Loss (0.3%)
             if position['pnl_pct'] <= -self.stop_loss_pct:
                 print(f"Closing position: Stop loss {self.stop_loss_pct:.1%} hit")
                 return True
+            
+            # Trailing stop when in profit
+            if position['pnl_pct'] > 0.001:  # If in profit (0.1%)
+                # More aggressive trailing - 60% of current profit
+                trailing_stop = min(position['pnl_pct'] * 0.6, self.stop_loss_pct)
             
             # Maximum hold time exceeded
             if position['hold_time'] >= self.max_hold_time:
