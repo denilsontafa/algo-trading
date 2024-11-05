@@ -30,6 +30,55 @@ class PositionManager:
         self.profit_target_pct = config.PROFIT_TARGET_PCT
         self.stop_loss_pct = config.STOP_LOSS_PCT
         self.max_hold_time = timedelta(hours=config.MAX_HOLD_TIME_HOURS)
+        
+        # Load existing positions from Oanda
+        self._load_existing_positions()
+    
+    def _load_existing_positions(self):
+        """Load existing positions from Oanda on startup"""
+        try:
+            # Get open positions from Oanda
+            positions = self.oanda_client.get_open_positions()
+            
+            print("\nLoading existing positions from Oanda:")
+            for position in positions:
+                instrument = position['instrument']
+                long_units = float(position.get('long', {}).get('units', 0))
+                short_units = float(position.get('short', {}).get('units', 0))
+                
+                if long_units > 0:
+                    direction = 'BUY'
+                    units = long_units
+                    price = float(position['long']['averagePrice'])
+                else:
+                    direction = 'SELL'
+                    units = abs(short_units)
+                    price = float(position['short']['averagePrice'])
+                
+                # Get trade details
+                trade = self.oanda_client.get_trade(position['id'])
+                open_time = datetime.strptime(trade['openTime'], '%Y-%m-%dT%H:%M:%S.%fZ')
+                
+                self.open_positions[instrument] = {
+                    'direction': direction,
+                    'entry_price': price,
+                    'open_time': open_time,
+                    'trade_id': position['id'],
+                    'units': units,
+                    'highest_price': price if direction == 'BUY' else float('inf'),
+                    'lowest_price': price if direction == 'SELL' else 0,
+                }
+                
+                print(f"Loaded {instrument} {direction} position:")
+                print(f"Entry price: {price:.5f}")
+                print(f"Units: {units}")
+                print(f"Open time: {open_time}")
+            
+            if not positions:
+                print("No existing positions found")
+                
+        except Exception as e:
+            print(f"Error loading existing positions: {str(e)}")
     
     def manage_positions(self, analyses: List[dict]) -> None:
         """Manage all trading positions"""
