@@ -729,14 +729,17 @@ def main():
     
     analyzer = ForexAnalyzer()
     
-    # Schedule full analysis every 15 minutes
-    schedule.every(config.ANALYSIS_INTERVAL).minutes.do(analyzer.run_scheduled_analysis)
+    # Check existing positions immediately on startup
+    print("\nChecking existing positions on startup...")
+    analyzer.check_positions()
     
-    # Schedule position checks every 5 minutes
-    schedule.every(5).minutes.do(analyzer.check_positions)
-    
-    # Run full analysis immediately on start
+    # Then run full analysis
+    print("\nRunning initial full analysis...")
     analyzer.run_scheduled_analysis()
+    
+    # Schedule regular checks
+    schedule.every(config.ANALYSIS_INTERVAL).minutes.do(analyzer.run_scheduled_analysis)
+    schedule.every(5).minutes.do(analyzer.check_positions)
     
     print(f"\nScheduler started:")
     print(f"- Full analysis and new positions every {config.ANALYSIS_INTERVAL} minutes")
