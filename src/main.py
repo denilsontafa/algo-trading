@@ -75,19 +75,54 @@ class PositionManager:
     
     def _should_close_position(self, position: Dict) -> bool:
         """Determine if a position should be closed"""
-        # Profit target reached
-        if position['pnl_pct'] >= self.profit_target_pct:
-            return True
+        try:
+            # Profit target reached
+            if position['pnl_pct'] >= self.profit_target_pct:
+                print(f"Closing position: Profit target {self.profit_target_pct:.1%} reached")
+                return True
+            
+            # Stop loss hit
+            if position['pnl_pct'] <= -self.stop_loss_pct:
+                print(f"Closing position: Stop loss {self.stop_loss_pct:.1%} hit")
+                return True
+            
+            # Maximum hold time exceeded
+            if position['hold_time'] >= self.max_hold_time:
+                print(f"Closing position: Max hold time {self.max_hold_time} exceeded")
+                return True
+            
+            # Trailing stop loss when in profit
+            if position['pnl_pct'] > 0.001:  # If in profit (0.1%)
+                # Calculate trailing stop distance based on profit
+                trailing_stop = min(position['pnl_pct'] * 0.5, self.stop_loss_pct)  # 50% of current profit
+                
+                # Calculate price movement since last high/low
+                if position['direction'] == 'BUY':
+                    if position.get('highest_price', 0) < position['current_price']:
+                        position['highest_price'] = position['current_price']
+                    price_from_high = (position['highest_price'] - position['current_price']) / position['highest_price']
+                    if price_from_high > trailing_stop:
+                        print(f"Closing position: Trailing stop triggered")
+                        print(f"Highest: {position['highest_price']:.5f}")
+                        print(f"Current: {position['current_price']:.5f}")
+                        print(f"Drop: {price_from_high:.2%}")
+                        return True
+                else:  # SELL
+                    if position.get('lowest_price', float('inf')) > position['current_price']:
+                        position['lowest_price'] = position['current_price']
+                    price_from_low = (position['current_price'] - position['lowest_price']) / position['lowest_price']
+                    if price_from_low > trailing_stop:
+                        print(f"Closing position: Trailing stop triggered")
+                        print(f"Lowest: {position['lowest_price']:.5f}")
+                        print(f"Current: {position['current_price']:.5f}")
+                        print(f"Rise: {price_from_low:.2%}")
+                        return True
+            
+            return False
         
-        # Stop loss hit
-        if position['pnl_pct'] <= -self.stop_loss_pct:
-            return True
-        
-        # Maximum hold time exceeded
-        if position['hold_time'] >= self.max_hold_time:
-            return True
-        
-        return False
+        except Exception as e:
+            print(f"Error in should_close_position: {str(e)}")
+            return False
     
     def _open_new_position(self, analyses: List[dict]) -> None:
         """Open new position if conditions are met"""
@@ -136,7 +171,9 @@ class PositionManager:
                         'confidence': best_signal['confidence'],
                         'target_price': price * (1 + self.profit_target_pct if direction == 'BUY' else 1 - self.profit_target_pct),
                         'stop_loss': price * (1 - self.stop_loss_pct if direction == 'BUY' else 1 + self.stop_loss_pct),
-                        'trade_id': fill_transaction['tradeOpened']['tradeID']
+                        'trade_id': fill_transaction['tradeOpened']['tradeID'],
+                        'highest_price': price if direction == 'BUY' else float('inf'),
+                        'lowest_price': price if direction == 'SELL' else 0,
                     }
                     
                     print(f"\nSuccessfully opened {direction} position for {pair}:")
