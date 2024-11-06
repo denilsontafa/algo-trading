@@ -870,7 +870,7 @@ def main():
                 analyzer.run_scheduled_analysis()
                 schedule.jobs[0].last_run = current_time
                 last_analysis_time = current_time
-
+            
             # Sleep for 60 seconds before next check
             time.sleep(60)  # Check once per minute instead of every second
             
