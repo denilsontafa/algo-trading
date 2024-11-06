@@ -60,6 +60,7 @@ class PositionManager:
                     open_time = datetime.strptime(trade['openTime'].split('.')[0], '%Y-%m-%dT%H:%M:%S')
                     
                     self.open_positions[instrument] = {
+                        'pair': instrument,
                         'direction': direction,
                         'entry_price': price,
                         'open_time': open_time,
@@ -107,6 +108,7 @@ class PositionManager:
                 pnl_pct = (entry_price - current_price) / entry_price
             
             # Update position info
+            position['pair'] = pair
             position['current_price'] = current_price
             position['pnl_pct'] = pnl_pct
             position['hold_time'] = datetime.now() - position['open_time']
@@ -244,11 +246,12 @@ class PositionManager:
                             return
                         
                         self.open_positions[pair] = {
+                            'pair': pair,
                             'direction': direction,
                             'entry_price': float(fill['price']),
                             'open_time': datetime.now(),
                             'confidence': best_signal['confidence'],
-                            'trade_id': trade_id,  # Store the trade ID
+                            'trade_id': trade_id,
                             'units': self.position_size,
                             'highest_price': float(fill['price']) if direction == 'BUY' else float('inf'),
                             'lowest_price': float(fill['price']) if direction == 'SELL' else 0,
@@ -867,6 +870,9 @@ def main():
                 analyzer.run_scheduled_analysis()
                 schedule.jobs[0].last_run = current_time
                 last_analysis_time = current_time
+
+            # Sleep for 60 seconds before next check
+            time.sleep(60)  # Check once per minute instead of every second
             
     except KeyboardInterrupt:
         print("\nScheduler stopped by user")
