@@ -22,11 +22,12 @@ class ReinforcementTrainer:
         actual_direction = np.sign(actual_price - previous_price)
         direction_reward = 1 if predicted_direction == actual_direction else -1
         
-        # Accuracy reward (negative MSE scaled)
-        accuracy_error = ((predicted_price - actual_price) ** 2)
-        accuracy_reward = -accuracy_error
+        # Calculate percentage error instead of absolute error
+        percentage_error = abs((predicted_price - actual_price) / actual_price)
+        # Scale the accuracy reward to be between -1 and 0
+        accuracy_reward = -np.tanh(percentage_error)
         
-        # Combine rewards
+        # Combine rewards with proper scaling
         total_reward = direction_reward + accuracy_reward
         return total_reward
     
@@ -66,8 +67,9 @@ class ReinforcementTrainer:
         # Forward pass
         prediction = model(latest_data)
         
-        # Calculate loss with reward weighting
-        loss = self.criterion(prediction, actual_outcome) * (1 - torch.tanh(torch.tensor(reward, dtype=torch.float32)))
+        # Calculate percentage error for loss
+        percentage_error = torch.abs((prediction - actual_outcome) / actual_outcome)
+        loss = torch.tanh(percentage_error) * (1 - torch.tanh(torch.tensor(reward)))
         
         # Backward pass and optimize
         optimizer.zero_grad()
@@ -88,6 +90,33 @@ class ReinforcementTrainer:
             'prediction': float(prediction.item()),
             'actual': float(actual_outcome.item())
         }
+
+    def calculate_loss(self, predicted_values, actual_values, rewards):
+        """Calculate loss with normalized values"""
+        try:
+            # Convert to tensors if they aren't already
+            predicted_values = torch.tensor(predicted_values, dtype=torch.float32)
+            actual_values = torch.tensor(actual_values, dtype=torch.float32)
+            rewards = torch.tensor(rewards, dtype=torch.float32)
+
+            # Normalize the values
+            predicted_norm = (predicted_values - predicted_values.mean()) / (predicted_values.std() + 1e-8)
+            actual_norm = (actual_values - actual_values.mean()) / (actual_values.std() + 1e-8)
+            
+            # Calculate MSE loss on normalized values
+            mse_loss = nn.MSELoss()(predicted_norm, actual_norm)
+            
+            # Scale rewards to be in a similar range (-1 to 1)
+            rewards_norm = torch.tanh(rewards / 100.0)  # Divide by 100 to reduce magnitude
+            
+            # Combine losses with appropriate weights
+            total_loss = mse_loss - 0.1 * rewards_norm.mean()  # Reduced weight on rewards
+            
+            return total_loss.item()
+
+        except Exception as e:
+            print(f"Error calculating loss: {str(e)}")
+            return 0.0
 
 def update_model_with_latest_data(currency_pair, oanda_fetcher, data_processor):
     """Function to update model with data from the last 15 minutes"""

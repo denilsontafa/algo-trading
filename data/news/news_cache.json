@@ -1,7 +1,35 @@
 {
-  "last_update": "2024-11-05T21:53:18.732328",
+  "last_update": "2024-11-06T09:59:37.699048",
   "news": {
     "EUR_USD": [
+      {
+        "title": "Dollar soars as Trump nears election win; euro, sterling, yen all retreat sharply",
+        "description": "Investing.com - The U.S. dollar soared Wednesday, set for its biggest one-day rise since March 2020, as Donald Trump closed in on presidential victory, while a Republican clean...",
+        "published_at": "2024-11-06T09:39:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-soars-as-trump-nears-election-win-euro-sterling-yen-all-retreat-sharply-3704313"
+      },
+      {
+        "title": "Dollar surges, bitcoin hits record high as Trump claims victory",
+        "description": "By Samuel Indyk and Kevin Buckland LONDON (Reuters) -The dollar was set for its biggest one-day rise since March 2023 against major peers on Wednesday and bitcoin jumped to an...",
+        "published_at": "2024-11-06T09:24:58",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-climbs-as-trump-makes-early-gains-in-exit-polls-bitcoin-rises-3704047"
+      },
+      {
+        "title": "Volatile Mexican peso hits 2-year low as markets wager on possible Trump win",
+        "description": "By Noe Torres MEXICO CITY (Reuters) -The Mexican peso sank against the U.S. dollar as results in the U.S. presidential election started to roll in, extending a streak of volatility...",
+        "published_at": "2024-11-06T05:26:20",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/forex-news/volatile-mexican-peso-slips-to-weakest-in-2-years-as-us-votes-roll-in-3704060"
+      },
+      {
+        "title": "Dollar surges to near 4-mth high, Asia FX slides as Trump leads in early voting",
+        "description": "Investing.com-- The dollar surged to a near four-month high on Wednesday, while Asian currencies fell across the board as early vote counting showed Donald Trump squarely in the...",
+        "published_at": "2024-11-06T03:42:56",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-surges-to-near-4mth-high-asia-fx-slides-as-trump-leads-in-early-voting-3704074"
+      },
       {
         "title": "Dollar dips as US voters head to polls",
         "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
@@ -365,51 +393,37 @@
         "published_at": "2024-10-18T08:41:45",
         "provider": "Investing.com",
         "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
-      },
-      {
-        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
-        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
-        "published_at": "2024-10-18T04:16:17",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
-      },
-      {
-        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
-        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
-        "published_at": "2024-10-17T20:36:16",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
-      },
-      {
-        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
-        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
-        "published_at": "2024-10-17T07:45:54",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
-      },
-      {
-        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
-        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
-        "published_at": "2024-10-16T20:00:55",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
-      },
-      {
-        "title": "US dollar gains as US election draws nearer - UBS",
-        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
-        "published_at": "2024-10-16T10:35:07",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
-      },
-      {
-        "title": "Sell euro rallies around the ECB meeting - Citi",
-        "description": "Investing.com - The European Central Bank holds its latest policy-setting meeting later this week, and Citigroup advises selling any rallies in the euro around this key...",
-        "published_at": "2024-10-16T09:28:53",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/sell-euro-rallies-around-the-ecb-meeting--citi-3665226"
       }
     ],
     "GBP_USD": [
+      {
+        "title": "Dollar soars as Trump nears election win; euro, sterling, yen all retreat sharply",
+        "description": "Investing.com - The U.S. dollar soared Wednesday, set for its biggest one-day rise since March 2020, as Donald Trump closed in on presidential victory, while a Republican clean...",
+        "published_at": "2024-11-06T09:39:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-soars-as-trump-nears-election-win-euro-sterling-yen-all-retreat-sharply-3704313"
+      },
+      {
+        "title": "Dollar surges, bitcoin hits record high as Trump claims victory",
+        "description": "By Samuel Indyk and Kevin Buckland LONDON (Reuters) -The dollar was set for its biggest one-day rise since March 2023 against major peers on Wednesday and bitcoin jumped to an...",
+        "published_at": "2024-11-06T09:24:58",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-climbs-as-trump-makes-early-gains-in-exit-polls-bitcoin-rises-3704047"
+      },
+      {
+        "title": "Volatile Mexican peso hits 2-year low as markets wager on possible Trump win",
+        "description": "By Noe Torres MEXICO CITY (Reuters) -The Mexican peso sank against the U.S. dollar as results in the U.S. presidential election started to roll in, extending a streak of volatility...",
+        "published_at": "2024-11-06T05:26:20",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/forex-news/volatile-mexican-peso-slips-to-weakest-in-2-years-as-us-votes-roll-in-3704060"
+      },
+      {
+        "title": "Dollar surges to near 4-mth high, Asia FX slides as Trump leads in early voting",
+        "description": "Investing.com-- The dollar surged to a near four-month high on Wednesday, while Asian currencies fell across the board as early vote counting showed Donald Trump squarely in the...",
+        "published_at": "2024-11-06T03:42:56",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-surges-to-near-4mth-high-asia-fx-slides-as-trump-leads-in-early-voting-3704074"
+      },
       {
         "title": "Dollar dips as US voters head to polls",
         "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
@@ -556,13 +570,6 @@
         "published_at": "2024-10-28T14:51:26",
         "provider": "Reuters",
         "link": "https://www.investing.com/news/economy-news/yen-slips-as-japans-election-result-clouds-boj-rate-hike-prospects-3684767"
-      },
-      {
-        "title": "Dollar steady at start of action-packed week; euro edges higher",
-        "description": "Investing.com - The U.S. dollar steadied Monday, on course for a hefty monthly gain, while the euro was steady at the start of an action-packed week. At 05:35 ET (09:35 GMT), the...",
-        "published_at": "2024-10-28T09:39:06",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/dollar-steady-at-start-of-actionpacked-week-euro-edges-higher-3685009"
       },
       {
         "title": "Dollar edges lower after data as recent rally stalls",
@@ -759,37 +766,37 @@
         "published_at": "2024-10-18T04:16:17",
         "provider": "Investing.com",
         "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
-      },
-      {
-        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
-        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
-        "published_at": "2024-10-17T20:36:16",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
-      },
-      {
-        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
-        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
-        "published_at": "2024-10-17T07:45:54",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
-      },
-      {
-        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
-        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
-        "published_at": "2024-10-16T20:00:55",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
-      },
-      {
-        "title": "US dollar gains as US election draws nearer - UBS",
-        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
-        "published_at": "2024-10-16T10:35:07",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
       }
     ],
     "USD_JPY": [
+      {
+        "title": "Dollar soars as Trump nears election win; euro, sterling, yen all retreat sharply",
+        "description": "Investing.com - The U.S. dollar soared Wednesday, set for its biggest one-day rise since March 2020, as Donald Trump closed in on presidential victory, while a Republican clean...",
+        "published_at": "2024-11-06T09:39:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-soars-as-trump-nears-election-win-euro-sterling-yen-all-retreat-sharply-3704313"
+      },
+      {
+        "title": "Dollar surges, bitcoin hits record high as Trump claims victory",
+        "description": "By Samuel Indyk and Kevin Buckland LONDON (Reuters) -The dollar was set for its biggest one-day rise since March 2023 against major peers on Wednesday and bitcoin jumped to an...",
+        "published_at": "2024-11-06T09:24:58",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-climbs-as-trump-makes-early-gains-in-exit-polls-bitcoin-rises-3704047"
+      },
+      {
+        "title": "Volatile Mexican peso hits 2-year low as markets wager on possible Trump win",
+        "description": "By Noe Torres MEXICO CITY (Reuters) -The Mexican peso sank against the U.S. dollar as results in the U.S. presidential election started to roll in, extending a streak of volatility...",
+        "published_at": "2024-11-06T05:26:20",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/forex-news/volatile-mexican-peso-slips-to-weakest-in-2-years-as-us-votes-roll-in-3704060"
+      },
+      {
+        "title": "Dollar surges to near 4-mth high, Asia FX slides as Trump leads in early voting",
+        "description": "Investing.com-- The dollar surged to a near four-month high on Wednesday, while Asian currencies fell across the board as early vote counting showed Donald Trump squarely in the...",
+        "published_at": "2024-11-06T03:42:56",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-surges-to-near-4mth-high-asia-fx-slides-as-trump-leads-in-early-voting-3704074"
+      },
       {
         "title": "Dollar dips as US voters head to polls",
         "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
@@ -1160,51 +1167,65 @@
         "published_at": "2024-10-18T08:41:45",
         "provider": "Investing.com",
         "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
-      },
-      {
-        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
-        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
-        "published_at": "2024-10-18T04:16:17",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
-      },
-      {
-        "title": "Japan top FX diplomat says recent yen moves 'one-sided' in fresh warning",
-        "description": "By Makiko Yamazaki and Rocky Swift TOKYO (Reuters) -Japan's top currency diplomat, Atsushi Mimura, said on Friday that recent currency moves are \"somewhat one-sided and rapid,\" in...",
-        "published_at": "2024-10-18T03:20:48",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/japan-top-fx-diplomat-says-recent-yen-moves-onesided-in-fresh-warning-3670039"
-      },
-      {
-        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
-        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
-        "published_at": "2024-10-17T20:36:16",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
-      },
-      {
-        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
-        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
-        "published_at": "2024-10-17T07:45:54",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
-      },
-      {
-        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
-        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
-        "published_at": "2024-10-16T20:00:55",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
-      },
-      {
-        "title": "US dollar gains as US election draws nearer - UBS",
-        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
-        "published_at": "2024-10-16T10:35:07",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
       }
     ],
     "XAU_USD": [
+      {
+        "title": "Dollar soars as Trump nears election win; euro, sterling, yen all retreat sharply",
+        "description": "Investing.com - The U.S. dollar soared Wednesday, set for its biggest one-day rise since March 2020, as Donald Trump closed in on presidential victory, while a Republican clean...",
+        "published_at": "2024-11-06T09:39:10",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-soars-as-trump-nears-election-win-euro-sterling-yen-all-retreat-sharply-3704313"
+      },
+      {
+        "title": "Dollar surges, bitcoin hits record high as Trump claims victory",
+        "description": "By Samuel Indyk and Kevin Buckland LONDON (Reuters) -The dollar was set for its biggest one-day rise since March 2023 against major peers on Wednesday and bitcoin jumped to an...",
+        "published_at": "2024-11-06T09:24:58",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/economy-news/dollar-climbs-as-trump-makes-early-gains-in-exit-polls-bitcoin-rises-3704047"
+      },
+      {
+        "title": "Risks and opportunities for emerging markets with US election results: BofA",
+        "description": "Investing.com -- The US election results carry significant implications for emerging markets (EMs), with trade tensions and currency adjustments shaping the outlook, according to a...",
+        "published_at": "2024-11-06T09:05:02",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/risks-and-opportunities-for-emerging-markets-with-us-election-results-bofa-3704292"
+      },
+      {
+        "title": "Oil falls on stock build, firm dollar as Trump win projected",
+        "description": "By Emily Chow SINGAPORE (Reuters) -Oil prices fell as much as 2% on Wednesday after two sessions of gains, as the dollar surged on projections that Republican Donald Trump had won...",
+        "published_at": "2024-11-06T07:36:25",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/commodities-news/wti-crude-oil-futures-fall-as-polls-start-closing-in-us-election-3704038"
+      },
+      {
+        "title": "Commodities under pressure on likely Trump win in US presidential race",
+        "description": "By Naveen Thukral and Emily Chow SINGAPORE (Reuters) - Commodities from oil to metals and grains slid on Wednesday as the dollar strengthened, with investors increasingly pricing...",
+        "published_at": "2024-11-06T07:23:07",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/commodities-news/commodities-under-pressure-on-likely-trump-win-in-us-presidential-race-3704190"
+      },
+      {
+        "title": "Volatile Mexican peso hits 2-year low as markets wager on possible Trump win",
+        "description": "By Noe Torres MEXICO CITY (Reuters) -The Mexican peso sank against the U.S. dollar as results in the U.S. presidential election started to roll in, extending a streak of volatility...",
+        "published_at": "2024-11-06T05:26:20",
+        "provider": "Reuters",
+        "link": "https://www.investing.com/news/forex-news/volatile-mexican-peso-slips-to-weakest-in-2-years-as-us-votes-roll-in-3704060"
+      },
+      {
+        "title": "Gold prices dip as dollar surges on Trump lead in early voting",
+        "description": "Investing.com-- Gold prices fell slightly in Asian trade on Wednesday, pressured by a spike in the dollar and Treasury yields as early voting showed Donald Trump ahead of Kamala...",
+        "published_at": "2024-11-06T05:00:41",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/commodities-news/gold-prices-dip-as-dollar-surges-on-trump-lead-in-early-voting-3704114"
+      },
+      {
+        "title": "Dollar surges to near 4-mth high, Asia FX slides as Trump leads in early voting",
+        "description": "Investing.com-- The dollar surged to a near four-month high on Wednesday, while Asian currencies fell across the board as early vote counting showed Donald Trump squarely in the...",
+        "published_at": "2024-11-06T03:42:56",
+        "provider": "Investing.com",
+        "link": "https://www.investing.com/news/forex-news/dollar-surges-to-near-4mth-high-asia-fx-slides-as-trump-leads-in-early-voting-3704074"
+      },
       {
         "title": "Dollar dips as US voters head to polls",
         "description": "By Karen Brettell and Amanda Cooper (Reuters) -The U.S. dollar fell as U.S. voters headed to the polls on Tuesday, with the results of the elections likely to decide at least the...",
@@ -1549,13 +1570,6 @@
         "link": "https://www.investing.com/news/forex-news/dollar-slips-from-threemonth-highs-euro-gains-after-pmis-3679530"
       },
       {
-        "title": "Gold prices rise after falling from record highs amid rate, election jitters",
-        "description": "Investing.com-- Gold prices rose slightly in Asian trade on Thursday, but were nursing a tumble from record highs as anxiety over the U.S. election and a shifting outlook for...",
-        "published_at": "2024-10-24T04:52:55",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/commodities-news/gold-prices-rise-after-falling-from-record-highs-amid-rate-election-jitters-3679283"
-      },
-      {
         "title": "Asia FX nurses steep losses with yen near 3-mth low; dollar strong",
         "description": "Investing.com-- Most Asian currencies steadied from recent losses on Thursday with the Japanese yen remaining close to near three-month lows, while the dollar remained underpinned...",
         "published_at": "2024-10-24T04:09:04",
@@ -1722,41 +1736,6 @@
         "published_at": "2024-10-18T08:41:45",
         "provider": "Investing.com",
         "link": "https://www.investing.com/news/forex-news/dollar-stabilizes-after-gains-sterling-boosted-by-retail-sales-3670278"
-      },
-      {
-        "title": "Asia FX muted as dollar steadies at over 2-mth peaks on strong data",
-        "description": "Investing.com-- Most Asian currencies kept to a tight range on Friday as the dollar steadied at more than two-month highs as strong economic data furthered expectations of smaller...",
-        "published_at": "2024-10-18T04:16:17",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/asia-fx-muted-as-dollar-steadies-at-over-2mth-peaks-on-strong-data-3670093"
-      },
-      {
-        "title": "US dollar buoyed by retail sales data, euro falls as more cuts underway",
-        "description": "By Karen Brettell and Gertrude Chavez-Dreyfuss NEW YORK (Reuters) - The U.S. dollar surged to a fresh 11-week high on Thursday after data showed U.S. retail sales rose in...",
-        "published_at": "2024-10-17T20:36:16",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/dollar-hovers-near-11week-high-eyes-on-china-property-briefing-3667566"
-      },
-      {
-        "title": "Investors turn short on most Asian FX as dollar strength prevails- Reuters poll",
-        "description": "By Roushni Nair (Reuters) - Analysts turned bearish on most Asian currencies, with short bets on the Indian rupee at a one-year high, as expectations the Federal Reserve would cut...",
-        "published_at": "2024-10-17T07:45:54",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/investors-turn-short-on-most-asian-fx-as-dollar-strength-prevails-reuters-poll-3667741"
-      },
-      {
-        "title": "US dollar rallies on Fed outlook, potential Trump win; inflation weighs on pound",
-        "description": "By Gertrude Chavez-Dreyfuss NEW YORK (Reuters) -The U.S. dollar firmed on Wednesday, hitting an 11-week high, as investors ruled out a hefty interest rate cut from the Federal...",
-        "published_at": "2024-10-16T20:00:55",
-        "provider": "Reuters",
-        "link": "https://www.investing.com/news/economy-news/aussie-hit-by-china-stimulus-scepticism-us-dollar-firm-on-fed-outlook-3664988"
-      },
-      {
-        "title": "US dollar gains as US election draws nearer - UBS",
-        "description": "Investing.com - The US dollar has gained more ground as the US presidential election draws near, UBS noted, with the market seeing rising odds of a win for Republican candidate...",
-        "published_at": "2024-10-16T10:35:07",
-        "provider": "Investing.com",
-        "link": "https://www.investing.com/news/forex-news/us-dollar-gains-as-us-election-draws-nearer--ubs-3665486"
       }
     ]
   }

@@ -131,17 +131,23 @@ class PositionManager:
         try:
             # Take Profit (0.3%)
             if position['pnl_pct'] >= self.profit_target_pct:
-                print(f"Closing position: Profit target 0.3% reached")
+                print(f"\nClosing position: Take Profit target {self.profit_target_pct:.2%} reached")
+                print(f"Current P/L: {position['pnl_pct']:.2%}")
+                print(f"Entry price: {position['entry_price']:.5f}")
+                print(f"Current price: {position['current_price']:.5f}")
                 return True
             
             # Stop Loss (0.15%)
             if position['pnl_pct'] <= -self.stop_loss_pct:
-                print(f"Closing position: Stop loss 0.15% hit")
+                print(f"\nClosing position: Stop loss {self.stop_loss_pct:.2%} hit")
+                print(f"Current P/L: {position['pnl_pct']:.2%}")
+                print(f"Entry price: {position['entry_price']:.5f}")
+                print(f"Current price: {position['current_price']:.5f}")
                 return True
             
             # Trailing stop when in profit
             if position['pnl_pct'] > 0.001:  # If in profit (0.1%)
-                # Tighter trailing - 70% of current profit
+                # Calculate trailing stop distance based on profit
                 trailing_stop = min(position['pnl_pct'] * 0.7, self.stop_loss_pct)
                 
                 if position['direction'] == 'BUY':
@@ -149,33 +155,7 @@ class PositionManager:
                         position['highest_price'] = position['current_price']
                     price_from_high = (position['highest_price'] - position['current_price']) / position['highest_price']
                     if price_from_high > trailing_stop:
-                        print(f"Closing position: Trailing stop triggered")
-                        return True
-                else:  # SELL
-                    if position.get('lowest_price', float('inf')) > position['current_price']:
-                        position['lowest_price'] = position['current_price']
-                    price_from_low = (position['current_price'] - position['lowest_price']) / position['lowest_price']
-                    if price_from_low > trailing_stop:
-                        print(f"Closing position: Trailing stop triggered")
-                        return True
-            
-            # Maximum hold time exceeded
-            if position['hold_time'] >= self.max_hold_time:
-                print(f"Closing position: Max hold time {self.max_hold_time} exceeded")
-                return True
-            
-            # Trailing stop loss when in profit
-            if position['pnl_pct'] > 0.001:  # If in profit (0.1%)
-                # Calculate trailing stop distance based on profit
-                trailing_stop = min(position['pnl_pct'] * 0.5, self.stop_loss_pct)  # 50% of current profit
-                
-                # Calculate price movement since last high/low
-                if position['direction'] == 'BUY':
-                    if position.get('highest_price', 0) < position['current_price']:
-                        position['highest_price'] = position['current_price']
-                    price_from_high = (position['highest_price'] - position['current_price']) / position['highest_price']
-                    if price_from_high > trailing_stop:
-                        print(f"Closing position: Trailing stop triggered")
+                        print(f"\nClosing position: Trailing stop triggered")
                         print(f"Highest: {position['highest_price']:.5f}")
                         print(f"Current: {position['current_price']:.5f}")
                         print(f"Drop: {price_from_high:.2%}")
@@ -185,11 +165,17 @@ class PositionManager:
                         position['lowest_price'] = position['current_price']
                     price_from_low = (position['current_price'] - position['lowest_price']) / position['lowest_price']
                     if price_from_low > trailing_stop:
-                        print(f"Closing position: Trailing stop triggered")
+                        print(f"\nClosing position: Trailing stop triggered")
                         print(f"Lowest: {position['lowest_price']:.5f}")
                         print(f"Current: {position['current_price']:.5f}")
                         print(f"Rise: {price_from_low:.2%}")
                         return True
+            
+            # Maximum hold time exceeded
+            if position['hold_time'] >= self.max_hold_time:
+                print(f"\nClosing position: Max hold time {self.max_hold_time} exceeded")
+                print(f"Current P/L: {position['pnl_pct']:.2%}")
+                return True
             
             return False
         
@@ -199,86 +185,111 @@ class PositionManager:
     
     def _open_new_position(self, analyses: List[dict]) -> None:
         """Open new position if conditions are met"""
-        if len(self.open_positions) >= self.max_positions:
-            print("\nMaximum positions reached, not opening new positions")
-            return
-        
-        # Find the highest confidence signal
-        best_signal = None
-        highest_confidence = 0.45  # Lowered threshold
-        
-        print("\nAnalyzing signals for new positions:")
-        for analysis in analyses:
-            print(f"{analysis['pair']}: Confidence = {analysis['confidence']:.2f}")
-            if analysis['confidence'] > highest_confidence:
-                highest_confidence = analysis['confidence']
-                best_signal = analysis
-        
-        if best_signal:
-            pair = best_signal['pair']
-            direction = 'BUY' if best_signal['predicted_change'] > 0 else 'SELL'
+        try:
+            if len(self.open_positions) >= self.max_positions:
+                print("\nMaximum positions reached, not opening new positions")
+                return
             
-            print(f"\nAttempting to open {direction} position for {pair}")
-            print(f"Confidence: {best_signal['confidence']:.2f}")
-            print(f"Predicted change: {best_signal['predicted_change']:.2%}")
+            # Check if we already have a position for any pair
+            existing_pairs = set(self.open_positions.keys())
             
-            # Open position
-            try:
-                response = self.oanda_client.create_order(
-                    instrument=pair,
-                    units=self.position_size if direction == 'BUY' else -self.position_size,
-                    type='MARKET'
-                )
+            # Find the highest confidence signal for pairs we don't already have positions in
+            best_signal = None
+            highest_confidence = 0.45
+            
+            print("\nAnalyzing signals for new positions:")
+            for analysis in analyses:
+                pair = analysis['pair']
+                if pair not in existing_pairs:
+                    print(f"{pair}: Confidence = {analysis['confidence']:.2f}")
+                    if analysis['confidence'] > highest_confidence:
+                        highest_confidence = analysis['confidence']
+                        best_signal = analysis
+            
+            if best_signal:
+                pair = best_signal['pair']
+                direction = 'BUY' if best_signal['predicted_change'] > 0 else 'SELL'
                 
-                print(f"Order response: {response}")
+                print(f"\nAttempting to open {direction} position for {pair}")
+                print(f"Confidence: {best_signal['confidence']:.2f}")
+                print(f"Predicted change: {best_signal['predicted_change']:.2%}")
                 
-                # Check for order fill
-                if response and 'orderFillTransaction' in response:
-                    fill_transaction = response['orderFillTransaction']
-                    price = float(fill_transaction['price'])
+                try:
+                    response = self.oanda_client.create_order(
+                        instrument=pair,
+                        units=self.position_size if direction == 'BUY' else -self.position_size,
+                        type='MARKET'
+                    )
                     
-                    self.open_positions[pair] = {
-                        'direction': direction,
-                        'entry_price': price,
-                        'open_time': datetime.now(),
-                        'confidence': best_signal['confidence'],
-                        'target_price': price * (1 + self.profit_target_pct if direction == 'BUY' else 1 - self.profit_target_pct),
-                        'stop_loss': price * (1 - self.stop_loss_pct if direction == 'BUY' else 1 + self.stop_loss_pct),
-                        'trade_id': fill_transaction['tradeOpened']['tradeID'],
-                        'highest_price': price if direction == 'BUY' else float('inf'),
-                        'lowest_price': price if direction == 'SELL' else 0,
-                    }
-                    
-                    print(f"\nSuccessfully opened {direction} position for {pair}:")
-                    print(f"Entry: {price:.5f}")
-                    print(f"Target: {self.open_positions[pair]['target_price']:.5f}")
-                    print(f"Stop: {self.open_positions[pair]['stop_loss']:.5f}")
-                    print(f"Confidence: {best_signal['confidence']:.2f}")
-                    print(f"Trade ID: {self.open_positions[pair]['trade_id']}")
-                else:
-                    print(f"Failed to open position: Invalid response format")
-                    print(f"Response keys: {response.keys()}")
+                    if response and 'orderFillTransaction' in response:
+                        fill = response['orderFillTransaction']
+                        trade_id = fill.get('tradeOpened', {}).get('tradeID')
+                        
+                        if not trade_id:
+                            print("Error: No trade ID in response")
+                            return
+                        
+                        self.open_positions[pair] = {
+                            'direction': direction,
+                            'entry_price': float(fill['price']),
+                            'open_time': datetime.now(),
+                            'confidence': best_signal['confidence'],
+                            'trade_id': trade_id,  # Store the trade ID
+                            'units': self.position_size,
+                            'highest_price': float(fill['price']) if direction == 'BUY' else float('inf'),
+                            'lowest_price': float(fill['price']) if direction == 'SELL' else 0,
+                        }
+                        
+                        print(f"\nSuccessfully opened {direction} position for {pair}:")
+                        print(f"Trade ID: {trade_id}")
+                        print(f"Entry price: {float(fill['price']):.5f}")
+                        print(f"Units: {self.position_size}")
+                    else:
+                        print(f"Failed to open position: Invalid response format")
+                        print(f"Response: {response}")
+                
+                except Exception as e:
+                    print(f"Error creating order: {str(e)}")
+            else:
+                print(f"\nNo signals meet the minimum confidence threshold ({highest_confidence:.2f})")
             
-            except Exception as e:
-                print(f"Error opening position for {pair}: {str(e)}")
-        else:
-            print(f"\nNo signals meet the minimum confidence threshold ({highest_confidence:.2f})")
+        except Exception as e:
+            print(f"Error in open_new_position: {str(e)}")
     
     def _close_position(self, pair: str) -> None:
-        """Close a specific position"""
+        """Close a specific position using the trade ID"""
         try:
             position = self.open_positions[pair]
-            response = self.oanda_client.create_order(
-                instrument=pair,
-                units=-self.position_size if position['direction'] == 'BUY' else self.position_size,
-                type='MARKET'
+            trade_id = position.get('trade_id')
+            
+            if not trade_id:
+                print(f"Error: No trade ID found for {pair} position")
+                return False
+            
+            print(f"\nAttempting to close {pair} position:")
+            print(f"Trade ID: {trade_id}")
+            print(f"Direction: {position['direction']}")
+            print(f"Units: {position['units']}")
+            
+            # Create closing order using trade ID
+            response = self.oanda_client.close_trade(
+                trade_id=trade_id
             )
             
-            if response.get('orderFilled'):
+            if response and 'orderFillTransaction' in response:
+                fill_transaction = response['orderFillTransaction']
+                print(f"Successfully closed position for {pair}")
+                print(f"Close price: {fill_transaction['price']}")
+                print(f"P/L: {fill_transaction.get('pl', 'N/A')}")
                 del self.open_positions[pair]
+                return True
+            else:
+                print(f"Failed to close position: {response}")
+                return False
         
         except Exception as e:
             print(f"Error closing position for {pair}: {str(e)}")
+            return False
 
 class ForexAnalyzer:
     def __init__(self):
@@ -766,10 +777,11 @@ class ForexAnalyzer:
                 return
             
             print("\nChecking open positions:")
-            positions_to_check = self.position_manager.open_positions.copy()  # Create a copy to avoid modification during iteration
+            pairs_to_check = list(self.position_manager.open_positions.keys())
             
-            for pair, pos in positions_to_check.items():
+            for pair in pairs_to_check:
                 try:
+                    pos = self.position_manager.open_positions[pair]
                     current_price = float(self.data_fetcher.get_current_price(pair))
                     entry_price = pos['entry_price']
                     
@@ -784,39 +796,20 @@ class ForexAnalyzer:
                     pos['pnl_pct'] = pnl_pct
                     pos['hold_time'] = datetime.now() - pos['open_time']
                     
-                    # Update highest/lowest prices for trailing stops
-                    if pos['direction'] == 'BUY':
-                        pos['highest_price'] = max(pos.get('highest_price', current_price), current_price)
-                    else:
-                        pos['lowest_price'] = min(pos.get('lowest_price', current_price), current_price)
-                    
                     print(f"\n{pair} {pos['direction']}:")
                     print(f"Entry: {entry_price:.5f}")
                     print(f"Current: {current_price:.5f}")
                     print(f"P/L: {pnl_pct:.2%}")
                     print(f"Hold time: {pos['hold_time']}")
-                    if pos['direction'] == 'BUY':
-                        print(f"Highest: {pos['highest_price']:.5f}")
-                    else:
-                        print(f"Lowest: {pos['lowest_price']:.5f}")
                     
-                    # Check if position should be closed
                     if self.position_manager._should_close_position(pos):
                         print(f"Closing position for {pair}")
                         self.position_manager._close_position(pair)
                     
                 except Exception as e:
                     print(f"Error checking position for {pair}: {str(e)}")
-                    continue  # Continue checking other positions even if one fails
+                    continue
             
-            # Print summary of remaining positions
-            if self.position_manager.open_positions:
-                print("\nCurrent open positions:")
-                for pair, pos in self.position_manager.open_positions.items():
-                    print(f"{pair} {pos['direction']}: {pos['pnl_pct']:.2%} P/L")
-            else:
-                print("\nNo positions remaining open")
-                
         except Exception as e:
             print(f"Error checking positions: {str(e)}")
 
@@ -838,6 +831,8 @@ def main():
     schedule.every(config.ANALYSIS_INTERVAL).minutes.do(analyzer.run_scheduled_analysis)
     schedule.every(5).minutes.do(analyzer.check_positions)
     
+    last_analysis_time = datetime.now()
+    
     print(f"\nScheduler started:")
     print(f"- Full analysis and new positions every {config.ANALYSIS_INTERVAL} minutes")
     print(f"- Position checks every 5 minutes")
@@ -845,8 +840,19 @@ def main():
     
     try:
         while True:
-            schedule.run_pending()
-            time.sleep(1)
+            current_time = datetime.now()
+            
+            # Run position checks
+            if schedule.jobs[1].should_run:
+                analyzer.check_positions()
+                schedule.jobs[1].last_run = current_time
+            
+            # Run full analysis only if enough time has passed
+            if (schedule.jobs[0].should_run and 
+                (current_time - last_analysis_time).total_seconds() >= config.ANALYSIS_INTERVAL * 60):
+                analyzer.run_scheduled_analysis()
+                schedule.jobs[0].last_run = current_time
+                last_analysis_time = current_time
             
     except KeyboardInterrupt:
         print("\nScheduler stopped by user")
