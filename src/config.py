@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 # API Configuration
 OANDA_API_KEY = "daf311de7e0581b4213ac6ce7b23395e-9d98339a3296e1dd20d1af1fd01ee915"
 OANDA_ACCOUNT_ID = "101-004-29563382-001"
@@ -223,3 +225,36 @@ WEIGHTS = {
 # Update Intervals
 ANALYSIS_INTERVAL = 15  # minutes
 MODEL_UPDATE_INTERVAL = 15  # minutes
+
+# Risk Management Settings
+FOREX_RISK_SETTINGS = {
+    'EUR_USD': {
+        'take_profit_pct': 0.002,  # 0.2%
+        'stop_loss_pct': 0.001,    # 0.1%
+    },
+    'GBP_USD': {
+        'take_profit_pct': 0.0025,  # 0.25%
+        'stop_loss_pct': 0.0012,    # 0.12%
+    },
+    'USD_JPY': {
+        'take_profit_pct': 0.002,   # 0.2%
+        'stop_loss_pct': 0.001,     # 0.1%
+    }
+}
+
+COMMODITY_RISK_SETTINGS = {
+    'XAU_USD': {
+        'take_profit_pct': 0.004,   # 0.4%
+        'stop_loss_pct': 0.002,     # 0.2%
+    }
+}
+
+TRAILING_STOP_SETTINGS = {
+    'activation_profit_pct': 0.001,  # Activate at 0.1% profit
+    'trailing_distance_pct': 0.0005  # 0.05% trailing distance
+}
+
+MAX_HOLD_TIMES = {
+    'forex': timedelta(hours=4),
+    'commodities': timedelta(hours=6)
+}

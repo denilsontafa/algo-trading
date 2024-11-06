@@ -129,32 +129,45 @@ class PositionManager:
     def _should_close_position(self, position: Dict) -> bool:
         """Determine if a position should be closed"""
         try:
-            # Take Profit (0.3%)
-            if position['pnl_pct'] >= self.profit_target_pct:
-                print(f"\nClosing position: Take Profit target {self.profit_target_pct:.2%} reached")
+            pair = position['pair']
+            
+            # Get pair-specific settings
+            if 'XAU' in pair:
+                settings = config.COMMODITY_RISK_SETTINGS.get(pair)
+                if settings is None:
+                    print(f"Warning: No settings found for {pair} in COMMODITY_RISK_SETTINGS")
+                    settings = config.COMMODITY_RISK_SETTINGS['XAU_USD']  # Use XAU_USD as default
+            else:
+                settings = config.FOREX_RISK_SETTINGS.get(pair)
+                if settings is None:
+                    print(f"Warning: No settings found for {pair} in FOREX_RISK_SETTINGS")
+                    settings = config.FOREX_RISK_SETTINGS['EUR_USD']  # Use EUR_USD as default
+            
+            # Take Profit
+            if position['pnl_pct'] >= settings['take_profit_pct']:
+                print(f"\nClosing position: Take Profit target {settings['take_profit_pct']:.2%} reached")
                 print(f"Current P/L: {position['pnl_pct']:.2%}")
                 print(f"Entry price: {position['entry_price']:.5f}")
                 print(f"Current price: {position['current_price']:.5f}")
                 return True
             
-            # Stop Loss (0.15%)
-            if position['pnl_pct'] <= -self.stop_loss_pct:
-                print(f"\nClosing position: Stop loss {self.stop_loss_pct:.2%} hit")
+            # Stop Loss
+            if position['pnl_pct'] <= -settings['stop_loss_pct']:
+                print(f"\nClosing position: Stop loss {settings['stop_loss_pct']:.2%} hit")
                 print(f"Current P/L: {position['pnl_pct']:.2%}")
                 print(f"Entry price: {position['entry_price']:.5f}")
                 print(f"Current price: {position['current_price']:.5f}")
                 return True
             
             # Trailing stop when in profit
-            if position['pnl_pct'] > 0.001:  # If in profit (0.1%)
-                # Calculate trailing stop distance based on profit
-                trailing_stop = min(position['pnl_pct'] * 0.7, self.stop_loss_pct)
+            if position['pnl_pct'] > config.TRAILING_STOP_SETTINGS['activation_profit_pct']:
+                trailing_distance = config.TRAILING_STOP_SETTINGS['trailing_distance_pct']
                 
                 if position['direction'] == 'BUY':
                     if position.get('highest_price', 0) < position['current_price']:
                         position['highest_price'] = position['current_price']
                     price_from_high = (position['highest_price'] - position['current_price']) / position['highest_price']
-                    if price_from_high > trailing_stop:
+                    if price_from_high > trailing_distance:
                         print(f"\nClosing position: Trailing stop triggered")
                         print(f"Highest: {position['highest_price']:.5f}")
                         print(f"Current: {position['current_price']:.5f}")
@@ -164,7 +177,7 @@ class PositionManager:
                     if position.get('lowest_price', float('inf')) > position['current_price']:
                         position['lowest_price'] = position['current_price']
                     price_from_low = (position['current_price'] - position['lowest_price']) / position['lowest_price']
-                    if price_from_low > trailing_stop:
+                    if price_from_low > trailing_distance:
                         print(f"\nClosing position: Trailing stop triggered")
                         print(f"Lowest: {position['lowest_price']:.5f}")
                         print(f"Current: {position['current_price']:.5f}")
@@ -172,13 +185,14 @@ class PositionManager:
                         return True
             
             # Maximum hold time exceeded
-            if position['hold_time'] >= self.max_hold_time:
-                print(f"\nClosing position: Max hold time {self.max_hold_time} exceeded")
+            max_hold_time = config.MAX_HOLD_TIMES['commodities' if 'XAU' in pair else 'forex']
+            if position['hold_time'] >= max_hold_time:
+                print(f"\nClosing position: Max hold time {max_hold_time} exceeded")
                 print(f"Current P/L: {position['pnl_pct']:.2%}")
                 return True
             
             return False
-        
+            
         except Exception as e:
             print(f"Error in should_close_position: {str(e)}")
             return False
