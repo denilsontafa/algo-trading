@@ -846,13 +846,13 @@ def main():
     
     # Schedule regular checks
     schedule.every(config.ANALYSIS_INTERVAL).minutes.do(analyzer.run_scheduled_analysis)
-    schedule.every(5).minutes.do(analyzer.check_positions)
+    schedule.every(1).minutes.do(analyzer.check_positions)
     
     last_analysis_time = datetime.now()
     
     print(f"\nScheduler started:")
     print(f"- Full analysis and new positions every {config.ANALYSIS_INTERVAL} minutes")
-    print(f"- Position checks every 5 minutes")
+    print(f"- Position checks every 1 minute")
     print("Press Ctrl+C to stop.")
     
     try:
