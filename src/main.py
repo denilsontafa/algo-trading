@@ -273,7 +273,7 @@ class PositionManager:
         except Exception as e:
             print(f"Error in open_new_position: {str(e)}")
     
-    def _close_position(self, pair: str) -> None:
+    def _close_position(self, pair: str) -> bool:
         """Close a specific position using the trade ID"""
         try:
             position = self.open_positions[pair]
@@ -288,20 +288,38 @@ class PositionManager:
             print(f"Direction: {position['direction']}")
             print(f"Units: {position['units']}")
             
-            # Create closing order using trade ID
-            response = self.oanda_client.close_trade(
-                trade_id=trade_id
-            )
+            try:
+                # Create closing order using trade ID
+                response = self.oanda_client.close_trade(
+                    trade_id=trade_id
+                )
+                
+                if response and 'orderFillTransaction' in response:
+                    fill_transaction = response['orderFillTransaction']
+                    print(f"Successfully closed position for {pair}")
+                    print(f"Close price: {fill_transaction['price']}")
+                    print(f"P/L: {fill_transaction.get('pl', 'N/A')}")
+                    del self.open_positions[pair]
+                    return True
+                else:
+                    # Check if error is due to trade not existing
+                    error_response = response.get('orderRejectTransaction', {})
+                    if error_response.get('rejectReason') == 'TRADE_DOESNT_EXIST':
+                        print(f"Trade {trade_id} for {pair} no longer exists, removing from tracking")
+                        del self.open_positions[pair]
+                        return True
+                    else:
+                        print(f"Failed to close position: {response}")
+                        return False
             
-            if response and 'orderFillTransaction' in response:
-                fill_transaction = response['orderFillTransaction']
-                print(f"Successfully closed position for {pair}")
-                print(f"Close price: {fill_transaction['price']}")
-                print(f"P/L: {fill_transaction.get('pl', 'N/A')}")
-                del self.open_positions[pair]
-                return True
-            else:
-                print(f"Failed to close position: {response}")
+            except Exception as e:
+                # Check if error message indicates trade doesn't exist
+                error_str = str(e).lower()
+                if 'trade_doesnt_exist' in error_str or 'trade not found' in error_str:
+                    print(f"Trade {trade_id} for {pair} no longer exists, removing from tracking")
+                    del self.open_positions[pair]
+                    return True
+                print(f"Error closing trade: {str(e)}")
                 return False
         
         except Exception as e:
