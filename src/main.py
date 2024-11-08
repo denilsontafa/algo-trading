@@ -269,7 +269,7 @@ class PositionManager:
                 except Exception as e:
                     print(f"Error creating order: {str(e)}")
             else:
-                print(f"\nNo signals meet the minimum confidence threshold ({highest_confidence:.2f})")
+                print(f"\nNo signals meet the minimum confidence threshold ({self.min_confidence:.2f})")
             
         except Exception as e:
             print(f"Error in open_new_position: {str(e)}")
