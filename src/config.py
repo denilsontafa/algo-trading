@@ -258,3 +258,32 @@ MAX_HOLD_TIMES = {
     'forex': timedelta(hours=4),
     'commodities': timedelta(hours=6)
 }
+
+
+# Trading pairs configuration with active trading flags
+CURRENCY_PAIRS_CONFIG = {
+    "EUR_USD": {
+        "active_trading": False,     # Enable/disable actual trading
+        "monitor_only": True,      # Still collect data but don't trade
+    },
+    "GBP_USD": {
+        "active_trading": False,    # Don't trade this pair
+        "monitor_only": True,       # But still collect data and analyze
+    },
+    "USD_JPY": {
+        "active_trading": False,
+        "monitor_only": True,
+    },
+    "XAU_USD": {
+        "active_trading": True,
+        "monitor_only": True,
+    }
+}
+
+# Keep this for backwards compatibility and convenience
+CURRENCY_PAIRS = list(CURRENCY_PAIRS_CONFIG.keys())
+
+# Helper function to get active trading pairs
+def get_active_trading_pairs():
+    return [pair for pair, config in CURRENCY_PAIRS_CONFIG.items() 
+            if config['active_trading']]

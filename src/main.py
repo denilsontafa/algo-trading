@@ -202,25 +202,25 @@ class PositionManager:
     def _open_new_position(self, analyses: List[dict]) -> None:
         """Open new position if conditions are met"""
         try:
-            if len(self.open_positions) >= self.max_positions:
-                print("\nMaximum positions reached, not opening new positions")
+            # Filter analyses to only include active trading pairs
+            active_analyses = [
+                analysis for analysis in analyses
+                if config.CURRENCY_PAIRS_CONFIG[analysis['pair']]['active_trading']
+            ]
+            
+            if not active_analyses:
+                print("\nNo active trading pairs to analyze")
                 return
-            
-            # Check if we already have a position for any pair
-            existing_pairs = set(self.open_positions.keys())
-            
-            # Find the highest confidence signal for pairs we don't already have positions in
+                
+            # Find best signal among active pairs
             best_signal = None
-            highest_confidence = 0.45
+            highest_confidence = 0
             
-            print("\nAnalyzing signals for new positions:")
-            for analysis in analyses:
-                pair = analysis['pair']
-                if pair not in existing_pairs:
-                    print(f"{pair}: Confidence = {analysis['confidence']:.2f}")
-                    if analysis['confidence'] > highest_confidence:
-                        highest_confidence = analysis['confidence']
-                        best_signal = analysis
+            for analysis in active_analyses:
+                if (analysis['confidence'] > highest_confidence and 
+                    analysis['confidence'] >= self.min_confidence):
+                    best_signal = analysis
+                    highest_confidence = analysis['confidence']
             
             if best_signal:
                 pair = best_signal['pair']
@@ -806,13 +806,18 @@ class ForexAnalyzer:
         """Only check and manage existing positions"""
         try:
             print(f"\nPosition Check - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-            
+        
             if not self.position_manager.open_positions:
                 print("No open positions to check")
                 return
-            
+        
             print("\nChecking open positions:")
-            pairs_to_check = list(self.position_manager.open_positions.keys())
+            # Only check positions for active trading pairs
+            active_pairs = config.get_active_trading_pairs()
+            pairs_to_check = [
+                pair for pair in list(self.position_manager.open_positions.keys())
+                if pair in active_pairs
+            ]
             
             for pair in pairs_to_check:
                 try:
