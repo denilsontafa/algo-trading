@@ -27,6 +27,7 @@ class PositionManager:
         self.oanda_client = oanda_client
         self.open_positions: Dict[str, Dict] = {}
         self.max_positions = config.MAX_POSITIONS
+        self.min_confidence = config.MIN_CONFIDENCE
         self.position_size = config.POSITION_SIZE
         self.profit_target_pct = config.PROFIT_TARGET_PCT
         self.stop_loss_pct = config.STOP_LOSS_PCT

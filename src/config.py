@@ -197,6 +197,7 @@ SENTIMENT_TERMS = {
 }
 
 # Position Management
+MIN_CONFIDENCE = 0.6
 MAX_POSITIONS = 1
 POSITION_SIZE = 1000
 PROFIT_TARGET_PCT = 0.003  # 0.3%
@@ -287,3 +288,9 @@ CURRENCY_PAIRS = list(CURRENCY_PAIRS_CONFIG.keys())
 def get_active_trading_pairs():
     return [pair for pair, config in CURRENCY_PAIRS_CONFIG.items() 
             if config['active_trading']]
+
+# Position Management Settings
+POSITION_SETTINGS = {
+    'min_confidence': 0.6,      # Minimum confidence to open position
+    'position_size': 1000,      # Default position size
+}
