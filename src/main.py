@@ -289,10 +289,17 @@ class PositionManager:
             print(f"Units: {position['units']}")
             
             try:
-                # Create closing order using trade ID
-                response = self.oanda_client.close_trade(
-                    trade_id=trade_id
-                )
+                # Check if trade still exists before trying to close
+                trade_exists = self.oanda_client.get_trade(trade_id)
+                
+                # If trade doesn't exist (manually closed), clean up and return success
+                if not trade_exists or 'errorCode' in trade_exists:
+                    print(f"Trade {trade_id} for {pair} no longer exists (possibly closed manually)")
+                    del self.open_positions[pair]
+                    return True
+                
+                # If trade exists, try to close it
+                response = self.oanda_client.close_trade(trade_id=trade_id)
                 
                 if response and 'orderFillTransaction' in response:
                     fill_transaction = response['orderFillTransaction']
@@ -302,10 +309,10 @@ class PositionManager:
                     del self.open_positions[pair]
                     return True
                 else:
-                    # Check if error is due to trade not existing
+                    # Handle various error cases
                     error_response = response.get('orderRejectTransaction', {})
                     if error_response.get('rejectReason') == 'TRADE_DOESNT_EXIST':
-                        print(f"Trade {trade_id} for {pair} no longer exists, removing from tracking")
+                        print(f"Trade {trade_id} for {pair} no longer exists (possibly closed manually)")
                         del self.open_positions[pair]
                         return True
                     else:
@@ -313,10 +320,9 @@ class PositionManager:
                         return False
             
             except Exception as e:
-                # Check if error message indicates trade doesn't exist
                 error_str = str(e).lower()
                 if 'trade_doesnt_exist' in error_str or 'trade not found' in error_str:
-                    print(f"Trade {trade_id} for {pair} no longer exists, removing from tracking")
+                    print(f"Trade {trade_id} for {pair} no longer exists (possibly closed manually)")
                     del self.open_positions[pair]
                     return True
                 print(f"Error closing trade: {str(e)}")
@@ -821,28 +827,39 @@ class ForexAnalyzer:
             
             for pair in pairs_to_check:
                 try:
-                    pos = self.position_manager.open_positions[pair]
+                    # First verify if position still exists
+                    position = self.position_manager.open_positions[pair]
+                    trade_id = position.get('trade_id')
+                    
+                    # Check if trade still exists
+                    trade_exists = self.oanda_client.get_trade(trade_id)
+                    if not trade_exists or 'errorCode' in trade_exists:
+                        print(f"Trade {trade_id} for {pair} no longer exists (possibly closed manually)")
+                        del self.position_manager.open_positions[pair]
+                        continue
+                    
+                    # If trade exists, continue with normal position management
                     current_price = float(self.data_fetcher.get_current_price(pair))
-                    entry_price = pos['entry_price']
+                    entry_price = position['entry_price']
                     
                     # Calculate profit/loss
-                    if pos['direction'] == 'BUY':
+                    if position['direction'] == 'BUY':
                         pnl_pct = (current_price - entry_price) / entry_price
                     else:  # SELL
                         pnl_pct = (entry_price - current_price) / entry_price
                     
                     # Update position info
-                    pos['current_price'] = current_price
-                    pos['pnl_pct'] = pnl_pct
-                    pos['hold_time'] = datetime.now() - pos['open_time']
+                    position['current_price'] = current_price
+                    position['pnl_pct'] = pnl_pct
+                    position['hold_time'] = datetime.now() - position['open_time']
                     
-                    print(f"\n{pair} {pos['direction']}:")
+                    print(f"\n{pair} {position['direction']}:")
                     print(f"Entry: {entry_price:.5f}")
                     print(f"Current: {current_price:.5f}")
                     print(f"P/L: {pnl_pct:.2%}")
-                    print(f"Hold time: {pos['hold_time']}")
+                    print(f"Hold time: {position['hold_time']}")
                     
-                    if self.position_manager._should_close_position(pos):
+                    if self.position_manager._should_close_position(position):
                         print(f"Closing position for {pair}")
                         self.position_manager._close_position(pair)
                     
