@@ -203,6 +203,11 @@ class PositionManager:
     def _open_new_position(self, analyses: List[dict]) -> None:
         """Open new position if conditions are met"""
         try:
+            # First check if market is open
+            if not self._is_market_open():
+                print("\nMarket is currently closed - no new positions will be opened")
+                return
+            
             # Filter analyses to only include active trading pairs
             active_analyses = [
                 analysis for analysis in analyses
@@ -227,6 +232,12 @@ class PositionManager:
                 pair = best_signal['pair']
                 direction = 'BUY' if best_signal['predicted_change'] > 0 else 'SELL'
                 
+                # Verify prediction isn't unreasonable
+                if abs(best_signal['predicted_change']) > 5:  # 5% max expected change
+                    print(f"\nPredicted change of {best_signal['predicted_change']:.2f}% seems unrealistic")
+                    print("Skipping position opening")
+                    return
+                
                 print(f"\nAttempting to open {direction} position for {pair}")
                 print(f"Confidence: {best_signal['confidence']:.2f}")
                 print(f"Predicted change: {best_signal['predicted_change']:.2%}")
@@ -237,6 +248,14 @@ class PositionManager:
                         units=self.position_size if direction == 'BUY' else -self.position_size,
                         type='MARKET'
                     )
+                    
+                    # Check for market halted or other errors
+                    if 'orderCancelTransaction' in response:
+                        reason = response['orderCancelTransaction'].get('reason', 'Unknown')
+                        print(f"\nOrder cancelled: {reason}")
+                        if reason == 'MARKET_HALTED':
+                            print("Market is currently closed")
+                        return
                     
                     if response and 'orderFillTransaction' in response:
                         fill = response['orderFillTransaction']
@@ -273,6 +292,28 @@ class PositionManager:
             
         except Exception as e:
             print(f"Error in open_new_position: {str(e)}")
+    
+    def _is_market_open(self) -> bool:
+        """Check if forex market is currently open"""
+        now = datetime.now().utcnow()
+        
+        # Check if it's weekend
+        if now.weekday() >= 5:  # Saturday = 5, Sunday = 6
+            return False
+            
+        # Convert to hours and minutes in UTC
+        current_time = now.hour + now.minute/60
+        
+        # Forex market hours (UTC)
+        # Sunday 9PM (21:00) to Friday 9PM (21:00)
+        if now.weekday() == 6 and current_time >= 21:  # Sunday after 9PM
+            return True
+        elif now.weekday() == 5 or now.weekday() == 6:  # Weekend
+            return False
+        elif now.weekday() == 5 and current_time < 21:  # Friday before 9PM
+            return True
+        else:  # Monday-Thursday
+            return True
     
     def _close_position(self, pair: str) -> bool:
         """Close a specific position using the trade ID"""
