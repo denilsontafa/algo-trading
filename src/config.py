@@ -264,15 +264,15 @@ MAX_HOLD_TIMES = {
 # Trading pairs configuration with active trading flags
 CURRENCY_PAIRS_CONFIG = {
     "EUR_USD": {
-        "active_trading": False,     # Enable/disable actual trading
+        "active_trading": True,     # Enable/disable actual trading
         "monitor_only": True,      # Still collect data but don't trade
     },
     "GBP_USD": {
-        "active_trading": False,    # Don't trade this pair
+        "active_trading": True,    # Don't trade this pair
         "monitor_only": True,       # But still collect data and analyze
     },
     "USD_JPY": {
-        "active_trading": False,
+        "active_trading": True,
         "monitor_only": True,
     },
     "XAU_USD": {
