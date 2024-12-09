@@ -2,7 +2,7 @@ from datetime import timedelta
 
 # API Configuration
 OANDA_API_KEY = "daf311de7e0581b4213ac6ce7b23395e-9d98339a3296e1dd20d1af1fd01ee915"
-OANDA_ACCOUNT_ID = "101-004-29563382-001"
+OANDA_ACCOUNT_ID = "101-004-29563382-002"
 OANDA_ENVIRONMENT = "practice"  # Use "practice" for demo account, "live" for real account
 OANDA_DOMAIN = "api-fxpractice.oanda.com" if OANDA_ENVIRONMENT == "practice" else "api-fxtrade.oanda.com"
 
