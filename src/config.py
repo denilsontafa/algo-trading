@@ -1,8 +1,8 @@
 from datetime import timedelta
 
 # API Configuration
-OANDA_API_KEY = "daf311de7e0581b4213ac6ce7b23395e-9d98339a3296e1dd20d1af1fd01ee915"
-OANDA_ACCOUNT_ID = "101-004-29563382-002"
+OANDA_API_KEY = "c78854f02688c206c2d7ebb3db3b5f9d-f27557fdd2b1c0cc614950492d16e5e4"
+OANDA_ACCOUNT_ID = "101-004-29563382-003"
 OANDA_ENVIRONMENT = "practice"  # Use "practice" for demo account, "live" for real account
 OANDA_DOMAIN = "api-fxpractice.oanda.com" if OANDA_ENVIRONMENT == "practice" else "api-fxtrade.oanda.com"
 
@@ -199,7 +199,7 @@ SENTIMENT_TERMS = {
 # Position Management
 MIN_CONFIDENCE = 0.4
 MAX_POSITIONS = 1
-POSITION_SIZE = 1000
+POSITION_SIZE = 500
 PROFIT_TARGET_PCT = 0.003  # 0.3%
 STOP_LOSS_PCT = 0.0015     # 0.15%
 MAX_HOLD_TIME_HOURS = 4

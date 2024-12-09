@@ -376,12 +376,12 @@ class PositionManager:
 
 class ForexAnalyzer:
     def __init__(self):
-        self.data_fetcher = OandaDataFetcher()
+        self.oanda_client = OandaDataFetcher()
         
         # Initialize data processor with initial data
         initial_data = {}
         for pair in config.CURRENCY_PAIRS:
-            data = self.data_fetcher.fetch_historical_data(
+            data = self.oanda_client.fetch_historical_data(
                 instrument=pair,
                 count=200,
                 granularity="M5"
@@ -394,7 +394,7 @@ class ForexAnalyzer:
         
         self.news_manager = NewsManager()
         self.strategy = BaseStrategy()
-        self.position_manager = PositionManager(self.data_fetcher)
+        self.position_manager = PositionManager(self.oanda_client)
         self.model_manager = ModelManager()
         self.previous_predictions = {}
         self.trainers = {
@@ -406,7 +406,7 @@ class ForexAnalyzer:
         """Analyze a currency pair"""
         try:
             # Get historical data
-            data = self.data_fetcher.fetch_historical_data(pair)
+            data = self.oanda_client.fetch_historical_data(pair)
             if data is None:
                 return None
                 
@@ -639,7 +639,7 @@ class ForexAnalyzer:
             for pair in config.CURRENCY_PAIRS:
                 update_model_with_latest_data(
                     currency_pair=pair,
-                    oanda_fetcher=self.data_fetcher,
+                    oanda_fetcher=self.oanda_client,
                     data_processor=self.data_processor
                 )
             
@@ -881,7 +881,7 @@ class ForexAnalyzer:
                         continue
                     
                     # If trade exists, continue with normal position management
-                    current_price = float(self.data_fetcher.get_current_price(pair))
+                    current_price = float(self.oanda_client.get_current_price(pair))
                     entry_price = position['entry_price']
                     
                     # Calculate profit/loss

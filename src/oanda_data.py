@@ -75,6 +75,21 @@ class OandaDataFetcher:
             print(f"Error getting open trades: {str(e)}")
             print(f"Full error details: {type(e).__name__}: {str(e)}")
             return []
+        
+    def get_trade(self, trade_id: str) -> dict:
+        """Get details of a specific trade"""
+        try:
+            # Fetch trade details using the trade ID
+            r = trades.TradeDetails(self.account_id, trade_id)
+            response = self.client.request(r)
+            if response:
+                return response
+            else:
+                print(f"No data received for trade ID {trade_id}")
+                return None
+        except Exception as e:
+            print(f"Error fetching trade details for {trade_id}: {str(e)}")
+            return None
 
     def fetch_historical_data(self, instrument: str, count: int = None, 
                              granularity: str = "M15") -> pd.DataFrame:
