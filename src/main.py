@@ -682,7 +682,7 @@ class ForexAnalyzer:
             
             # Format confidence with highlighting
             conf_str = f"{a['confidence']:.2f}"
-            if a['confidence'] >= 0.6:
+            if a['confidence'] >= config.MIN_CONFIDENCE:
                 conf_str = f"** {conf_str} **"
             
             table_data.append([
@@ -703,13 +703,13 @@ class ForexAnalyzer:
         # Print trading suggestions
         print("\nTrading Suggestions:")
         for a in analyses:
-            if a['confidence'] >= 0.6:  # Only show high confidence signals
+            if a['confidence'] >= config.MIN_CONFIDENCE:  # Only show high confidence signals
                 direction = "LONG" if a['predicted_change'] > 0 else "SHORT"
                 print(f"\n{a['pair']}: {direction} (Confidence: {a['confidence']:.2f})")
                 print(f"Entry: {a['current_price']:.5f}")
                 print(f"Target: {a['predicted_price']:.5f}")
                 print(f"Expected change: {a['predicted_change']:.2f}%")
-                if a['volatility'] > 0.6:
+                if a['volatility'] > config.MIN_CONFIDENCE:
                     print("Warning: High volatility - Consider smaller position size")
     
     def _calculate_technical_signal(self, data: pd.DataFrame) -> float:
