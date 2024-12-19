@@ -201,54 +201,59 @@ class PositionManager:
             return False
     
     def _open_new_position(self, analyses: List[dict]) -> None:
-        """Open new position if conditions are met"""
+        """Open new position if conditions are met, ensuring only one position at a time"""
         try:
-            # First check if market is open
+            # Check if there are already open positions
+            if self.open_positions:
+                print("\nA position is already open. New positions will not be opened until the current one is closed.")
+                return
+
+            # Check if the market is open
             if not self._is_market_open():
                 print("\nMarket is currently closed - no new positions will be opened")
                 return
-            
+
             # Filter analyses to only include active trading pairs
             active_analyses = [
                 analysis for analysis in analyses
                 if config.CURRENCY_PAIRS_CONFIG[analysis['pair']]['active_trading']
             ]
-            
+
             if not active_analyses:
                 print("\nNo active trading pairs to analyze")
                 return
-                
-            # Find best signal among active pairs
+
+            # Find the best signal among active pairs
             best_signal = None
             highest_confidence = 0
-            
+
             for analysis in active_analyses:
-                if (analysis['confidence'] > highest_confidence and 
+                if (analysis['confidence'] > highest_confidence and
                     analysis['confidence'] >= self.min_confidence):
                     best_signal = analysis
                     highest_confidence = analysis['confidence']
-            
+
             if best_signal:
                 pair = best_signal['pair']
                 direction = 'BUY' if best_signal['predicted_change'] > 0 else 'SELL'
-                
+
                 # Verify prediction isn't unreasonable
                 if abs(best_signal['predicted_change']) > 5:  # 5% max expected change
                     print(f"\nPredicted change of {best_signal['predicted_change']:.2f}% seems unrealistic")
                     print("Skipping position opening")
                     return
-                
+
                 print(f"\nAttempting to open {direction} position for {pair}")
                 print(f"Confidence: {best_signal['confidence']:.2f}")
                 print(f"Predicted change: {best_signal['predicted_change']:.2%}")
-                
+
                 try:
                     response = self.oanda_client.create_order(
                         instrument=pair,
                         units=self.position_size if direction == 'BUY' else -self.position_size,
                         type='MARKET'
                     )
-                    
+
                     # Check for market halted or other errors
                     if 'orderCancelTransaction' in response:
                         reason = response['orderCancelTransaction'].get('reason', 'Unknown')
@@ -256,15 +261,15 @@ class PositionManager:
                         if reason == 'MARKET_HALTED':
                             print("Market is currently closed")
                         return
-                    
+
                     if response and 'orderFillTransaction' in response:
                         fill = response['orderFillTransaction']
                         trade_id = fill.get('tradeOpened', {}).get('tradeID')
-                        
+
                         if not trade_id:
                             print("Error: No trade ID in response")
                             return
-                        
+
                         self.open_positions[pair] = {
                             'pair': pair,
                             'direction': direction,
@@ -276,7 +281,7 @@ class PositionManager:
                             'highest_price': float(fill['price']) if direction == 'BUY' else float('inf'),
                             'lowest_price': float(fill['price']) if direction == 'SELL' else 0,
                         }
-                        
+
                         print(f"\nSuccessfully opened {direction} position for {pair}:")
                         print(f"Trade ID: {trade_id}")
                         print(f"Entry price: {float(fill['price']):.5f}")
@@ -284,12 +289,12 @@ class PositionManager:
                     else:
                         print(f"Failed to open position: Invalid response format")
                         print(f"Response: {response}")
-                
+
                 except Exception as e:
                     print(f"Error creating order: {str(e)}")
             else:
                 print(f"\nNo signals meet the minimum confidence threshold ({self.min_confidence:.2f})")
-            
+
         except Exception as e:
             print(f"Error in open_new_position: {str(e)}")
     
